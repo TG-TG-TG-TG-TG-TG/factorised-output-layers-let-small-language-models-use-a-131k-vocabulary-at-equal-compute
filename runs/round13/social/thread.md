@@ -34,4 +34,8 @@ Why it works: at d=384 the flat head is 60% of training FLOPs. The two-level hea
 
 Caveats: tiny models (≤109M params), 1–2 seeds, one English dataset, one LR, untuned adaptive softmax (untied tail). The 131k tokenizer is in-domain, the 50k one is GPT-2's. Old idea: Goodman 2001, Morin & Bengio 2005, Grave et al. 2017.
 
+Reply under post 8/8 (not part of the thread; no image) [152 chars]
+
+All of this ran on one RTX 5070 Ti at home, which is why the runs stop at 2× the budget. If you'd like to help fund longer ones: https://ko-fi.com/testtm
+
 Images: runs/round13/social/hero_1600x900.png, runs/round13/social/compute_1600x900.png, runs/round13/social/headcost_1600x900.png, runs/round13/social/schematic_1600x900.png, runs/round13/social/speed_1600x900.png, runs/round13/social/memory_1600x900.png, runs/round13/social/knowledge_1600x900.png

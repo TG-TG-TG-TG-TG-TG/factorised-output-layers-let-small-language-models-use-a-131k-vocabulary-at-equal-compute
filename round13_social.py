@@ -387,6 +387,12 @@ assert 5 <= len(tw) <= 9, len(tw)
 xlen = lambda t: len(t) + t.count("[LINK]") * (23 - 6) + t.count("🧵")  # noqa: E731
 for i, t in enumerate(tw):
     assert xlen(t) <= 280, (i, xlen(t), t)
+# 2026-11-15 (user): a support reply posted under the last post, not inside the thread; one link (Ko-fi)
+KOFI = "https://ko-fi.com/testtm"
+REPLY = ("All of this ran on one RTX 5070 Ti at home, which is why the runs stop at 2× the budget. If you'd like to help fund "
+         f"longer ones: {KOFI}")
+rlen = len(REPLY) - len(KOFI) + 23
+assert rlen <= 280, rlen
 IMG = {"I": ("hero",), "Tiny-LM": ("hero",), "Method:": ("schematic",), "Vocabulary,": ("headcost",), "The": ("compute",),
        "Why": ("speed", "memory"), "Knowledge:": ("knowledge",)}
 with open(os.path.join(OUT, "thread.md"), "w", encoding="utf8", newline="\n") as f:
@@ -396,6 +402,7 @@ with open(os.path.join(OUT, "thread.md"), "w", encoding="utf8", newline="\n") as
     for i, t in enumerate(tw, 1):
         im = [m for k in IMG.get(t.split()[0], ()) for m in made if m.endswith(f"/{k}_1600x900.png")]
         f.write(f"{i}/{len(tw)} [{xlen(t)} chars]" + (f" — images: {', '.join(im)}" if im else "") + f"\n\n{t}\n\n")
+    f.write(f"Reply under post {len(tw)}/{len(tw)} (not part of the thread; no image) [{rlen} chars]\n\n{REPLY}\n\n")
     f.write("Images: " + ", ".join(m for m in made if m.endswith("1600x900.png")) + "\n")
 with open(os.path.join(OUT, "README.md"), "w", encoding="utf8", newline="\n") as f:
     f.write("# Social images (round 13)\n\n" + "\n".join(f"- `{m}`" for m in made)

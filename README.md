@@ -67,3 +67,16 @@ It was cut from a larger working folder that also held an unrelated earlier proj
 - The regeneration commands above, run in this repository, reproduce every summary, results file and the paper's numbers
   unchanged; the figures differ only in their embedded dates and IDs. The `*.DONE` files mark finished runs (the analysis
   scripts skip a run without one); each holds the run's final record.
+
+## License
+
+Code: MIT (see [`LICENSE`](LICENSE)). Paper, figures and images: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+## Support this work
+
+Everything here was trained on one RTX 5070 Ti at home. The paper's limits
+(runs up to 2× the main budget, 1–2 seeds) are compute limits. If this was
+useful to you and you'd like to help fund more experiments:
+
+- Ko-fi: https://ko-fi.com/testtm
+- Patreon: https://www.patreon.com/cw/Testtm
