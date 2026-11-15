@@ -1,0 +1,2 @@
+bash r10chain.sh waitidle smoke+tH3k8c4+tD2+tD2@lazy py+round10_smoke_check.py+--tag+D2+--arms+tH3k8c4,tD2,tD2_lazy one+tiny+tD2:0 ...   # chainD2.out (stopped after wsd_D2_s0 at the user's request; the rest re-run below)
+bash r10chain.sh one+tiny+tD2:0+--extra=--ng_lazy pytry+round10_buckets.py+--tag+partD+--arms+H3k8c4:tH3k8c4:wsd_H3k8c4_s0,D1:tD1:wsd_D1_s0,D1_lazy:tD1:wsd_D1_lazy_s0,D2:tD2:wsd_D2_s0,D2_lazy:tD2:wsd_D2_lazy_s0   # chainD3.out

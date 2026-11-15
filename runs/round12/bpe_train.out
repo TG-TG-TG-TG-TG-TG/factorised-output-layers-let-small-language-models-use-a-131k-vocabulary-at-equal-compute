@@ -1,0 +1,3 @@
+[bpe] 419,828 train docs, 2.000 GB in 55 s
+[bpe] V=131072 trained in 148 s, sha256 9c64c3cc86283013
+[bpe] V=131072 gate: 4895 val docs, round-trip failures 0, max id 131070, 4.944 bytes/token -> OK

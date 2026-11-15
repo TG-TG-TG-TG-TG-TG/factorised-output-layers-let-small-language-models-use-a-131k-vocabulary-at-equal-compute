@@ -1,0 +1,2 @@
+OK   trained greedy exact: exact-match 1.0000 on 4096 positions; fallback rate 0.0017; mean clusters expanded 10.0
+ALL GATES OK

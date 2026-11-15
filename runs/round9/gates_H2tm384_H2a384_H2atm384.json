@@ -1,0 +1,56 @@
+{
+ "acct H2tm384": {
+  "total_params": 30337408,
+  "new_params": 394240,
+  "head_fwd_flops_per_token": 826009.8984375,
+  "head_ratio_to_B": 0.021380679904656252,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 2478029.6953125,
+   "total": 80334797.6953125
+  }
+ },
+ "4 H2tm384 backbone init bit-identical to B": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "acct H2a384": {
+  "total_params": 30337408,
+  "new_params": 394240,
+  "head_fwd_flops_per_token": 3967488,
+  "head_ratio_to_B": 0.1026956106870229,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 11902464,
+   "total": 89759232
+  }
+ },
+ "4 H2a384 backbone init bit-identical to B": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "3 H2a384 frequent/tail disjoint and cover": {
+  "ok": true,
+  "detail": "4096 frequent + 46161 tail = 50257; cluster sizes min 13 max 46, histogram {13: 1, 17: 1, 19: 1, 22: 2, 23: 3, 25: 2, 26: 1, 27: 1, 29: 2, 30: 5, 31: 2, 32: 2, 33: 1, 34: 3, 35: 4, 36: 5, 37: 3, 38: 6, 39: 3, 40: 7, 41: 14, 42: 8, 43: 15, 44: 17, 45: 22, 46: 893}"
+ },
+ "acct H2atm384": {
+  "total_params": 30337408,
+  "new_params": 394240,
+  "head_fwd_flops_per_token": 3968665.8984375,
+  "head_ratio_to_B": 0.10272609975198449,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 11905997.6953125,
+   "total": 89762765.6953125
+  }
+ },
+ "4 H2atm384 backbone init bit-identical to B": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "3 H2atm384 frequent/tail disjoint and cover": {
+  "ok": true,
+  "detail": "4096 frequent + 46161 tail = 50257; cluster sizes min 13 max 46, histogram {13: 1, 17: 1, 19: 1, 22: 2, 23: 3, 25: 2, 26: 1, 27: 1, 29: 2, 30: 5, 31: 2, 32: 2, 33: 1, 34: 3, 35: 4, 36: 5, 37: 3, 38: 6, 39: 3, 40: 7, 41: 14, 42: 8, 43: 15, 44: 17, 45: 22, 46: 893}"
+ },
+ "fails": []
+}

@@ -1,0 +1,124 @@
+Round 13 analysis (2026-11-11): answers to the two reviews. Rules for experiments 1 and 2 pinned here at 21:40 CET on
+2026-11-11, before any round-13 run started (copy: runs/round13/round13_analyze_docstring_2140.py.txt). Experiment 3
+(adaptive softmax) gets its own dated section, pinned before any of its runs. Anything decided after seeing a result is
+labelled post-hoc in the summary. Rounds 8-12 results are read, never rewritten. BPB = bits per UTF-8 byte of the shared
+FineWeb-Edu val text, from the logged full-val loss of the branch (GPT-2-vocabulary arms, round 11's gate: equal to the
+byte-aligned evaluator within 2e-5 BPB), exactly as round12_analyze.gpt2_bpb.
+
+Budget points. 1x = 6.716845e16 training FLOPs (H3*-384 575M, stable + decay, logged flops_per_token.total x tokens);
+0.5x = 3.504925e16 (the 300M point); 2x = 1.343369e17. A branch counts for a point if its FLOPs are within 0.5% of it.
+Proxy cost P = FLOPs of wsd_tBproxy_50M_s0's final branch (stable + decay, logged), expected 2.7729e15 = 4.1% of 1x.
+"Charged" = the two-level branch at (point - P); "uncharged" = the branch at the point itself.
+
+Experiment 1 -- charge the 50k proxy. The 50k clusters of every earlier H3*-384 run came from wsd_B_r8_s0 (d=128 flat,
+  1,200M stable tokens + decay = 6.66e16 FLOPs, 99% of 1x), never charged. Rebuilt from a cheap proxy:
+  proxy  wsd_tBproxy_50M_s0 = arm tB (B_r8's recipe) at 50,003,968 stable tokens + 10% decay, seed 0 -- the 50k twin of
+         round 12's 131k proxy. Classes: round13_classes.py (frequent list unchanged, tail k-means on the proxy's
+         embedding).
+  arm    H3p384 = H3*-384 with those classes (head_classes "adapt13"); everything else identical to wsd_H3s384_575M.
+  runs   wsd_H3p384_575M_s0 and _s1: stable to 575e6 (8,774 steps), branches at 276,299,776 (0.5x charged),
+         300e6 (0.5x uncharged), 551,288,832 (1x charged), 575e6 (1x uncharged).
+  flat   B384 matched, round 12, unchanged: wsd_B384m_315M_s0/_s1, branches 164,429,824 (0.5x) and 315,162,624 (1x).
+  Numbers: Delta_ch(1x) = mean_s BPB(H3p384 @551.3M) - mean_s BPB(B384m @315.2M); Delta_unch(1x) the same at 575M;
+    per seed, the means, and the spread |s0 - s1| per side; the same at 0.5x; and (reported only) the cluster-source
+    effect mean_s BPB(H3p384 @575M) - mean_s BPB(H3s384 @575M, rounds 11/12, B_r8 clusters).
+  Verdict: the 50k headline survives charging if Delta_ch(1x) <= -0.003 AND each seed's charged delta (seed s vs seed s)
+    is < 0. Otherwise it does not survive, and the paper is rescoped around the 131k result (already charged, -0.0736;
+    the user's decision in the review brief). No seed 2 either way.
+
+Experiment 2 -- budget scaling, small version (2x only; 4x/8x not run, the user's decision). One stable run per arm,
+  seed 0, same recipe and data order (WSD: the stable phase up to a point is the same run as at 1x; branches decay 10%):
+  flat       wsd_B384x2_630M_s0 = B:0 stable to 630,259,712 (9,617 steps; 2x within 0.01%), branches 315,162,624 (1x,
+             a reproducibility check against wsd_B384m_315M_s0, |diff| reported) and 630,259,712.
+  two-level  wsd_H3p384x2_1150M_s0 = H3p384:0 stable to 1,149,960,192 (17,547 steps), branches 1,126,236,160 (2x
+             charged) and 1,149,960,192 (2x uncharged).
+  Numbers: gap(F) = BPB(two-level) - BPB(flat), seed 0 vs seed 0, at F = 0.5x, 1x, 2x, charged (main series) and
+    uncharged; the 2-seed gaps at 0.5x and 1x next to them. Crossover: least-squares line of the three seed-0 charged
+    gaps against log2(F/1x); F* = where it reaches 0. If gap(2x) >= 0 the crossover is observed between 1x and 2x (linear
+    interpolation in log2 F); if F* > 2x it is reported as an extrapolation from three points, not a result; the
+    shrinkage is called monotone only if |gap| falls at both steps. |gap(2x)| <= 0.003 is reported as a tie at 2x; no
+    seed-1 2x runs in any case.
+
+Experiment 3 -- adaptive softmax baseline. Pinned at 13:27 CET on 2026-11-12, before any experiment-3 run or smoke
+  (copy: runs/round13/round13_analyze_docstring_exp3.py.txt). Head: round13_heads.py (cfg.head "adasm"; Grave et al.
+  2017): the two-level head's K = 8,192 frequent singletons, tied to the embedding (asserted the same list), plus 2 band
+  logits; tail = 2 frequency-ordered bands, ranks [8,192, 24,576) and [24,576, V), each its own untied low-rank layer of
+  width d/4 = 96 and d/16 = 24. One setting, chosen before any run from the literature defaults (division factor 4),
+  never swept: no cutoff, width, init or LR changes after seeing a number (LR 2e-3, the recipe of every d=384 arm).
+  Gates (round13_gates_as.py, CPU, all passed before the pin: runs/round13/gates_as.json): distribution sums to 1,
+  fast NLL = reference NLL, gradients = reference gradients, backbone bit-identical to B at init, FLOP count = the hand
+  count, evaluator path = training loss.
+  FLOPs: charged as Grave et al.'s training algorithm runs -- the head for every token, band b only for targets in it,
+    weighted by the band's training-target share (9.71% / 3.06% at 50k; 7.85% / 6.49% at 131k). This favours the
+    baseline: the dense count (every band for every token, what the implementation computes) is 12.6% / 23.6% more
+    total FLOPs per token, and it is reported next to it. Training fpt: AS384 97,788,832.3; AS128k384 98,492,631.0.
+    No proxy, nothing to charge (the bands come from target counts, as the two-level head's frequent list).
+  runs   wsd_AS384_624M_s0 and _s1: AS384 stable to 624,427,008 (1x within 0.002%), branch 325,844,992 (0.5x).
+         wsd_AS128k384_620M_s0: AS128k384 stable to 619,970,560 (1x within 0.001%), branch 323,485,696 (0.5x).
+  BPB: 50k from the logged val_loss_full x BPN as every GPT-2 arm (the evaluator path equals the training loss, gate
+    A6); 131k from round11_eval.task_bpb (byte-aligned) on the saved checkpoints, as F128k / H128k in round 12.
+  Numbers at 1x (0.5x the same, reported only):
+    Delta_TL-AS(50k) = mean_s BPB(H3p384 @551.3M, charged) - mean_s BPB(AS384 @624.4M), seed s vs seed s, per seed and
+      mean -- the main comparison (both sides proxy-free or charged); reported next to it: vs H3p384 uncharged @575M and
+      vs H3s384 (B_r8 clusters, uncharged); Delta_AS-flat(50k) = mean_s BPB(AS384) - mean_s BPB(B384m @315.2M).
+    Delta_TL-AS(131k) = BPB(H128k384 @521.8M, charged) - BPB(AS128k384 @620.0M), seed 0 only, labelled one seed;
+      Delta_AS-flat(131k) = BPB(AS128k384) - BPB(F128k384 @160.8M).
+    Also: head parameters, training tok/s and ms/token from the logs (dense implementation; not a speed claim for the
+    method).
+  Verdict (50k; the 131k one is the same rule on one seed): two-level beats adaptive softmax if Delta_TL-AS <= -0.003
+    AND each seed's delta < 0; adaptive softmax beats two-level if Delta_TL-AS >= +0.003 AND each seed's delta > 0;
+    otherwise a tie at this budget. What each outcome does to the paper (pinned now, so the framing is not chosen after
+    the number):
+      two-level wins  -> the contribution may say the two-level head beats a frequency-band adaptive softmax at matched
+                         FLOPs (one untuned setting; FLOPs charged in the baseline's favour).
+      tie             -> no claim over adaptive softmax; the paper says the gain over the flat head is shared with an
+                         existing factorised softmax, and the head's own contribution is reduced to what else it
+                         supports (decoding speed, the tied cluster logits) -- stated as such in the abstract.
+      adaptive wins   -> said in the abstract; the two-level head is presented as a weaker member of the factorised-
+                         softmax family, and the design-choice contribution is dropped.
+  Failures: a crash or NaN is reported as is; one rerun only for an infrastructure failure (same command), never for a
+    number. No seed 2, no 131k seed 1.
+  Addendum 2026-11-12 ~18:50, implementation only (no rule, model or FLOP-count change), before any experiment-3 result:
+    the 200-step smokes put the dense implementation at 169k tok/s (AS384, 75 min) and 84k tok/s (AS128k384, 150 min,
+    over the user's 2-hour rule), so the 131k run was held (marker file) and is run as arm AS128k384s = AS128k384 +
+    head_sparse: each tail band is computed only for the tokens whose target is in it (gather, score, scatter; a chunk
+    with more band tokens than the capacity takes the dense path), i.e. Grave et al.'s own algorithm. Same parameters,
+    init, FLOP count and run name (label AS128k384). Gated equal to the dense path (round13_gates_as_sparse.py, CPU:
+    NLL within 1e-5, gradients within 1e-5 relative, both branches; runs/round13/gates_as_sparse.json); the dense path's
+    own gates re-run bit-identical after the refactor. The 50k runs (AS384, seeds 0 and 1) stay on the dense path.
+
+Experiment 4 -- does the two-level head beat the best adaptive softmax at 131k on two seeds? Pinned 2026-11-13, before
+  any experiment-4 run or smoke (copy: runs/round13/round13_analyze_docstring_exp4.py.txt), after the experiment-3
+  results were known (50k tie on 2 seeds; 131k two-level ahead by 0.0223 on seed 0). The user's instruction of
+  2026-11-13 replaces experiment 3's "no 131k seed 1": the paper is to be about the two-level head, claiming it makes the
+  131k vocabulary pay off at equal compute, and that framing is written only if this gate passes.
+  Runs (131k = bpe131072, d=384, 1x = 6.7168e16 training FLOPs, LR 2e-3, the round-12 / experiment-3 recipe):
+    wsd_H128k384_575M_s1     H128k384 seed 1, the round-12 seed-0 command (stable to 574,750,720, branches 299,892,736
+                             / 521,797,632 kept), the same cluster files (from the d=128 proxy wsd_tF128k_proxy_50M_s0,
+                             whose FLOPs are charged: the 521.8M branch is the charged 1x point, as for seed 0) -- the
+                             50k precedent (experiment 1 seed 1 used the seed-0 proxy's clusters).
+    wsd_AS128k384_620M_s1    AS128k384s seed 1 (label AS128k384), the experiment-3 seed-0 command.
+    wsd_AS128k384c49_612M_s0 AS128k384c49 seed 0: the second adaptive-softmax configuration, one setting, not swept.
+                             Same 8,192 shortlist (the two-level head's frequent list), same divisor 4 (d/4 = 96, d/16
+                             = 24), second cutoff 24,576 -> 49,152. Reason, fixed before any run: the 131k weak spot of
+                             configuration 1 is its narrow last band (106,496 tokens at width 24, 6.49% of targets);
+                             49,152 puts 3.05% of targets in it, the 50k setting's share (3.06%) where adaptive softmax
+                             tied the two-level head; band shares 11.28% / 3.05%. Charged head forward 7,309,422
+                             FLOPs/token (configuration 1: 6,878,621); training fpt 99,785,034.3, so stable to
+                             611,909,632 (1x within 0.002%), branch 319,356,928 (0.5x, reported only). Gated
+                             (round13_gates_as.py / _sparse.py with arm AS128k384c49 -> gates_as_c49.json,
+                             gates_as_sparse_c49.json).
+  BPB: round11_eval.task_bpb (byte-aligned, FineWeb-Edu val) on the saved checkpoints, as experiment 3's 131k numbers.
+  Gate (the user's rule, "not below -0.003 on both seeds" -> stop): with TL(s) = BPB(H128k384 seed s @521.8M, charged),
+    A1(s) = BPB(AS128k384 seed s @620.0M), A2(0) = BPB(AS128k384c49 seed 0 @611.9M):
+      best adaptive softmax on seed 0 = min(A1(0), A2(0)); Delta(0) = TL(0) - min(A1(0), A2(0)).
+      if A1(0) <= A2(0): configuration 1 is the best one, Delta(1) = TL(1) - A1(1).
+      if A2(0) <  A1(0): the best configuration has no seed-1 run, so Delta(1) is NOT DEFINED by these runs: stop,
+                         report, and ask the user whether to run AS128k384c49 seed 1 (no adjustment of A1(1) is used).
+    PASS iff Delta(0) < -0.003 AND Delta(1) < -0.003 (strict). PASS -> the head-centred framing may be written, with the
+    seed count stated. Anything else (FAIL, undefined, a crashed or NaN run) -> stop and report; the framing is the
+    user's decision, not chosen here.
+  Reported next to it, not part of the gate: the 0.5x branches; mean over seeds; Delta vs flat (F128k384 seed 0 only);
+    both adaptive-softmax configurations' numbers on seed 0; WikiText-103 and PG-19 BPB.
+  Failures: a crash or NaN is reported as is; one rerun only for an infrastructure failure (same command, the run
+    restarts from step 0), never for a number. No third seed, no third configuration, no LR or init change.

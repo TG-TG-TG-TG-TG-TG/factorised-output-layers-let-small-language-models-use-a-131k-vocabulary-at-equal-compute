@@ -1,0 +1,130 @@
+[launchC] start Wed Nov 11 08:51:18 CET 2026
+[r12chain] one d384 F128k384:0 --label F128k384 --tokens 160759808 --branch_at 83886080,160759808 --extra=--keep_branch=83886080 start Wed Nov 11 08:51:18 CET 2026
+[r12] start wsd_F128k384_161M_s0: train.py --arm F128k384 --seed 0 --lr 0.002 --tokens 160759808 --sched wsd --branch_at 83886080,160759808 --decay_frac 0.1 --n_evals 12 --name wsd_F128k384_161M_s0 --runs_dir /path/to/repo/runs/round12 --keep_params --keep_branch=83886080
+[r12] end wsd_F128k384_161M_s0: rc 0, 43.2 min, round-12 total 2.11 h
+[r12] finished
+[r12chain] one d384 F128k384:0 --label F128k384 --tokens 160759808 --branch_at 83886080,160759808 --extra=--keep_branch=83886080 end Wed Nov 11 09:34:29 CET 2026
+[r12chain] one d384 H128k384:0 --label H128k384 --tokens 574750720 --branch_at 299892736,521797632,574750720 --extra=--keep_branch=299892736,521797632 start Wed Nov 11 09:34:29 CET 2026
+[r12] start wsd_H128k384_575M_s0: train.py --arm H128k384 --seed 0 --lr 0.002 --tokens 574750720 --sched wsd --branch_at 299892736,521797632,574750720 --decay_frac 0.1 --n_evals 12 --name wsd_H128k384_575M_s0 --runs_dir /path/to/repo/runs/round12 --keep_params --keep_branch=299892736,521797632
+[r12] end wsd_H128k384_575M_s0: rc 0, 38.3 min, round-12 total 2.74 h
+[r12] finished
+[r12chain] one d384 H128k384:0 --label H128k384 --tokens 574750720 --branch_at 299892736,521797632,574750720 --extra=--keep_branch=299892736,521797632 end Wed Nov 11 10:12:45 CET 2026
+[r12chain] one bios bioB_100000:1 --tokens 505282560 --branch_at 505282560 start Wed Nov 11 10:12:45 CET 2026
+[r12] start wsd_bioB_100000_505M_s1: train.py --arm bioB_100000 --seed 1 --lr 0.002 --tokens 505282560 --sched wsd --branch_at 505282560 --decay_frac 0.1 --n_evals 12 --name wsd_bioB_100000_505M_s1 --runs_dir /path/to/repo/runs/round12 --keep_params
+[r12] end wsd_bioB_100000_505M_s1: rc 0, 31.3 min, round-12 total 3.26 h
+[r12] finished
+[r12chain] one bios bioB_100000:1 --tokens 505282560 --branch_at 505282560 end Wed Nov 11 10:44:00 CET 2026
+[r12chain] one bios bioH_100000:1 --tokens 1199505408 --branch_at 1199505408 start Wed Nov 11 10:44:00 CET 2026
+[r12] start wsd_bioH_100000_1200M_s1: train.py --arm bioH_100000 --seed 1 --lr 0.002 --tokens 1199505408 --sched wsd --branch_at 1199505408 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_100000_1200M_s1 --runs_dir /path/to/repo/runs/round12 --keep_params
+[r12] end wsd_bioH_100000_1200M_s1: rc 0, 39.7 min, round-12 total 3.92 h
+[r12] finished
+[r12chain] one bios bioH_100000:1 --tokens 1199505408 --branch_at 1199505408 end Wed Nov 11 11:23:40 CET 2026
+[r12chain] pytry round12_eval.py bpb B384m_s0,B384m_s1,F128k384_84M,F128k384_161M,H128k384_300M,H128k384_522M,H128k384_575M start Wed Nov 11 12:44:30 CET 2026
+[bpb] models: ['B384m_s0', 'B384m_s1', 'F128k384_84M', 'F128k384_161M', 'H128k384_300M', 'H128k384_522M', 'H128k384_575M']
+[bpb] B384m_s0         fineweb      BPB 1.1754  nll/target 3.7745  bytes 23,160,213 (+0 unscored)  32s
+[bpb] B384m_s0         wikitext103  BPB 1.4303  nll/target 4.5055  bytes 1,284,392 (+0 unscored)  12s
+[bpb] B384m_s0         pg19         BPB 1.7341  nll/target 4.5351  bytes 3,875,124 (+0 unscored)  12s
+[bpb] B384m_s1         fineweb      BPB 1.1764  nll/target 3.7777  bytes 23,160,213 (+0 unscored)  17s
+[bpb] B384m_s1         wikitext103  BPB 1.4443  nll/target 4.5494  bytes 1,284,392 (+0 unscored)  4s
+[bpb] B384m_s1         pg19         BPB 1.7453  nll/target 4.5643  bytes 3,875,124 (+0 unscored)  6s
+[bpb] F128k384_84M     fineweb      BPB 1.3026  nll/target 4.4589  bytes 23,160,080 (+133 unscored)  31s
+[bpb] F128k384_84M     wikitext103  BPB 1.6220  nll/target 5.3747  bytes 1,284,391 (+1 unscored)  5s
+[bpb] F128k384_84M     pg19         BPB 1.8958  nll/target 5.3048  bytes 3,875,111 (+13 unscored)  6s
+[bpb] F128k384_161M    fineweb      BPB 1.2248  nll/target 4.1925  bytes 23,160,080 (+133 unscored)  31s
+[bpb] F128k384_161M    wikitext103  BPB 1.5094  nll/target 5.0017  bytes 1,284,391 (+1 unscored)  5s
+[bpb] F128k384_161M    pg19         BPB 1.7912  nll/target 5.0119  bytes 3,875,111 (+13 unscored)  6s
+[bpb] H128k384_300M    fineweb      BPB 1.1804  nll/target 4.0406  bytes 23,160,080 (+133 unscored)  27s
+[bpb] H128k384_300M    wikitext103  BPB 1.4371  nll/target 4.7622  bytes 1,284,391 (+1 unscored)  6s
+[bpb] H128k384_300M    pg19         BPB 1.7133  nll/target 4.7940  bytes 3,875,111 (+13 unscored)  5s
+[bpb] H128k384_522M    fineweb      BPB 1.1512  nll/target 3.9406  bytes 23,160,080 (+133 unscored)  32s
+[bpb] H128k384_522M    wikitext103  BPB 1.4063  nll/target 4.6600  bytes 1,284,391 (+1 unscored)  5s
+[bpb] H128k384_522M    pg19         BPB 1.6834  nll/target 4.7104  bytes 3,875,111 (+13 unscored)  5s
+[bpb] H128k384_575M    fineweb      BPB 1.1471  nll/target 3.9266  bytes 23,160,080 (+133 unscored)  25s
+[bpb] H128k384_575M    wikitext103  BPB 1.3950  nll/target 4.6227  bytes 1,284,391 (+1 unscored)  5s
+[bpb] H128k384_575M    pg19         BPB 1.6770  nll/target 4.6925  bytes 3,875,111 (+13 unscored)  3s
+[r12chain] pytry round12_eval.py bpb B384m_s0,B384m_s1,F128k384_84M,F128k384_161M,H128k384_300M,H128k384_522M,H128k384_575M end Wed Nov 11 12:49:26 CET 2026
+[r12chain] pytry round12_eval.py blimp B384m_s0,B384m_s1,F128k384_161M,H128k384_575M start Wed Nov 11 12:49:26 CET 2026
+[blimp] models: ['B384m_s0', 'B384m_s1', 'F128k384_161M', 'H128k384_575M']
+[blimp] B384m_s0         acc 71.68%  33s
+[blimp] B384m_s1         acc 72.33%  27s
+[blimp] F128k384_161M    acc 70.01%  37s
+[blimp] H128k384_575M    acc 74.86%  17s
+[r12chain] pytry round12_eval.py blimp B384m_s0,B384m_s1,F128k384_161M,H128k384_575M end Wed Nov 11 12:52:44 CET 2026
+[r12chain] pytry round12_eval.py lambada F128k384_161M,H128k384_575M start Wed Nov 11 12:52:44 CET 2026
+[lambada] models: ['F128k384_161M', 'H128k384_575M']
+[lambada] F128k384_161M    acc 10.34% (top4096 10.33 / rest 10.35) word bits/byte 1.9383  24s
+[lambada] H128k384_575M    acc 13.16% (top4096 12.43 / rest 13.45) word bits/byte 1.7057  20s
+[r12chain] pytry round12_eval.py lambada F128k384_161M,H128k384_575M end Wed Nov 11 12:53:37 CET 2026
+[r12chain] pytry round12_eval.py e4 bioB_100000_s1,bioH_100000_eqF_s1 start Wed Nov 11 12:53:37 CET 2026
+[bios] bioB_100000_s1   N 100000 bits 617143 / 4651849  exact 2.61%  bits/param 0.0810  76s
+[bios] bioH_100000_eqF_s1 N 100000 bits 1367998 / 4651849  exact 9.75%  bits/param 0.1678  89s
+[r12chain] pytry round12_eval.py e4 bioB_100000_s1,bioH_100000_eqF_s1 end Wed Nov 11 12:56:27 CET 2026
+[r12chain] pytry round12_jensen.py start Wed Nov 11 12:56:27 CET 2026
+[jensen] H3k8c4: val Delta 2.563 (std 2.037), offset 7.119, error +4.556 (std 8.379); E5a Delta copy1 2.553 copy2 3.430; by bucket [4096,16384) 2.834 [16384,V) 2.262
+[jensen] H3s384_575M: val Delta 3.095 (std 2.483), offset 5.604, error +2.509 (std 6.353); E5a Delta copy1 3.043 copy2 4.058; by bucket [4096,16384) 3.401 [16384,V) 2.755
+[r12chain] pytry round12_jensen.py end Wed Nov 11 12:57:10 CET 2026
+[r12chain] pytry round12_decode.py run 0 1 start Wed Nov 11 12:57:10 CET 2026
+{"proc": 0, "batch": 1, "arm": "B384", "spec": [384, 6, 1536, "flat_sample", 50304, 50257, 4.633], "ms_per_step": 0.2729839140656054, "ms_per_token": 0.2729839140656054, "ms_per_byte": 0.058921630491173195, "new": 256, "reps": 5, "gpu_before": "4 %, 2756 MiB, 2872 MHz", "gpu_after": "96 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 1, "arm": "H3s384", "spec": [384, 6, 1536, "hier9_sample", 50304, 50257, 4.633], "ms_per_step": 0.19816752734413967, "ms_per_token": 0.19816752734413967, "ms_per_byte": 0.04277304712802497, "new": 256, "reps": 5, "gpu_before": "4 %, 2756 MiB, 2872 MHz", "gpu_after": "96 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 1, "arm": "F8k384", "spec": [384, 6, 1536, "flat_sample", 8192, 8192, 3.933], "ms_per_step": 0.1934320976531012, "ms_per_token": 0.1934320976531012, "ms_per_byte": 0.04918181989654239, "new": 256, "reps": 5, "gpu_before": "4 %, 2756 MiB, 2872 MHz", "gpu_after": "96 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 1, "arm": "F128k384", "spec": [384, 6, 1536, "flat_sample", 131072, 131072, 4.944], "ms_per_step": 0.36542623828239584, "ms_per_token": 0.36542623828239584, "ms_per_byte": 0.07391307408624512, "new": 256, "reps": 5, "gpu_before": "4 %, 2756 MiB, 2872 MHz", "gpu_after": "96 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 1, "arm": "H128k384", "spec": [384, 6, 1536, "hier9_sample", 131072, 131072, 4.944], "ms_per_step": 0.19490777734176845, "ms_per_token": 0.19490777734176845, "ms_per_byte": 0.03942309412252598, "new": 256, "reps": 5, "gpu_before": "4 %, 2756 MiB, 2872 MHz", "gpu_after": "96 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+[r12chain] pytry round12_decode.py run 0 1 end Wed Nov 11 12:57:32 CET 2026
+[r12chain] pytry round12_decode.py run 1 1 start Wed Nov 11 12:57:32 CET 2026
+{"proc": 1, "batch": 1, "arm": "B384", "spec": [384, 6, 1536, "flat_sample", 50304, 50257, 4.633], "ms_per_step": 0.28078110547369306, "ms_per_token": 0.28078110547369306, "ms_per_byte": 0.06060459863451178, "new": 256, "reps": 5, "gpu_before": "3 %, 2756 MiB, 2880 MHz", "gpu_after": "94 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 1, "arm": "H3s384", "spec": [384, 6, 1536, "hier9_sample", 50304, 50257, 4.633], "ms_per_step": 0.20730667969104388, "ms_per_token": 0.20730667969104388, "ms_per_byte": 0.044745667966985515, "new": 256, "reps": 5, "gpu_before": "3 %, 2756 MiB, 2880 MHz", "gpu_after": "94 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 1, "arm": "F8k384", "spec": [384, 6, 1536, "flat_sample", 8192, 8192, 3.933], "ms_per_step": 0.202424937505441, "ms_per_token": 0.202424937505441, "ms_per_byte": 0.05146832888518713, "new": 256, "reps": 5, "gpu_before": "3 %, 2756 MiB, 2880 MHz", "gpu_after": "94 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 1, "arm": "F128k384", "spec": [384, 6, 1536, "flat_sample", 131072, 131072, 4.944], "ms_per_step": 0.36964319922105915, "ms_per_token": 0.36964319922105915, "ms_per_byte": 0.07476601925992296, "new": 256, "reps": 5, "gpu_before": "3 %, 2756 MiB, 2880 MHz", "gpu_after": "94 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 1, "arm": "H128k384", "spec": [384, 6, 1536, "hier9_sample", 131072, 131072, 4.944], "ms_per_step": 0.20344438281227895, "ms_per_token": 0.20344438281227895, "ms_per_byte": 0.0411497538050726, "new": 256, "reps": 5, "gpu_before": "3 %, 2756 MiB, 2880 MHz", "gpu_after": "94 %, 5471 MiB, 2872 MHz", "device": "cuda:0"}
+[r12chain] pytry round12_decode.py run 1 1 end Wed Nov 11 12:57:53 CET 2026
+[r12chain] pytry round12_decode.py run 2 1 start Wed Nov 11 12:57:53 CET 2026
+{"proc": 2, "batch": 1, "arm": "B384", "spec": [384, 6, 1536, "flat_sample", 50304, 50257, 4.633], "ms_per_step": 0.28304584765947993, "ms_per_token": 0.28304584765947993, "ms_per_byte": 0.06109342707953377, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2880 MHz", "gpu_after": "95 %, 5475 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 1, "arm": "H3s384", "spec": [384, 6, 1536, "hier9_sample", 50304, 50257, 4.633], "ms_per_step": 0.20325279297139787, "ms_per_token": 0.20325279297139787, "ms_per_byte": 0.04387066543738352, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2880 MHz", "gpu_after": "95 %, 5475 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 1, "arm": "F8k384", "spec": [384, 6, 1536, "flat_sample", 8192, 8192, 3.933], "ms_per_step": 0.19655174218513594, "ms_per_token": 0.19655174218513594, "ms_per_byte": 0.049975017082414426, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2880 MHz", "gpu_after": "95 %, 5475 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 1, "arm": "F128k384", "spec": [384, 6, 1536, "flat_sample", 131072, 131072, 4.944], "ms_per_step": 0.3641773749976096, "ms_per_token": 0.3641773749976096, "ms_per_byte": 0.07366047228916052, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2880 MHz", "gpu_after": "95 %, 5475 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 1, "arm": "H128k384", "spec": [384, 6, 1536, "hier9_sample", 131072, 131072, 4.944], "ms_per_step": 0.20548034765965895, "ms_per_token": 0.20548034765965895, "ms_per_byte": 0.04156155899264946, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2880 MHz", "gpu_after": "95 %, 5475 MiB, 2872 MHz", "device": "cuda:0"}
+[r12chain] pytry round12_decode.py run 2 1 end Wed Nov 11 12:58:15 CET 2026
+[r12chain] pytry round12_decode.py run 0 32 start Wed Nov 11 12:58:15 CET 2026
+{"proc": 0, "batch": 32, "arm": "B384", "spec": [384, 6, 1536, "flat_sample", 50304, 50257, 4.633], "ms_per_step": 1.9819644726553065, "ms_per_token": 0.06193638977047833, "ms_per_byte": 0.013368527902110582, "new": 256, "reps": 5, "gpu_before": "4 %, 2760 MiB, 2880 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 32, "arm": "H3s384", "spec": [384, 6, 1536, "hier9_sample", 50304, 50257, 4.633], "ms_per_step": 1.9231753046895506, "ms_per_token": 0.060099228271548455, "ms_per_byte": 0.01297198969815421, "new": 256, "reps": 5, "gpu_before": "4 %, 2760 MiB, 2880 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 32, "arm": "F8k384", "spec": [384, 6, 1536, "flat_sample", 8192, 8192, 3.933], "ms_per_step": 1.9175015976600207, "ms_per_token": 0.05992192492687565, "ms_per_byte": 0.015235678852498259, "new": 256, "reps": 5, "gpu_before": "4 %, 2760 MiB, 2880 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 32, "arm": "F128k384", "spec": [384, 6, 1536, "flat_sample", 131072, 131072, 4.944], "ms_per_step": 2.09136676171795, "ms_per_token": 0.06535521130368593, "ms_per_byte": 0.013219096137476929, "new": 256, "reps": 5, "gpu_before": "4 %, 2760 MiB, 2880 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 0, "batch": 32, "arm": "H128k384", "spec": [384, 6, 1536, "hier9_sample", 131072, 131072, 4.944], "ms_per_step": 1.9134222539065604, "ms_per_token": 0.05979444543458001, "ms_per_byte": 0.012094345759421523, "new": 256, "reps": 5, "gpu_before": "4 %, 2760 MiB, 2880 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+[r12chain] pytry round12_decode.py run 0 32 end Wed Nov 11 12:58:54 CET 2026
+[r12chain] pytry round12_decode.py run 1 32 start Wed Nov 11 12:58:54 CET 2026
+{"proc": 1, "batch": 32, "arm": "B384", "spec": [384, 6, 1536, "flat_sample", 50304, 50257, 4.633], "ms_per_step": 1.9671824062541532, "ms_per_token": 0.06147445019544229, "ms_per_byte": 0.013268821540134316, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2872 MHz", "gpu_after": "91 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 32, "arm": "H3s384", "spec": [384, 6, 1536, "hier9_sample", 50304, 50257, 4.633], "ms_per_step": 1.934667542968782, "ms_per_token": 0.06045836071777444, "ms_per_byte": 0.013049505874762451, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2872 MHz", "gpu_after": "91 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 32, "arm": "F8k384", "spec": [384, 6, 1536, "flat_sample", 8192, 8192, 3.933], "ms_per_step": 1.9176190234375667, "ms_per_token": 0.05992559448242396, "ms_per_byte": 0.015236611869418755, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2872 MHz", "gpu_after": "91 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 32, "arm": "F128k384", "spec": [384, 6, 1536, "flat_sample", 131072, 131072, 4.944], "ms_per_step": 2.1038568750029185, "ms_per_token": 0.0657455273438412, "ms_per_byte": 0.013298043556602185, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2872 MHz", "gpu_after": "91 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 1, "batch": 32, "arm": "H128k384", "spec": [384, 6, 1536, "hier9_sample", 131072, 131072, 4.944], "ms_per_step": 1.9137155742185996, "ms_per_token": 0.05980361169433124, "ms_per_byte": 0.012096199776361496, "new": 256, "reps": 5, "gpu_before": "5 %, 2760 MiB, 2872 MHz", "gpu_after": "91 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+[r12chain] pytry round12_decode.py run 1 32 end Wed Nov 11 12:59:35 CET 2026
+[r12chain] pytry round12_decode.py run 2 32 start Wed Nov 11 12:59:35 CET 2026
+{"proc": 2, "batch": 32, "arm": "B384", "spec": [384, 6, 1536, "flat_sample", 50304, 50257, 4.633], "ms_per_step": 1.9953145703155428, "ms_per_token": 0.06235358032236071, "ms_per_byte": 0.013458575506661064, "new": 256, "reps": 5, "gpu_before": "2 %, 2760 MiB, 2872 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 32, "arm": "H3s384", "spec": [384, 6, 1536, "hier9_sample", 50304, 50257, 4.633], "ms_per_step": 1.9560162617224819, "ms_per_token": 0.06112550817882756, "ms_per_byte": 0.013193504895063147, "new": 256, "reps": 5, "gpu_before": "2 %, 2760 MiB, 2872 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 32, "arm": "F8k384", "spec": [384, 6, 1536, "flat_sample", 8192, 8192, 3.933], "ms_per_step": 1.9276319921885943, "ms_per_token": 0.06023849975589357, "ms_per_byte": 0.015316170799871237, "new": 256, "reps": 5, "gpu_before": "2 %, 2760 MiB, 2872 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 32, "arm": "F128k384", "spec": [384, 6, 1536, "flat_sample", 131072, 131072, 4.944], "ms_per_step": 2.105554058594805, "ms_per_token": 0.06579856433108766, "ms_per_byte": 0.013308771102566275, "new": 256, "reps": 5, "gpu_before": "2 %, 2760 MiB, 2872 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+{"proc": 2, "batch": 32, "arm": "H128k384", "spec": [384, 6, 1536, "hier9_sample", 131072, 131072, 4.944], "ms_per_step": 1.935737597655418, "ms_per_token": 0.060491799926731815, "ms_per_byte": 0.012235396425309833, "new": 256, "reps": 5, "gpu_before": "2 %, 2760 MiB, 2872 MHz", "gpu_after": "100 %, 6499 MiB, 2865 MHz", "device": "cuda:0"}
+[r12chain] pytry round12_decode.py run 2 32 end Wed Nov 11 13:00:15 CET 2026
+[r12chain] pytry round12_decode.py md start Wed Nov 11 13:00:15 CET 2026
+# Round 12 decode: random bf16 weights, round-8 protocol, batch 1 and 32
+
+ms/step = median of 5 repeats per process (mean (min-max) over processes); ms/token = ms/step / batch; ms/byte = ms/token / val bytes per token.
+
+| arm | head | vocab | batch | ms/step | min-max | ms/token | ms/byte | vs B384 (same batch) |
+|---|---|---|---|---|---|---|---|---|
+| B384 | flat_sample | 50,257 | 1 | 0.2789 | 0.2730-0.2830 | 0.2789 | 0.06021 | 1.00x |
+| H3s384 | hier9_sample | 50,257 | 1 | 0.2029 | 0.1982-0.2073 | 0.2029 | 0.04380 | 0.73x |
+| F8k384 | flat_sample | 8,192 | 1 | 0.1975 | 0.1934-0.2024 | 0.1975 | 0.05021 | 0.71x |
+| F128k384 | flat_sample | 131,072 | 1 | 0.3664 | 0.3642-0.3696 | 0.3664 | 0.07411 | 1.31x |
+| H128k384 | hier9_sample | 131,072 | 1 | 0.2013 | 0.1949-0.2055 | 0.2013 | 0.04071 | 0.72x |
+| B384 | flat_sample | 50,257 | 32 | 1.9815 | 1.9672-1.9953 | 0.0619 | 0.01337 | 1.00x |
+| H3s384 | hier9_sample | 50,257 | 32 | 1.9380 | 1.9232-1.9560 | 0.0606 | 0.01307 | 0.98x |
+| F8k384 | flat_sample | 8,192 | 32 | 1.9209 | 1.9175-1.9276 | 0.0600 | 0.01526 | 0.97x |
+| F128k384 | flat_sample | 131,072 | 32 | 2.1003 | 2.0914-2.1056 | 0.0656 | 0.01328 | 1.06x |
+| H128k384 | hier9_sample | 131,072 | 32 | 1.9210 | 1.9134-1.9357 | 0.0600 | 0.01214 | 0.97x |
+[r12chain] pytry round12_decode.py md end Wed Nov 11 13:00:15 CET 2026
+[r12chain] cputry round12_gates.py trained wsd_H128k384_575M_s0 start Wed Nov 11 13:00:15 CET 2026
+OK   trained greedy exact: exact-match 1.0000 on 4096 positions; fallback rate 0.0017; mean clusters expanded 10.0
+ALL GATES OK
+[r12chain] cputry round12_gates.py trained wsd_H128k384_575M_s0 end Wed Nov 11 13:03:59 CET 2026
+[launchC] done Wed Nov 11 13:03:59 CET 2026

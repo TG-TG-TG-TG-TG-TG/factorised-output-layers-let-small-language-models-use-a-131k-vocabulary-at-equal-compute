@@ -1,0 +1,135 @@
+{
+ "B": {
+  "fpt": 193757184,
+  "head": 115900416,
+  "head_share": 0.5981735159817352,
+  "how": "logged formula",
+  "match_575": {
+   "stable_steps": 4809,
+   "stable_tokens": 315162624,
+   "total_tokens": 346685440,
+   "flops": 67172794588200960,
+   "rel_err": 6.473588631550342e-05
+  },
+  "match_300": {
+   "stable_steps": 2509,
+   "stable_tokens": 164429824,
+   "total_tokens": 180879360,
+   "flops": 35046675437322240,
+   "rel_err": -7.340891264662197e-05
+  }
+ },
+ "H3s384": {
+  "fpt": 106197197.6953125,
+  "head": 28340429.6953125,
+  "head_share": 0.26686607848752525,
+  "how": "logged formula",
+  "match_575": {
+   "stable_steps": 8774,
+   "stable_tokens": 575012864,
+   "total_tokens": 632487936,
+   "flops": 6.716844637929216e+16,
+   "rel_err": 0.0
+  },
+  "match_300": {
+   "stable_steps": 4578,
+   "stable_tokens": 300023808,
+   "total_tokens": 330039296,
+   "flops": 3.504924836453376e+16,
+   "rel_err": 0.0
+  }
+ },
+ "F8k384": {
+  "fpt": 96731136,
+  "head": 18874368,
+  "head_share": 0.1951219512195122,
+  "how": "logged formula",
+  "match_575": {
+   "stable_steps": 9632,
+   "stable_tokens": 631242752,
+   "total_tokens": 694353920,
+   "flops": 67165643467653120,
+   "rel_err": -4.172958867043608e-05
+  },
+  "match_300": {
+   "stable_steps": 5026,
+   "stable_tokens": 329383936,
+   "total_tokens": 362348544,
+   "flops": 35050386289065984,
+   "rel_err": 3.2466446081569345e-05
+  }
+ },
+ "F128k384": {
+  "fpt": 379846656,
+  "head": 301989888,
+  "head_share": 0.7950310559006211,
+  "how": "logged formula",
+  "match_575": {
+   "stable_steps": 2453,
+   "stable_tokens": 160759808,
+   "total_tokens": 176816128,
+   "flops": 67163014947667968,
+   "rel_err": -8.086284434094537e-05
+  },
+  "match_300": {
+   "stable_steps": 1280,
+   "stable_tokens": 83886080,
+   "total_tokens": 92274688,
+   "flops": 35050231670243328,
+   "rel_err": 2.8054972801117017e-05
+  }
+ },
+ "H128k384": {
+  "fpt": 106246656.0,
+  "head": 28389888.0,
+  "head_share": 0.2672073556837403,
+  "how": "formula, L = 30 (class files not built yet)",
+  "match_575": {
+   "stable_steps": 8770,
+   "stable_tokens": 574750720,
+   "total_tokens": 632225792,
+   "flops": 6.717187623695155e+16,
+   "rel_err": 5.106352527528557e-05
+  },
+  "match_300": {
+   "stable_steps": 4576,
+   "stable_tokens": 299892736,
+   "total_tokens": 329908224,
+   "flops": 3.5051645586898944e+16,
+   "rel_err": 6.83958280718322e-05
+  },
+  "match_575_charged": {
+   "stable_steps": 7962,
+   "stable_tokens": 521797632,
+   "total_tokens": 573964288,
+   "flops": 6.098178626342093e+16,
+   "rel_err": -5.071126911326829e-05
+  }
+ },
+ "tF128k": {
+  "fpt": 112459776,
+  "head": 100663296,
+  "head_share": 0.8951048951048951,
+  "how": "logged formula",
+  "match_575": {
+   "stable_steps": 8285,
+   "stable_tokens": 542965760,
+   "total_tokens": 597229568,
+   "flops": 67164303437856768,
+   "rel_err": -6.167987587502033e-05
+  },
+  "match_300": {
+   "stable_steps": 4324,
+   "stable_tokens": 283377664,
+   "total_tokens": 311689216,
+   "flops": 35052499412975616,
+   "rel_err": 9.275658091278949e-05
+  },
+  "proxy": {
+   "stable_steps": 763,
+   "stable_tokens": 50003968,
+   "total_tokens": 54984704,
+   "flops": 6183567495266304
+  }
+ }
+}

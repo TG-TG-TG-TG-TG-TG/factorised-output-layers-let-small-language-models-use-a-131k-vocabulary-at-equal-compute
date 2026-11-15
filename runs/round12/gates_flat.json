@@ -1,0 +1,13 @@
+{
+ "checks": {
+  "G3 F128k chunked CE == unchunked (loss)": {
+   "ok": true,
+   "detail": "chunked 12.4243889 unchunked 12.4243889 |diff| 0.00e+00 (2,048 targets, 2 chunks of 1,024)"
+  },
+  "G3 F128k chunked CE == unchunked (grads)": {
+   "ok": true,
+   "detail": "max relative gradient error over leaves 1.33e-07"
+  }
+ },
+ "fails": []
+}

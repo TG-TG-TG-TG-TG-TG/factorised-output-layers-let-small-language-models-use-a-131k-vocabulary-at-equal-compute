@@ -1,0 +1,4 @@
+smoke_H2atm384: 11,020,672 non-emb params, 4578 steps, accum 4x16
+step 100/4578 loss 6.4903 353,018 tok/s wait 0.0ms mem 2.75GB
+step 200/4578 loss 5.8000 352,135 tok/s wait 0.0ms mem 2.75GB
+done smoke_H2atm384: val nan in 1.1 min

@@ -1,0 +1,54 @@
+[r11chain] py round11_wait.py chainR1 start Mon Nov  9 18:33:57 CET 2026
+[wait] nothing matches chainR1\.out; going on
+[r11chain] py round11_wait.py chainR1 end Mon Nov  9 19:02:13 CET 2026
+[r11chain] smoke tB tH3k8c4 tH3rs16 tH3rs64 B H3s384 F8k384@631308288 F4k384@699531264 H3rs16_384 H3s512@359399424 bioB_20000@101056512 bioH_100000@1199505408 start Mon Nov  9 19:02:13 CET 2026
+step 200/18311 loss 6.2095 330,632 tok/s wait 0.0ms mem 2.18GB
+done smoke_tB: val nan in 1.0 min
+step 200/18311 loss 6.1800 838,929 tok/s wait 0.0ms mem 1.24GB
+done smoke_tH3k8c4: val nan in 0.6 min
+step 200/18311 loss 6.1784 356,228 tok/s wait 0.0ms mem 1.33GB
+done smoke_tH3rs16: val nan in 1.0 min
+step 200/18311 loss 6.1895 206,595 tok/s wait 0.0ms mem 0.85GB
+done smoke_tH3rs64: val nan in 1.4 min
+step 200/4578 loss 5.9212 170,286 tok/s wait 0.0ms mem 3.90GB
+done smoke_B: val nan in 1.7 min
+step 200/8774 loss 5.8352 335,184 tok/s wait 0.0ms mem 3.06GB
+done smoke_H3s384: val nan in 1.0 min
+step 200/9633 loss 5.4156 449,612 tok/s wait 0.0ms mem 2.22GB
+done smoke_F8k384: val nan in 0.9 min
+step 200/10674 loss 4.8404 534,291 tok/s wait 0.0ms mem 2.14GB
+done smoke_F4k384: val nan in 0.8 min
+step 200/8774 loss 5.8369 155,394 tok/s wait 0.0ms mem 2.91GB
+done smoke_H3rs16_384: val nan in 1.8 min
+step 200/5484 loss 5.8611 245,451 tok/s wait 0.0ms mem 3.87GB
+done smoke_H3s512: val nan in 1.3 min
+step 200/1542 loss 1.1937 311,376 tok/s wait 0.0ms mem 2.18GB
+done smoke_bioB_20000: val nan in 1.0 min
+step 200/18303 loss 1.2063 583,095 tok/s wait 7.9ms mem 1.24GB
+done smoke_bioH_100000: val nan in 0.6 min
+[r11chain] smoke tB tH3k8c4 tH3rs16 tH3rs64 B H3s384 F8k384@631308288 F4k384@699531264 H3rs16_384 H3s512@359399424 bioB_20000@101056512 bioH_100000@1199505408 end Mon Nov  9 19:16:11 CET 2026
+[r11chain] py round11_smoke_check.py --tag all start Mon Nov  9 19:16:11 CET 2026
+B        loss@200 5.9212     170,286 tok/s (1.00x B)  step 385 ms  peak 3.90 GB  wait 0.0 ms  head 38,633,472 FLOPs/tok (1.000x B)  train FLOPs 1.000x B  est full 36 min  data hash OK
+F4k384   loss@200 4.8404     534,291 tok/s (3.14x B)  step 123 ms  peak 2.14 GB  wait 0.0 ms  head 3,145,728 FLOPs/tok (0.081x B)  train FLOPs 0.451x B  est full 26 min  data hash n/a (bpe4096)
+F8k384   loss@200 5.4156     449,612 tok/s (2.64x B)  step 146 ms  peak 2.22 GB  wait 0.0 ms  head 6,291,456 FLOPs/tok (0.163x B)  train FLOPs 0.499x B  est full 28 min  data hash n/a (bpe8192)
+H3rs16_384 loss@200 5.8369     155,394 tok/s (0.91x B)  step 422 ms  peak 2.91 GB  wait 0.0 ms  head 9,581,978 FLOPs/tok (0.248x B)  train FLOPs 0.550x B  est full 75 min  data hash OK
+H3s384   loss@200 5.8352     335,184 tok/s (1.97x B)  step 196 ms  peak 3.06 GB  wait 0.0 ms  head 9,446,810 FLOPs/tok (0.245x B)  train FLOPs 0.548x B  est full 35 min  data hash OK
+H3s512   loss@200 5.8611     245,451 tok/s (1.44x B)  step 267 ms  peak 3.87 GB  wait 0.0 ms  head 12,595,747 FLOPs/tok (0.326x B)  train FLOPs 0.877x B  est full 30 min  data hash OK
+bioB_20000 loss@200 1.1937     311,376 tok/s (0.94x B)  step 210 ms  peak 2.18 GB  wait 0.0 ms  head 12,877,824 FLOPs/tok (1.000x B)  train FLOPs 1.000x B  est full 7 min  data hash n/a (bios20000)
+bioH_100000 loss@200 1.2063     583,095 tok/s (1.76x B)  step 112 ms  peak 1.24 GB  wait 7.9 ms  head 3,148,937 FLOPs/tok (0.245x B)  train FLOPs 0.421x B  est full 42 min  data hash n/a (bios100000)
+tB       loss@200 6.2095     330,632 tok/s (1.00x B)  step 198 ms  peak 2.18 GB  wait 0.0 ms  head 12,877,824 FLOPs/tok (1.000x B)  train FLOPs 1.000x B  est full 73 min  data hash OK
+tH3k8c4  loss@200 6.1800     838,929 tok/s (2.54x B)  step 78 ms  peak 1.24 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.245x B)  train FLOPs 0.421x B  est full 29 min  data hash OK
+tH3rs16  loss@200 6.1784     356,228 tok/s (1.08x B)  step 184 ms  peak 1.33 GB  wait 0.0 ms  head 3,193,993 FLOPs/tok (0.248x B)  train FLOPs 0.424x B  est full 68 min  data hash OK
+tH3rs64  loss@200 6.1895     206,595 tok/s (0.62x B)  step 317 ms  peak 0.85 GB  wait 0.0 ms  head 3,329,161 FLOPs/tok (0.259x B)  train FLOPs 0.432x B  est full 117 min  data hash OK
+gate 4 (data) / smoke: OK
+[r11chain] py round11_smoke_check.py --tag all end Mon Nov  9 19:16:12 CET 2026
+[r11chain] one tiny tH3rs16:0 start Mon Nov  9 19:16:12 CET 2026
+[r11] start wsd_H3rs16_s0: train.py --arm tH3rs16 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3rs16_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3rs16_s0: rc 0, 71.4 min, round-11 total 2.11 h
+[r11] finished
+[r11chain] one tiny tH3rs16:0 end Mon Nov  9 20:27:38 CET 2026
+[r11chain] pytry round11_partc_next.py start Mon Nov  9 20:27:38 CET 2026
+[partC] tH3rs16 4.1514 vs H3k8c4 4.1552 (Δ -0.0039); M=64 not run
+[r11chain] pytry round11_partc_next.py end Mon Nov  9 20:27:38 CET 2026
+[r11chain] one d384 F8k384:0 --label F8k384 --tokens 631308288 --branch_at 329383936,631308288 --extra=--keep_branch=329383936 start Mon Nov  9 20:27:38 CET 2026
+[r11] start wsd_F8k384_631M_s0: train.py --arm F8k384 --seed 0 --lr 0.002 --tokens 631308288 --sched wsd --branch_at 329383936,631308288 --decay_frac 0.1 --n_evals 12 --name wsd_F8k384_631M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=329383936

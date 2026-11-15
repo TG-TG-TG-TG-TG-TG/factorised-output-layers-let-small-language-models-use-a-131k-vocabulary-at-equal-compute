@@ -1,0 +1,40 @@
+{
+ "arms": {
+  "AS128k384c49": {
+   "d": 384,
+   "steps": 200,
+   "loss_at_200": 6.246557235717773,
+   "tok_s": 149166.14197134587,
+   "step_ms": 439.3490314483642,
+   "peak_mem_gb": 4.07109522819519,
+   "data_wait_ms": 0.03521665641021453,
+   "est_full_min": 82.9434892597109,
+   "head_fwd_flops_per_token": 7309422.086704415,
+   "data_hash_ok": null,
+   "data": "bpe131072",
+   "first_hashes": [
+    "cce3e5db38a236d9e18aecf68998638e517471a0615beb9726d4bbe259b47828",
+    "964ec51fc155ff37d1047704509b15aac6f49371633952c6478b66113dd180e9",
+    "2d8144804ed5dbdced03cc118aa55fc37604f5aa6e1abb4d0376cbeb211278af"
+   ],
+   "finite": true,
+   "params": {
+    "total": 66903170,
+    "non_embedding": 16571522,
+    "embedding": 50331648
+   },
+   "flops_per_token": {
+    "non_embedding": 77856768,
+    "head": 21928266.260113247,
+    "total": 99785034.26011324
+   },
+   "total_tokens": 673100595.2,
+   "mtime": 1794568463.6235824,
+   "speed_vs_B": null,
+   "head_flops_vs_B": null,
+   "train_flops_vs_B": null
+  }
+ },
+ "overhead_factor": 1.1028687583468804,
+ "fails": []
+}

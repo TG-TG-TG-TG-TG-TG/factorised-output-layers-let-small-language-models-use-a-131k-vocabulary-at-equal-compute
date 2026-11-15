@@ -1,0 +1,7 @@
+{
+ "label": "H2atm",
+ "ckpt": "wsd_H2atm_s0",
+ "positions": 4096,
+ "fallback_rate": 0.00537109375,
+ "exact_match": 1.0
+}

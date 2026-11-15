@@ -1,0 +1,14 @@
+{
+ "checks": {
+  "ckpt": "wsd_H128k384_575M_s0",
+  "positions": 4096,
+  "fallback_rate": 0.001708984375,
+  "exact_match": 1.0,
+  "mean_clusters_expanded": 9.994873046875,
+  "trained greedy exact": {
+   "ok": true,
+   "detail": "exact-match 1.0000 on 4096 positions; fallback rate 0.0017; mean clusters expanded 10.0"
+  }
+ },
+ "fails": []
+}

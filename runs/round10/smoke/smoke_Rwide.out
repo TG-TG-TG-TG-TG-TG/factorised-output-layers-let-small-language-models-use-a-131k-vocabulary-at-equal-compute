@@ -1,0 +1,4 @@
+smoke_Rwide: 5,777,664 non-emb params, 9155 steps, accum 4x16
+step 100/9155 loss 6.6080 494,960 tok/s wait 0.0ms mem 1.96GB
+step 200/9155 loss 5.9081 494,078 tok/s wait 0.0ms mem 1.96GB
+done smoke_Rwide: val nan in 0.8 min

@@ -1,0 +1,5 @@
+﻿[r10chain] one tiny tH3k8:1 start Sat Nov  7 23:08:49 CET 2026
+[r10] start wsd_H3k8_s1: train.py --arm tH3k8 --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3k8_s1 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3k8_s1: rc 0, 28.9 min, round-10 total 2.28 h
+[r10] finished
+[r10chain] one tiny tH3k8:1 end Sat Nov  7 23:37:43 CET 2026

@@ -1,0 +1,40 @@
+{
+ "AS128k384c49w": {
+  "band_counts": [
+   21,
+   22
+  ],
+  "S1_vs_dense": 0.0,
+  "S1_vs_ref": 3.814697265625e-06,
+  "S2_vs_dense": 0.0,
+  "S3_rel": {
+   "emb": 0.0,
+   "head.Vb": 0.0,
+   "head.W1": 0.0,
+   "head.W2": 4.107368611894202e-10,
+   "head.bb": 0.0
+  },
+  "S4": {
+   "chunk": 1024,
+   "caps": [
+    512,
+    256
+   ],
+   "band_counts": [
+    109,
+    32
+   ],
+   "sparse_branch_taken": true,
+   "loss_rel": 0.0,
+   "grad_rel": {
+    "emb": 0.0,
+    "head.Vb": 0.0,
+    "head.W1": 6.140802355503183e-08,
+    "head.W2": 2.777907504025734e-08,
+    "head.bb": 0.0
+   }
+  },
+  "PASS": true
+ },
+ "ALL_PASS": true
+}

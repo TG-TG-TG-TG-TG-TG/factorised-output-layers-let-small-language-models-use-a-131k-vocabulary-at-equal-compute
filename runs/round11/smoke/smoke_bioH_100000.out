@@ -1,0 +1,4 @@
+smoke_bioH_100000: 1,711,232 non-emb params, 18303 steps, accum 4x16
+step 100/18303 loss 1.6055 580,931 tok/s wait 6.9ms mem 1.24GB
+step 200/18303 loss 1.2063 583,095 tok/s wait 7.9ms mem 1.24GB
+done smoke_bioH_100000: val nan in 0.6 min

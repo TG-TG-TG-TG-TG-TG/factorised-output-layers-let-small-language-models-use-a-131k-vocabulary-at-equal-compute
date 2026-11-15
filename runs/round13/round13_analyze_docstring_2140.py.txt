@@ -1,0 +1,45 @@
+"""Round 13 analysis (2026-11-11): answers to the two reviews. Rules for experiments 1 and 2 pinned here at 21:40 CET on
+2026-11-11, before any round-13 run started (copy: runs/round13/round13_analyze_docstring_2140.py.txt). Experiment 3
+(adaptive softmax) gets its own dated section, pinned before any of its runs. Anything decided after seeing a result is
+labelled post-hoc in the summary. Rounds 8-12 results are read, never rewritten. BPB = bits per UTF-8 byte of the shared
+FineWeb-Edu val text, from the logged full-val loss of the branch (GPT-2-vocabulary arms, round 11's gate: equal to the
+byte-aligned evaluator within 2e-5 BPB), exactly as round12_analyze.gpt2_bpb.
+
+Budget points. 1x = 6.716845e16 training FLOPs (H3*-384 575M, stable + decay, logged flops_per_token.total x tokens);
+0.5x = 3.504925e16 (the 300M point); 2x = 1.343369e17. A branch counts for a point if its FLOPs are within 0.5% of it.
+Proxy cost P = FLOPs of wsd_tBproxy_50M_s0's final branch (stable + decay, logged), expected 2.7729e15 = 4.1% of 1x.
+"Charged" = the two-level branch at (point - P); "uncharged" = the branch at the point itself.
+
+Experiment 1 -- charge the 50k proxy. The 50k clusters of every earlier H3*-384 run came from wsd_B_r8_s0 (d=128 flat,
+  1,200M stable tokens + decay = 6.66e16 FLOPs, 99% of 1x), never charged. Rebuilt from a cheap proxy:
+  proxy  wsd_tBproxy_50M_s0 = arm tB (B_r8's recipe) at 50,003,968 stable tokens + 10% decay, seed 0 -- the 50k twin of
+         round 12's 131k proxy. Classes: round13_classes.py (frequent list unchanged, tail k-means on the proxy's
+         embedding).
+  arm    H3p384 = H3*-384 with those classes (head_classes "adapt13"); everything else identical to wsd_H3s384_575M.
+  runs   wsd_H3p384_575M_s0 and _s1: stable to 575e6 (8,774 steps), branches at 276,299,776 (0.5x charged),
+         300e6 (0.5x uncharged), 551,288,832 (1x charged), 575e6 (1x uncharged).
+  flat   B384 matched, round 12, unchanged: wsd_B384m_315M_s0/_s1, branches 164,429,824 (0.5x) and 315,162,624 (1x).
+  Numbers: Delta_ch(1x) = mean_s BPB(H3p384 @551.3M) - mean_s BPB(B384m @315.2M); Delta_unch(1x) the same at 575M;
+    per seed, the means, and the spread |s0 - s1| per side; the same at 0.5x; and (reported only) the cluster-source
+    effect mean_s BPB(H3p384 @575M) - mean_s BPB(H3s384 @575M, rounds 11/12, B_r8 clusters).
+  Verdict: the 50k headline survives charging if Delta_ch(1x) <= -0.003 AND each seed's charged delta (seed s vs seed s)
+    is < 0. Otherwise it does not survive, and the paper is rescoped around the 131k result (already charged, -0.0736;
+    the user's decision in the review brief). No seed 2 either way.
+
+Experiment 2 -- budget scaling, small version (2x only; 4x/8x not run, the user's decision). One stable run per arm,
+  seed 0, same recipe and data order (WSD: the stable phase up to a point is the same run as at 1x; branches decay 10%):
+  flat       wsd_B384x2_630M_s0 = B:0 stable to 630,259,712 (9,617 steps; 2x within 0.01%), branches 315,162,624 (1x,
+             a reproducibility check against wsd_B384m_315M_s0, |diff| reported) and 630,259,712.
+  two-level  wsd_H3p384x2_1150M_s0 = H3p384:0 stable to 1,149,960,192 (17,547 steps), branches 1,126,236,160 (2x
+             charged) and 1,149,960,192 (2x uncharged).
+  Numbers: gap(F) = BPB(two-level) - BPB(flat), seed 0 vs seed 0, at F = 0.5x, 1x, 2x, charged (main series) and
+    uncharged; the 2-seed gaps at 0.5x and 1x next to them. Crossover: least-squares line of the three seed-0 charged
+    gaps against log2(F/1x); F* = where it reaches 0. If gap(2x) >= 0 the crossover is observed between 1x and 2x (linear
+    interpolation in log2 F); if F* > 2x it is reported as an extrapolation from three points, not a result; the
+    shrinkage is called monotone only if |gap| falls at both steps. |gap(2x)| <= 0.003 is reported as a tie at 2x; no
+    seed-1 2x runs in any case.
+"""
+import sys
+
+if __name__ == "__main__":
+    sys.exit("round13_analyze.py: analysis code is added after the runs; the rules above are pinned and unchanged")

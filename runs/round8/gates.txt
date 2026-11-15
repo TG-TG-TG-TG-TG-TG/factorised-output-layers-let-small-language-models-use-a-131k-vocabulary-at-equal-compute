@@ -1,0 +1,25 @@
+data stream ref sha256 (first 3 batches): ['1d85f2370f684370', '762f0fcbdb1e1368', '9c22b6d70c3c85a5']
+tB: params 7,621,760 (new 0); head fwd FLOPs/token 12,877,824 = 1.0000 x B; train FLOPs/token 50,429,952
+tH2: params 7,753,856 (new 132,096); head fwd FLOPs/token 274,944 = 0.0214 x B; train FLOPs/token 12,621,312
+tH2r: params 7,753,856 (new 132,096); head fwd FLOPs/token 274,944 = 0.0214 x B; train FLOPs/token 12,621,312
+tCB: params 7,753,856 (new 132,096); head fwd FLOPs/token 13,127,936 = 1.0194 x B; train FLOPs/token 51,180,288
+tH2w: params 33,944,192 (new 26,322,432); head fwd FLOPs/token 1,230,848 = 0.0956 x B; train FLOPs/token 15,489,024
+[OK] 4 backbone init bit-identical tH2 vs tB: 62 tensors
+[OK] 4 backbone init bit-identical tH2r vs tB: 62 tensors
+[OK] 4 backbone init bit-identical tCB vs tB: 62 tensors
+[OK] 4 backbone init bit-identical tH2w vs tB: 62 tensors
+[OK] 1 tH2 grouped == gather (16384 tok): max |diff| 1.91e-06, mean NLL 11.69281 (ln V = 10.82491)
+[OK] 1 tH2 grouped == -full[y] (2048 tok): max |diff| 1.91e-06
+[OK] 1 tH2 sum exp(full) == 1: max |sum - 1| 4.77e-07
+[OK] wiring lm_loss(tH2) == mean gather (training path): 11.692807 vs 11.692806
+[OK] wiring lm_loss(tH2) == mean grouped: 11.692807 vs 11.692806
+[OK] 2 tH2 dL/dU grouped == gather: max |diff| 1.15e-07 (max |grad| 7.19e-02)
+[OK] 3 tH2 hier_greedy == argmax full (256 pos): 256/256 match; classes expanded mean 101.88, max 239 (of 1024); init model
+[OK] 1 tH2r grouped == gather (16384 tok): max |diff| 1.91e-06, mean NLL 11.83338 (ln V = 10.82491)
+[OK] 1 tH2r grouped == -full[y] (2048 tok): max |diff| 1.91e-06
+[OK] 1 tH2r sum exp(full) == 1: max |sum - 1| 4.77e-07
+[OK] CB cb_logits(fp32) == heads.class_bias_logits: max |diff| 0.00e+00
+[info] CB bf16 path (as B's head): max |logit diff| 1.53e-02, mean NLL 11.498455 vs fp32 11.498430
+[info] lm_loss at init (4 rows): tB 11.44713, tCB 11.57308, tH2 11.65107, tH2w 10.83866
+
+ALL GATES OK

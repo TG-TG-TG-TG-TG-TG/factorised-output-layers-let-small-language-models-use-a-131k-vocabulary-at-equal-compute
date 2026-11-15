@@ -1,0 +1,19 @@
+{
+ "K": 8192,
+ "C": 4096,
+ "proxy": "wsd_tBproxy_50M_s0",
+ "n_tail": 42065,
+ "capacity": 11,
+ "kmeans_s": 58.817004919052124,
+ "sizes": {
+  "min": 1,
+  "median": 11.0,
+  "max": 11,
+  "n_full": 3311,
+  "n_empty": 0
+ },
+ "pair_agreement_vs_round10": 0.999605,
+ "same_cluster_rate_random_pairs": 0.000215,
+ "identical_to_round10": false,
+ "disjoint_and_cover": true
+}

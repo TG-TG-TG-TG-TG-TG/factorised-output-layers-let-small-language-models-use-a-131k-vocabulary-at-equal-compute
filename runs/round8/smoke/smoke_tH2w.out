@@ -1,0 +1,4 @@
+smoke_tH2w: 27,505,280 non-emb params, 18311 steps, accum 4x16
+step 100/18311 loss 6.5597 953,958 tok/s wait 0.0ms mem 1.23GB
+step 200/18311 loss 5.9570 972,414 tok/s wait 0.0ms mem 1.23GB
+done smoke_tH2w: val nan in 0.7 min

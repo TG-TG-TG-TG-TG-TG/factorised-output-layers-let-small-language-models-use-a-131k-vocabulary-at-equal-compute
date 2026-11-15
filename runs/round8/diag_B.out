@@ -1,0 +1,35 @@
+{
+ "arm": "tB",
+ "ckpt": "wsd_B_r8_s0",
+ "classes": "kmeans",
+ "batches": 64,
+ "positions_per_batch": 256,
+ "V_basis": 50304,
+ "basis_dims": {
+  "flat": 129,
+  "with_classes": 1153
+ },
+ "chance_share": {
+  "flat": 0.002564408396946565,
+  "with_classes": 0.022920642493638677
+ },
+ "grad_retention_flat": {
+  "mean": 0.004052628559293225,
+  "std": 0.0001736596401062729
+ },
+ "grad_retention_with_classes": {
+  "mean": 0.0267525328672491,
+  "std": 0.001127135237616083
+ },
+ "pad_prob_mass_mean": 2.883234384576383e-06,
+ "U_top5": [
+  197.0352576637102,
+  20.141909718522253,
+  18.713155876403714,
+  15.547461084013456,
+  14.0539675241363
+ ],
+ "U_spectral_entropy": 4.528011430449588,
+ "U_effective_rank": 92.57428751313236,
+ "U_sigma_max_over_min": 43.90062226920982
+}

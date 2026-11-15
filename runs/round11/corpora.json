@@ -1,0 +1,4 @@
+{"source": "round11_eval.py corpora (runs/round11/corpora.out)",
+ "fineweb": {"rows": 4882, "scored_bytes": 23160213},
+ "wikitext103": {"rows": 276, "scored_bytes": 1284392},
+ "pg19": {"rows": 1003, "scored_bytes": 3875124}}

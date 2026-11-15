@@ -1,0 +1,23 @@
+wsd_tF128k_proxy_50M_s0: 1,182,848 non-emb params, 763 steps, accum 4x16
+  eval @ 4.2M tok: val 7.3511
+step 100/763 loss 7.2902 124,685 tok/s wait 0.0ms mem 1.82GB
+  eval @ 8.3M tok: val 6.6237
+  eval @ 12.5M tok: val 6.3027
+step 200/763 loss 6.4704 125,213 tok/s wait 0.0ms mem 1.82GB
+  eval @ 16.6M tok: val 6.0960
+step 300/763 loss 6.0530 125,118 tok/s wait 0.0ms mem 1.82GB
+  eval @ 20.8M tok: val 5.9318
+  eval @ 25.0M tok: val 5.7995
+step 400/763 loss 5.9419 126,032 tok/s wait 0.0ms mem 1.82GB
+  eval @ 29.2M tok: val 5.6966
+step 500/763 loss 5.8235 126,465 tok/s wait 0.0ms mem 1.82GB
+  eval @ 33.4M tok: val 5.5885
+  eval @ 37.5M tok: val 5.5173
+step 600/763 loss 5.5669 126,878 tok/s wait 0.0ms mem 1.82GB
+  eval @ 41.7M tok: val 5.4462
+  eval @ 45.8M tok: val 5.3950
+step 700/763 loss 5.4156 126,985 tok/s wait 0.0ms mem 1.82GB
+step 763/763 loss 5.2946 127,077 tok/s wait 0.0ms mem 1.82GB
+  eval @ 50.0M tok: val 5.3486
+  branch @ 50M (+76 decay steps): val_full 5.3358
+done wsd_tF128k_proxy_50M_s0: val 5.3358 in 8.4 min

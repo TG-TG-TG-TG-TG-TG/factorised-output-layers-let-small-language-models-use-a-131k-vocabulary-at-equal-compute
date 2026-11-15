@@ -1,0 +1,50 @@
+{
+ "acct H2_384": {
+  "total_params": 30337408,
+  "new_params": 394240,
+  "head_fwd_flops_per_token": 824832,
+  "head_ratio_to_B": 0.021350190839694656,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 2474496,
+   "total": 80331264
+  },
+  "gate4_backbone_bit_identical_to_B": true
+ },
+ "acct H2tm384": {
+  "total_params": 30337408,
+  "new_params": 394240,
+  "head_fwd_flops_per_token": 826009.8984375,
+  "head_ratio_to_B": 0.021380679904656252,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 2478029.6953125,
+   "total": 80334797.6953125
+  },
+  "gate4_backbone_bit_identical_to_B": true
+ },
+ "acct H2a384": {
+  "total_params": 30337408,
+  "new_params": 394240,
+  "head_fwd_flops_per_token": 3967488,
+  "head_ratio_to_B": 0.1026956106870229,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 11902464,
+   "total": 89759232
+  },
+  "gate4_backbone_bit_identical_to_B": true
+ },
+ "acct H2atm384": {
+  "total_params": 30337408,
+  "new_params": 394240,
+  "head_fwd_flops_per_token": 3968665.8984375,
+  "head_ratio_to_B": 0.10272609975198449,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 11905997.6953125,
+   "total": 89762765.6953125
+  },
+  "gate4_backbone_bit_identical_to_B": true
+ }
+}

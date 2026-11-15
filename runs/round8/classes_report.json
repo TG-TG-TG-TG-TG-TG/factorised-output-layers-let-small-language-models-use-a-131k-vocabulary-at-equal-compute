@@ -1,0 +1,29 @@
+{
+ "ckpt": "wsd_B_r8_s0",
+ "C": 1024,
+ "V": 50257,
+ "capacity": 50,
+ "kmeans_s": 16.31013321876526,
+ "kmeans_sizes": {
+  "min": 10,
+  "median": 50.0,
+  "max": 50,
+  "n_full": 937
+ },
+ "random_sizes": {
+  "min": 10,
+  "median": 50.0,
+  "max": 50
+ },
+ "same_histogram": true,
+ "examples_classes": [
+  969,
+  481,
+  35,
+  971,
+  841,
+  147,
+  769,
+  521
+ ]
+}

@@ -1,0 +1,41 @@
+wsd_F128k384_161M_s0: 10,626,432 non-emb params, 2453 steps, accum 4x16
+step 100/2453 loss 7.0275 71,964 tok/s wait 0.0ms mem 3.96GB
+step 200/2453 loss 6.3177 72,299 tok/s wait 0.0ms mem 3.96GB
+  eval @ 13.4M tok: val 6.1315
+step 300/2453 loss 5.8326 72,293 tok/s wait 0.0ms mem 3.96GB
+step 400/2453 loss 5.6305 72,335 tok/s wait 0.0ms mem 3.96GB
+  eval @ 26.8M tok: val 5.4503
+step 500/2453 loss 5.4511 72,381 tok/s wait 0.0ms mem 3.96GB
+step 600/2453 loss 5.1459 72,404 tok/s wait 0.0ms mem 3.96GB
+  eval @ 40.2M tok: val 5.0796
+step 700/2453 loss 4.9433 72,415 tok/s wait 0.0ms mem 3.96GB
+step 800/2453 loss 4.8908 72,425 tok/s wait 0.0ms mem 3.96GB
+  eval @ 53.6M tok: val 4.8300
+step 900/2453 loss 4.8961 72,307 tok/s wait 0.0ms mem 3.96GB
+step 1000/2453 loss 4.7036 72,546 tok/s wait 0.0ms mem 3.96GB
+  eval @ 67.0M tok: val 4.6900
+step 1100/2453 loss 4.7039 72,765 tok/s wait 0.0ms mem 3.96GB
+step 1200/2453 loss 4.6704 72,948 tok/s wait 0.0ms mem 3.96GB
+  eval @ 80.3M tok: val 4.5952
+  branch @ 84M (+128 decay steps): val_full 4.4546
+step 1300/2453 loss 4.6362 73,267 tok/s wait 0.0ms mem 4.69GB
+step 1400/2453 loss 4.4930 73,390 tok/s wait 0.0ms mem 4.69GB
+  eval @ 93.8M tok: val 4.5057
+step 1500/2453 loss 4.6099 73,568 tok/s wait 0.0ms mem 4.69GB
+step 1600/2453 loss 4.5449 73,731 tok/s wait 0.0ms mem 4.69GB
+  eval @ 107.2M tok: val 4.4307
+step 1700/2453 loss 4.3974 73,861 tok/s wait 0.0ms mem 4.69GB
+step 1800/2453 loss 4.5716 73,995 tok/s wait 0.0ms mem 4.69GB
+  eval @ 120.6M tok: val 4.3860
+step 1900/2453 loss 4.4077 74,105 tok/s wait 0.0ms mem 4.69GB
+step 2000/2453 loss 4.4020 74,148 tok/s wait 0.0ms mem 4.69GB
+  eval @ 134.0M tok: val 4.3553
+step 2100/2453 loss 4.4631 74,243 tok/s wait 0.0ms mem 4.69GB
+step 2200/2453 loss 4.4477 74,328 tok/s wait 0.0ms mem 4.69GB
+  eval @ 147.4M tok: val 4.3254
+step 2300/2453 loss 4.3789 74,406 tok/s wait 0.0ms mem 4.69GB
+step 2400/2453 loss 4.4556 74,480 tok/s wait 0.0ms mem 4.69GB
+step 2453/2453 loss 4.3775 74,486 tok/s wait 0.0ms mem 4.69GB
+  eval @ 160.8M tok: val 4.3188
+  branch @ 161M (+245 decay steps): val_full 4.1876
+done wsd_F128k384_161M_s0: val 4.1876 in 43.1 min

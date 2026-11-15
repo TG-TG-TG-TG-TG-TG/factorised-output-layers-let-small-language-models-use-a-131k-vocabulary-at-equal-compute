@@ -1,0 +1,58 @@
+{
+ "seed": 20261109,
+ "N_max": 100000,
+ "sizes": {
+  "birth_date": 67200,
+  "birth_city": 200,
+  "university": 300,
+  "major": 100,
+  "employer": 250
+ },
+ "bits_per_person": 46.5184889672609,
+ "sha256": {
+  "people.npz": "0c115e2202d904f9f4cbc8405663740aacfa551922d2a82acadce695237084ca",
+  "pools.json": "b53a130e251f3f9bbb305a4f65093263edf90cf90748693515fb050fbff736c6"
+ },
+ "templates": {
+  "birth_date": [
+   "{N} was born on {V}.",
+   "{N} came into the world on {V}.",
+   "{P} date of birth is {V}.",
+   "{N} celebrates {p} birthday on {V}.",
+   "{N} entered life on {V}.",
+   "{P} birthday falls on {V}."
+  ],
+  "birth_city": [
+   "{N} was born in {V}.",
+   "{N} spent {p} early years in {V}.",
+   "{P} birthplace is {V}.",
+   "{N} hails from {V}.",
+   "{N} grew up in {V}.",
+   "{N} originates from {V}."
+  ],
+  "university": [
+   "{N} studied at {V}.",
+   "{N} graduated from {V}.",
+   "{N} received {p} education at {V}.",
+   "{N} attended {V}.",
+   "{N} completed {p} degree at {V}.",
+   "{P} alma mater is {V}."
+  ],
+  "major": [
+   "{N} majored in {V}.",
+   "{N} focused on {V} during {p} studies.",
+   "{P} field of study was {V}.",
+   "{N} earned a degree in {V}.",
+   "{N} specialized in {V}.",
+   "{N} chose to study {V}."
+  ],
+  "employer": [
+   "{N} works for {V}.",
+   "{N} is employed by {V}.",
+   "{N} has a job at {V}.",
+   "{P} employer is {V}.",
+   "{N} worked at {V}.",
+   "{N} draws a salary from {V}."
+  ]
+ }
+}

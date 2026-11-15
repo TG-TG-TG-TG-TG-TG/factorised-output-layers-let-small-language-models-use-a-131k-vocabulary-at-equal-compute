@@ -1,0 +1,9 @@
+  Follow-up, pinned 2026-11-13 18:15, after the experiment-4 runs above gave UNDEFINED (configuration 2 best on seed
+    0: A2(0) = 1.1629 < A1(0) = 1.1735; Delta(0) = -0.0117) and before the run below. User: "Yes, run seed 1".
+    Run: wsd_AS128k384c49_612M_s1 -- AS128k384c49 seed 1, the wsd_AS128k384c49_612M_s0 command with seed 1 (stable to
+    611,909,632, 0.5x branch 319,356,928 kept). No other run.
+    Delta(1) = TL(1) - min(A1(1), A2(1)): the best adaptive softmax ON SEED 1 (at least as strict as using the seed-0
+    winner; both differences are reported). The seed-0 side is unchanged: Delta(0) = TL(0) - min(A1(0), A2(0)).
+    PASS iff Delta(0) < -0.003 AND Delta(1) < -0.003 (strict); anything else -> stop and report, as above. The
+    seed-1 numbers already known when this was pinned: TL(1) = 1.1539, A1(1) = 1.1738.
+"""

@@ -1,0 +1,9 @@
+wsd_B_r8_s0: 1,182,848 non-emb params, 18311 steps, accum 4x16
+step 100/18311 loss 6.9073 310,245 tok/s wait 0.0ms mem 2.18GB
+step 200/18311 loss 6.2101 306,242 tok/s wait 0.0ms mem 2.18GB
+step 300/18311 loss 5.9096 308,258 tok/s wait 0.0ms mem 2.18GB
+step 400/18311 loss 5.6831 310,800 tok/s wait 0.0ms mem 2.18GB
+step 500/18311 loss 5.6099 306,626 tok/s wait 0.0ms mem 2.18GB
+step 600/18311 loss 5.4790 308,436 tok/s wait 0.0ms mem 2.18GB
+step 700/18311 loss 5.4423 311,109 tok/s wait 0.0ms mem 2.18GB
+step 800/18311 loss 5.2835 309,444 tok/s wait 0.0ms mem 2.18GB

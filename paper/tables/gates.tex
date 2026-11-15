@@ -1,0 +1,18 @@
+\begin{tabular}{p{0.16\linewidth}p{0.06\linewidth}p{0.68\linewidth}}
+\toprule
+head (131k) & result & check and measured value \\
+\midrule
+flat & OK & chunked CE = unchunked (loss): chunked 12.4243889 unchunked 12.4243889 $|$diff$|$ 0.00e+00 (2,048 targets, 2 chunks of 1,024) \\
+flat & OK & chunked CE = unchunked (grads): max relative gradient error over leaves 1.33e-07 \\
+two-level & OK & reference sums to 1: max $|$logsumexp$|$ 4.77e-07 \\
+two-level & OK & fast NLL = reference: fast 10.7634649 ref 10.7634649 $|$diff$|$ 0.00e+00 \\
+two-level & OK & grad emb: relative error 5.76e-07 ($|$ref$|$ 2.383e+00) \\
+two-level & OK & grad R: relative error 2.43e-08 ($|$ref$|$ 5.009e-01) \\
+two-level & OK & grad bc: relative error 2.52e-08 ($|$ref$|$ 2.718e-02) \\
+two-level & OK & greedy exact (h x 1): exact-match 1.0000 on 1,000 contexts; fallback rate 0.295 \\
+two-level & OK & greedy exact (h x 8): exact-match 1.0000 on 1,000 contexts; fallback rate 0.000 \\
+two-level & OK & sampling: two-stage probabilities = reference: max $|$p\_two-stage - p\_ref$|$ 2.33e-09 over 1,000 contexts (h and 8h) x 131072 ids \\
+two-level & OK & sampling: empirical TV: TV(two-stage, 200k) 0.0022 vs TV(direct, 200k) 0.0018 (ratio 1.198); max p 0.614 \\
+two-level, trained & OK & trained greedy exact: exact-match 1.0000 on 4096 positions; fallback rate 0.0017; mean clusters expanded 10.0 \\
+\bottomrule
+\end{tabular}

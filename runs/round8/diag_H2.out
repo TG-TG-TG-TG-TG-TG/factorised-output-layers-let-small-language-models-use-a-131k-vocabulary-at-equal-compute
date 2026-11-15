@@ -1,0 +1,35 @@
+{
+ "arm": "tH2",
+ "ckpt": "wsd_H2_s0",
+ "classes": "kmeans",
+ "batches": 64,
+ "positions_per_batch": 256,
+ "V_basis": 50257,
+ "basis_dims": {
+  "flat": 129,
+  "with_classes": 1153
+ },
+ "chance_share": {
+  "flat": 0.0025668066140040195,
+  "with_classes": 0.022942077720516544
+ },
+ "grad_retention_flat": {
+  "mean": 0.0019158307313773548,
+  "std": 7.10141095290578e-05
+ },
+ "grad_retention_with_classes": {
+  "mean": 0.026023259270004928,
+  "std": 0.0010856721448366709
+ },
+ "pad_prob_mass_mean": 0.0,
+ "U_top5": [
+  273.17436660254003,
+  168.61583619131736,
+  145.60667090377405,
+  131.13840323658746,
+  121.38103383051813
+ ],
+ "U_spectral_entropy": 4.517461167122099,
+ "U_effective_rank": 91.60273846342213,
+ "U_sigma_max_over_min": 20.06144671166372
+}

@@ -1,0 +1,5 @@
+smoke_bioB_20000: 1,182,848 non-emb params, 1542 steps, accum 4x16
+step 100/1542 loss 1.6461 315,015 tok/s wait 0.0ms mem 2.18GB
+  eval @ 8.4M tok: val 1.3366
+step 200/1542 loss 1.1937 311,376 tok/s wait 0.0ms mem 2.18GB
+done smoke_bioB_20000: val nan in 1.0 min

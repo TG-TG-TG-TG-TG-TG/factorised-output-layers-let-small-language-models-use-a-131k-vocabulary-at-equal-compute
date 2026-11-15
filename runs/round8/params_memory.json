@@ -1,0 +1,445 @@
+{
+ "tiny": {
+  "tB": {
+   "config": {
+    "d": 128,
+    "f": 512,
+    "H": 2,
+    "layers": 6,
+    "vocab": 50304,
+    "head": "flat",
+    "C": null,
+    "head_wide": null
+   },
+   "layers": {
+    "block 0": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 1": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 2": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 3": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 4": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 5": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "embedding (tied: input + flat output)": {
+     "total": 6438912,
+     "parts": {}
+    },
+    "final norm": {
+     "total": 128,
+     "parts": {}
+    }
+   },
+   "total": 7621760,
+   "train_state_MB": 121.94816,
+   "inference_bf16_MB": 15.24352
+  },
+  "tH2": {
+   "config": {
+    "d": 128,
+    "f": 512,
+    "H": 2,
+    "layers": 6,
+    "vocab": 50304,
+    "head": "hier",
+    "C": 1024,
+    "head_wide": null
+   },
+   "layers": {
+    "block 0": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 1": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 2": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 3": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 4": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 5": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "embedding (tied: input + flat output)": {
+     "total": 6438912,
+     "parts": {}
+    },
+    "head: Vc": {
+     "total": 131072,
+     "parts": {}
+    },
+    "head: bc": {
+     "total": 1024,
+     "parts": {}
+    },
+    "final norm": {
+     "total": 128,
+     "parts": {}
+    }
+   },
+   "total": 7753856,
+   "train_state_MB": 124.061696,
+   "inference_bf16_MB": 15.507712
+  },
+  "tH2r": {
+   "config": {
+    "d": 128,
+    "f": 512,
+    "H": 2,
+    "layers": 6,
+    "vocab": 50304,
+    "head": "hier",
+    "C": 1024,
+    "head_wide": null
+   },
+   "layers": {
+    "block 0": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 1": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 2": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 3": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 4": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 5": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "embedding (tied: input + flat output)": {
+     "total": 6438912,
+     "parts": {}
+    },
+    "head: Vc": {
+     "total": 131072,
+     "parts": {}
+    },
+    "head: bc": {
+     "total": 1024,
+     "parts": {}
+    },
+    "final norm": {
+     "total": 128,
+     "parts": {}
+    }
+   },
+   "total": 7753856,
+   "train_state_MB": 124.061696,
+   "inference_bf16_MB": 15.507712
+  },
+  "tCB": {
+   "config": {
+    "d": 128,
+    "f": 512,
+    "H": 2,
+    "layers": 6,
+    "vocab": 50304,
+    "head": "cb",
+    "C": 1024,
+    "head_wide": null
+   },
+   "layers": {
+    "block 0": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 1": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 2": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 3": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 4": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 5": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "embedding (tied: input + flat output)": {
+     "total": 6438912,
+     "parts": {}
+    },
+    "head: Vg": {
+     "total": 131072,
+     "parts": {}
+    },
+    "head: ag": {
+     "total": 1024,
+     "parts": {}
+    },
+    "final norm": {
+     "total": 128,
+     "parts": {}
+    }
+   },
+   "total": 7753856,
+   "train_state_MB": 124.061696,
+   "inference_bf16_MB": 15.507712
+  },
+  "tH2w": {
+   "config": {
+    "d": 128,
+    "f": 512,
+    "H": 2,
+    "layers": 6,
+    "vocab": 50304,
+    "head": "hier",
+    "C": 1024,
+    "head_wide": 512
+   },
+   "layers": {
+    "block 0": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 1": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 2": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 3": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 4": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "block 5": {
+     "total": 197120,
+     "parts": {
+      "FFN (Wup Wdown)": 131072,
+      "attention (Wq Wk Wv Wo)": 65536,
+      "per-copy norms + alphas": 512
+     }
+    },
+    "embedding (tied: input + flat output)": {
+     "total": 6438912,
+     "parts": {}
+    },
+    "head: Uw": {
+     "total": 25731584,
+     "parts": {}
+    },
+    "head: Vc": {
+     "total": 524288,
+     "parts": {}
+    },
+    "head: Wup": {
+     "total": 65536,
+     "parts": {}
+    },
+    "head: bc": {
+     "total": 1024,
+     "parts": {}
+    },
+    "final norm": {
+     "total": 128,
+     "parts": {}
+    }
+   },
+   "total": 33944192,
+   "train_state_MB": 543.107072,
+   "inference_bf16_MB": 67.888384
+  }
+ },
+ "big_600M": {
+  "flat": {
+   "per_layer": {
+    "attention": 3932160,
+    "FFN (SwiGLU)": 13271040,
+    "norms": 2560,
+    "total": 17205760
+   },
+   "layers": 28,
+   "embedding (tied)": 83886080,
+   "final norm": 1280,
+   "head extra": 0,
+   "total": 565648640,
+   "inference_bf16_MB": 1131.29728,
+   "train_state_MB": 9050.37824,
+   "head_weights_read_per_token_MB_bf16": 167.77216,
+   "kv_cache_MB_per_1k_tokens_bf16": 28.672
+  },
+  "two-level C=1024": {
+   "per_layer": {
+    "attention": 3932160,
+    "FFN (SwiGLU)": 13271040,
+    "norms": 2560,
+    "total": 17205760
+   },
+   "layers": 28,
+   "embedding (tied)": 83886080,
+   "final norm": 1280,
+   "head extra": 1311744,
+   "total": 566960384,
+   "inference_bf16_MB": 1133.920768,
+   "train_state_MB": 9071.366144,
+   "head_weights_read_per_token_MB_bf16": 2.78528,
+   "kv_cache_MB_per_1k_tokens_bf16": 28.672
+  }
+ }
+}

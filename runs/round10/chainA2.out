@@ -1,0 +1,110 @@
+﻿[r10chain] one tiny tH3k8c4:1 start Sat Nov  7 22:07:29 CET 2026
+[r10] start wsd_H3k8c4_s1: train.py --arm tH3k8c4 --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3k8c4_s1 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3k8c4_s1: rc 0, 28.9 min, round-10 total 1.80 h
+[r10] finished
+[r10chain] one tiny tH3k8c4:1 end Sat Nov  7 22:36:22 CET 2026
+[r10chain] pytry round10_buckets.py --tag partA --arms H2atm:tH2atm:wsd_H2atm_s0,H3k8:tH3k8:wsd_H3k8_s0,H3c4:tH3c4:wsd_H3c4_s0,H3k8c4:tH3k8c4:wsd_H3k8c4_s0 start Sat Nov  7 22:36:22 CET 2026
+{'nll_all_mean': 4.12283182144165, 'logged': 4.122812896478371, 'total': 4.122830390930176, 'total_bucket': [2.5055789947509766, 4.779547691345215, 5.550568103790283, 6.252986431121826, 7.74137020111084]}
+wsl : E1107 22:36:44.355914   41386 slow_operation_alarm.cc:73] Constant folding an instruction is taking > 1s:
+At line:1 char:302
++ ... tch {} } }; wsl -d AEON-Training --cd "E:\ai workspace\testy\Claude S ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (E1107 22:36:44....is taking > 1s::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+  %scatter-add.5 = f32[1024,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+E1107 22:36:52.812652   41312 slow_operation_alarm.cc:140] The operation took 9.457002414s
+Constant folding an instruction is taking > 1s:
+
+  %scatter-add.5 = f32[1024,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+H2atm {"arm": "tH2atm", "ckpt": "wsd_H2atm_s0", "total": 4.174665451049805, "d_total": 0.0518353246152401, "top": 3.8222603797912598, "within": 0.3524051904678345, "d_top": 0.04845796898007393, "d_within": 0.0033773540053516626, "total_bucket": [2.501415967941284, 4.772953033447266, 5.569252014160156, 6.5395636558532715, 7.946649074554443], "d_total_bucket": [-0.004162780474871397, -0.0065939221531152725, 0.01868388243019581, 0.2865771949291229, 0.20527835190296173], "d_top_bucket": [-0.004162780474871397, -0.0065939221531152725, 0.01868388243019581, 0.26264631748199463, 0.20390787720680237], "d_within_bucket": [0.0, 0.0, 0.0, 0.02393086813390255, 0.0013704851735383272], "contrib_bucket": [-0.0021230869460850954, -0.0008973799995146692, 0.002901835832744837, 0.039444394409656525, 0.012509560212492943]}
+E1107 22:37:02.638534   41386 slow_operation_alarm.cc:73] Constant folding an instruction is taking > 2s:
+
+  %scatter-add.5 = f32[1024,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+E1107 22:37:09.687084   41312 slow_operation_alarm.cc:140] The operation took 9.048637354s
+Constant folding an instruction is taking > 2s:
+
+  %scatter-add.5 = f32[1024,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+H3k8 {"arm": "tH3k8", "ckpt": "wsd_H3k8_s0", "total": 4.159692287445068, "d_total": 0.03686182200908661, "top": 3.9461004734039307, "within": 0.21359172463417053, "d_top": 0.03637603297829628, "d_within": 0.0004857892345171422, "total_bucket": [2.500683307647705, 4.771523475646973, 5.561232566833496, 6.4420647621154785, 7.950916290283203], "d_total_bucket": [-0.004895610734820366, -0.008023660629987717, 0.010664353147149086, 0.18907833099365234, 0.20954613387584686], "d_top_bucket": [-0.004895610734820366, -0.008023660629987717, 0.010664353147149086, 0.1804552972316742, 0.2210507094860077], "d_within_bucket": [0.0, 0.0, 0.0, 0.008623035624623299, -0.01150457002222538], "contrib_bucket": [-0.0024968425277620554, -0.001091955928131938, 0.0016563048120588064, 0.026024680584669113, 0.012769636698067188]}
+E1107 22:37:21.991618   41386 slow_operation_alarm.cc:73] Constant folding an instruction is taking > 4s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+E1107 22:37:27.471589   41312 slow_operation_alarm.cc:140] The operation took 9.481337641s
+Constant folding an instruction is taking > 4s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+H3c4 {"arm": "tH3c4", "ckpt": "wsd_H3c4_s0", "total": 4.174210071563721, "d_total": 0.05137938633561134, "top": 3.974257469177246, "within": 0.19995234906673431, "d_top": 0.051132459193468094, "d_within": 0.0002469242026563734, "total_bucket": [2.497452735900879, 4.770394802093506, 5.563375949859619, 6.537388801574707, 7.997941970825195], "d_total_bucket": [-0.00812628772109747, -0.009151940234005451, 0.012807361781597137, 0.28440186381340027, 0.25657105445861816], "d_top_bucket": [-0.00812628772109747, -0.009151940234005451, 0.012807361781597137, 0.27699506282806396, 0.2692483067512512], "d_within_bucket": [0.0, 0.0, 0.0, 0.007406800985336304, -0.012677254155278206], "contrib_bucket": [-0.00414454098790884, -0.0012455056421458721, 0.001989140175282955, 0.039144981652498245, 0.015635311603546143]}
+E1107 22:37:43.293016   41386 slow_operation_alarm.cc:73] Constant folding an instruction is taking > 8s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+E1107 22:37:44.335369   41312 slow_operation_alarm.cc:140] The operation took 9.042451221s
+Constant folding an instruction is taking > 8s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.145, %constant.165, %constant.333), update_window_dims=
+{1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata=
+{op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime.
+ XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be abl
+e to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+H3k8c4 {"arm": "tH3k8c4", "ckpt": "wsd_H3k8c4_s0", "total": 4.155219554901123, "d_total": 0.03238893672823906, "top": 4.034814357757568, "within": 0.12040461599826813, "d_top": 0.033100176602602005, "d_within": -0.0007112417370080948, "total_bucket": [2.4958527088165283, 4.767212390899658, 5.555158615112305, 6.420837879180908, 7.990998268127441], "d_total_bucket": [-0.009726310148835182, -0.012335115112364292, 0.004590244963765144, 0.16785213351249695, 0.2496277391910553], "d_top_bucket": [-0.009726310148835182, -0.012335115112364292, 0.004590244963765144, 0.16485626995563507, 0.26806554198265076], "d_within_bucket": [0.0, 0.0, 0.0, 0.0029958586674183607, -0.018437806516885757], "contrib_bucket": [-0.004960579331964254, -0.001678710337728262, 0.000712921260856092, 0.02310311421751976, 0.015212190337479115]}
+[r10chain] pytry round10_buckets.py --tag partA --arms H2atm:tH2atm:wsd_H2atm_s0,H3k8:tH3k8:wsd_H3k8_s0,H3c4:tH3c4:wsd_H3c4_s0,H3k8c4:tH3k8c4:wsd_H3k8c4_s0 end Sat Nov  7 22:37:52 CET 2026

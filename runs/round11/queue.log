@@ -1,0 +1,86 @@
+[round11] d384 B:0 --label B384 --tokens 300e6 --branch_at 150e6,300e6 start Mon Nov  9 18:06:58 CET 2026
+[r11] start wsd_B384_300M_s0: train.py --arm B --seed 0 --lr 0.002 --tokens 300e6 --sched wsd --branch_at 150e6,300e6 --decay_frac 0.1 --n_evals 12 --name wsd_B384_300M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_B384_300M_s0: rc 0, 36.9 min, round-11 total 0.62 h
+[r11] finished
+[round11] d384 B:0 --label B384 --tokens 300e6 --branch_at 150e6,300e6 end Mon Nov  9 18:43:54 CET 2026
+[round11] d384 H3s384:0 --label H3s384 --tokens 300e6 --branch_at 150e6,300e6 start Mon Nov  9 18:43:54 CET 2026
+[r11] start wsd_H3s384_300M_s0: train.py --arm H3s384 --seed 0 --lr 0.002 --tokens 300e6 --sched wsd --branch_at 150e6,300e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3s384_300M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3s384_300M_s0: rc 0, 18.3 min, round-11 total 0.92 h
+[r11] finished
+[round11] d384 H3s384:0 --label H3s384 --tokens 300e6 --branch_at 150e6,300e6 end Mon Nov  9 19:02:11 CET 2026
+[round11] tiny tH3rs16:0 start Mon Nov  9 19:16:12 CET 2026
+[r11] start wsd_H3rs16_s0: train.py --arm tH3rs16 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3rs16_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3rs16_s0: rc 0, 71.4 min, round-11 total 2.11 h
+[r11] finished
+[round11] tiny tH3rs16:0 end Mon Nov  9 20:27:38 CET 2026
+[round11] d384 F8k384:0 --label F8k384 --tokens 631308288 --branch_at 329383936,631308288 --extra=--keep_branch=329383936 start Mon Nov  9 20:27:38 CET 2026
+[r11] start wsd_F8k384_631M_s0: train.py --arm F8k384 --seed 0 --lr 0.002 --tokens 631308288 --sched wsd --branch_at 329383936,631308288 --decay_frac 0.1 --n_evals 12 --name wsd_F8k384_631M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=329383936
+[round11] d384 F8k384:0 --label F8k384 --tokens 631308288 --branch_at 329383936,631308288 --extra=--keep_branch=329383936 start Mon Nov  9 20:47:27 CET 2026
+[r11] start wsd_F8k384_631M_s0: train.py --arm F8k384 --seed 0 --lr 0.002 --tokens 631308288 --sched wsd --branch_at 329383936,631308288 --decay_frac 0.1 --n_evals 12 --name wsd_F8k384_631M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=329383936
+[r11] end wsd_F8k384_631M_s0: rc 0, 28.2 min, round-11 total 2.58 h
+[r11] finished
+[round11] d384 F8k384:0 --label F8k384 --tokens 631308288 --branch_at 329383936,631308288 --extra=--keep_branch=329383936 end Mon Nov  9 21:15:40 CET 2026
+[round11] bios bioB_20000:0 --tokens 101056512 --branch_at 101056512 start Mon Nov  9 21:27:17 CET 2026
+[r11] start wsd_bioB_20000_101M_s0: train.py --arm bioB_20000 --seed 0 --lr 0.002 --tokens 101056512 --sched wsd --branch_at 101056512 --decay_frac 0.1 --n_evals 12 --name wsd_bioB_20000_101M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioB_20000_101M_s0: rc 0, 6.1 min, round-11 total 2.68 h
+[r11] finished
+[round11] bios bioB_20000:0 --tokens 101056512 --branch_at 101056512 end Mon Nov  9 21:33:23 CET 2026
+[round11] bios bioH_20000:0 --tokens 101056512 --branch_at 101056512 start Mon Nov  9 21:33:23 CET 2026
+[r11] start wsd_bioH_20000_101M_s0: train.py --arm bioH_20000 --seed 0 --lr 0.002 --tokens 101056512 --sched wsd --branch_at 101056512 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_20000_101M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioH_20000_101M_s0: rc 0, 3.4 min, round-11 total 2.74 h
+[r11] finished
+[round11] bios bioH_20000:0 --tokens 101056512 --branch_at 101056512 end Mon Nov  9 21:36:47 CET 2026
+[round11] bios bioB_100000:0 --tokens 505282560 --branch_at 505282560 start Mon Nov  9 21:36:47 CET 2026
+[r11] start wsd_bioB_100000_505M_s0: train.py --arm bioB_100000 --seed 0 --lr 0.002 --tokens 505282560 --sched wsd --branch_at 505282560 --decay_frac 0.1 --n_evals 12 --name wsd_bioB_100000_505M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioB_100000_505M_s0: rc 0, 30.6 min, round-11 total 3.25 h
+[r11] finished
+[round11] bios bioB_100000:0 --tokens 505282560 --branch_at 505282560 end Mon Nov  9 22:07:20 CET 2026
+[round11] bios bioH_100000:0 --tokens 505282560 --branch_at 505282560 start Mon Nov  9 22:07:20 CET 2026
+[r11] start wsd_bioH_100000_505M_s0: train.py --arm bioH_100000 --seed 0 --lr 0.002 --tokens 505282560 --sched wsd --branch_at 505282560 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_100000_505M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioH_100000_505M_s0: rc 0, 16.1 min, round-11 total 3.52 h
+[r11] finished
+[round11] bios bioH_100000:0 --tokens 505282560 --branch_at 505282560 end Mon Nov  9 22:23:29 CET 2026
+[round11] d384 F4k384:0 --label F4k384 --tokens 699531264 --branch_at 365035520,699531264 --extra=--keep_branch=365035520 start Mon Nov  9 22:27:01 CET 2026
+[r11] start wsd_F4k384_700M_s0: train.py --arm F4k384 --seed 0 --lr 0.002 --tokens 699531264 --sched wsd --branch_at 365035520,699531264 --decay_frac 0.1 --n_evals 12 --name wsd_F4k384_700M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=365035520
+[r11] end wsd_F4k384_700M_s0: rc 0, 26.8 min, round-11 total 3.96 h
+[r11] finished
+[round11] d384 F4k384:0 --label F4k384 --tokens 699531264 --branch_at 365035520,699531264 --extra=--keep_branch=365035520 end Mon Nov  9 22:53:47 CET 2026
+[round11] bios bioH_100000:0 --tokens 1199505408 --branch_at 1199505408 start Mon Nov  9 22:53:47 CET 2026
+[r11] start wsd_bioH_100000_1200M_s0: train.py --arm bioH_100000 --seed 0 --lr 0.002 --tokens 1199505408 --sched wsd --branch_at 1199505408 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_100000_1200M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[round11] bios bioH_100000:0 --tokens 1199505408 --branch_at 1199505408 start Tue Nov 10 17:23:09 CET 2026
+[r11] start wsd_bioH_100000_1200M_s0: train.py --arm bioH_100000 --seed 0 --lr 0.002 --tokens 1199505408 --sched wsd --branch_at 1199505408 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_100000_1200M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioH_100000_1200M_s0: rc 0, 40.5 min, round-11 total 4.64 h
+[r11] finished
+[round11] bios bioH_100000:0 --tokens 1199505408 --branch_at 1199505408 end Tue Nov 10 18:03:37 CET 2026
+[round11] d384 H3rs16_384:0 --label H3rs16_384 --tokens 575e6 --branch_at 300e6,575e6 start Tue Nov 10 18:05:15 CET 2026
+[r11] start wsd_H3rs16_384_575M_s0: train.py --arm H3rs16_384 --seed 0 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 300e6,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3rs16_384_575M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3rs16_384_575M_s0: rc 0, 78.8 min, round-11 total 5.95 h
+[r11] finished
+[round11] d384 H3rs16_384:0 --label H3rs16_384 --tokens 575e6 --branch_at 300e6,575e6 end Tue Nov 10 19:24:05 CET 2026
+[round11] tiny tH3rs16:1 start Tue Nov 10 19:31:26 CET 2026
+[r11] start wsd_H3rs16_s1: train.py --arm tH3rs16 --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3rs16_s1 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3rs16_s1: rc 0, 72.7 min, round-11 total 7.16 h
+[r11] finished
+[round11] tiny tH3rs16:1 end Tue Nov 10 20:44:12 CET 2026
+[round11] d384 H3s512:0 --label H3s512 --tokens 359399424 --branch_at 359399424 start Tue Nov 10 20:44:13 CET 2026
+[r11] start wsd_H3s512_359M_s0: train.py --arm H3s512 --seed 0 --lr 0.002 --tokens 359399424 --sched wsd --branch_at 359399424 --decay_frac 0.1 --n_evals 12 --name wsd_H3s512_359M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3s512_359M_s0: rc 0, 29.3 min, round-11 total 7.65 h
+[r11] finished
+[round11] d384 H3s512:0 --label H3s512 --tokens 359399424 --branch_at 359399424 end Tue Nov 10 21:13:28 CET 2026
+[round11] d384 B:1 --label B384 --tokens 300e6 --branch_at 150e6,300e6 start Tue Nov 10 22:13:45 CET 2026
+[r11] start wsd_B384_300M_s1: train.py --arm B --seed 1 --lr 0.002 --tokens 300e6 --sched wsd --branch_at 150e6,300e6 --decay_frac 0.1 --n_evals 12 --name wsd_B384_300M_s1 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_B384_300M_s1: rc 0, 37.3 min, round-11 total 8.27 h
+[r11] finished
+[round11] d384 B:1 --label B384 --tokens 300e6 --branch_at 150e6,300e6 end Tue Nov 10 22:51:01 CET 2026
+[round11] d384 H3s384:1 --label H3s384 --tokens 575e6 --branch_at 300e6,575e6 --extra=--keep_branch=300e6 start Tue Nov 10 22:51:01 CET 2026
+[r11] start wsd_H3s384_575M_s1: train.py --arm H3s384 --seed 1 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 300e6,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3s384_575M_s1 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=300e6
+[round11] d384 H3s384:1 --label H3s384 --tokens 575e6 --branch_at 300e6,575e6 --extra=--keep_branch=300e6 start Tue Nov 10 22:59:48 CET 2026
+[r11] start wsd_H3s384_575M_s1: train.py --arm H3s384 --seed 1 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 300e6,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3s384_575M_s1 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=300e6
+[r11] end wsd_H3s384_575M_s1: rc 0, 37.8 min, round-11 total 8.90 h
+[r11] finished
+[round11] d384 H3s384:1 --label H3s384 --tokens 575e6 --branch_at 300e6,575e6 --extra=--keep_branch=300e6 end Tue Nov 10 23:37:37 CET 2026
+[round11] tiny tB:1 start Wed Nov 11 11:23:40 CET 2026
+[r11] start wsd_B_s1: train.py --arm tB --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_B_s1 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_B_s1: rc 0, 78.3 min, round-11 total 10.21 h
+[r11] finished
+[round11] tiny tB:1 end Wed Nov 11 12:41:59 CET 2026

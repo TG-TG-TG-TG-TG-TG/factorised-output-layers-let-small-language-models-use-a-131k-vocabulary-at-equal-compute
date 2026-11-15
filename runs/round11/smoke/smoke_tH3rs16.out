@@ -1,0 +1,4 @@
+smoke_tH3rs16: 1,715,328 non-emb params, 18311 steps, accum 4x16
+step 100/18311 loss 6.8485 352,533 tok/s wait 0.0ms mem 1.33GB
+step 200/18311 loss 6.1784 356,228 tok/s wait 0.0ms mem 1.33GB
+done smoke_tH3rs16: val nan in 1.0 min

@@ -1,0 +1,44 @@
+2002 batches, 41 s
+4001 batches, 66 s
+6004 batches, 99 s
+8002 batches, 123 s
+10000 batches, 152 s
+12003 batches, 184 s
+14003 batches, 214 s
+16002 batches, 240 s
+18001 batches, 271 s
+20002 batches, 296 s
+{
+ "batches": 20142,
+ "rows": 1289088,
+ "targets_counted": 1320026112,
+ "docs_consumed": 1282048,
+ "tokens_per_doc_incl_eot": 1030.6284944089457,
+ "count_s": 298.2518298625946,
+ "nonzero_vocab": 50015,
+ "pad_rows_counted": 0,
+ "train_shard_docs": {
+  "sample/10BT/000_00000.parquet": 726000,
+  "sample/10BT/001_00000.parquet": 729000,
+  "sample/10BT/002_00000.parquet": 727000,
+  "sample/10BT/003_00000.parquet": 734000,
+  "sample/10BT/004_00000.parquet": 745000,
+  "sample/10BT/005_00000.parquet": 738000,
+  "sample/10BT/006_00000.parquet": 732000,
+  "sample/10BT/007_00000.parquet": 725000,
+  "sample/10BT/008_00000.parquet": 724000,
+  "sample/10BT/009_00000.parquet": 713000,
+  "sample/10BT/010_00000.parquet": 730000,
+  "sample/10BT/011_00000.parquet": 735000,
+  "sample/10BT/012_00000.parquet": 732000
+ },
+ "train_docs_total": 9490000,
+ "est_unique_train_tokens": 9780664411.940895,
+ "partD_tokens_needed": 5279973376.0,
+ "top_share": {
+  "256": 0.505590598498706,
+  "1024": 0.6414941722001329,
+  "4096": 0.7978181267977826,
+  "16384": 0.9379384382965903
+ }
+}

@@ -1,0 +1,5 @@
+[A] B384           whole-passage BPB 1.6273  last word 1.7147 (earlier 1.6956 n=4201, rest 1.7991 n=952)
+[A] H3s384_575M    whole-passage BPB 1.6074  last word 1.7042 (earlier 1.6893 n=4201, rest 1.7702 n=952)
+[A] F8k384_631M    whole-passage BPB 1.6281  last word 1.3986 (earlier 1.3063 n=4201, rest 1.8062 n=952)
+[A] F4k384_700M    whole-passage BPB 1.6441  last word 1.3187 (earlier 1.2078 n=4201, rest 1.8077 n=952)
+[A] verdict: whole-passage F8k - H3* +0.0206; last-word advantage earlier +0.3830 / rest -0.0360 -> real effect

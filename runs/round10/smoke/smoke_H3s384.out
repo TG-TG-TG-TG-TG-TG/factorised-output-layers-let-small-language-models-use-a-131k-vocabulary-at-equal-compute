@@ -1,0 +1,4 @@
+smoke_H3s384: 12,203,392 non-emb params, 9918 steps, accum 4x16
+step 100/9918 loss 6.5339 314,819 tok/s wait 0.0ms mem 3.06GB
+step 200/9918 loss 5.8354 314,732 tok/s wait 0.0ms mem 3.06GB
+done smoke_H3s384: val nan in 1.1 min

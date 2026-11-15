@@ -1,0 +1,8 @@
+balanced_kmeans sizes min/max: 25 25
+rows sum to 1: True
+fast NLL == full NLL: True
+exact greedy matches argmax: 64/64; classes expanded mean 1.75 of 24
+ancestral sampling TV distance to model distribution (200k samples): 0.0096
+rank flat / class-bias / hier: 18 41 41 (bounds 18, 41, 41)
+grad_retention random residual: flat 0.0263 (~0.0283), with classes 0.0670 (~0.0683)
+grouped (ragged_dot) NLL == gather NLL: True | grads equal: True

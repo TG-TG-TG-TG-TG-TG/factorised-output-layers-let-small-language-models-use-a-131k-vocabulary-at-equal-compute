@@ -1,0 +1,7 @@
+[r8] start wsd_H2_s0: train.py --arm tH2 --seed 0 --lr 0.002 --tokens 1200000000 --sched wsd --branch_at 75000000,150000000,300000000,600000000,1200000000 --n_evals 12 --name wsd_H2_s0 --runs_dir /path/to/repo/runs/round8 --keep_params
+[r8] end wsd_H2_s0: rc 0, 16.5 min, round-8 total 1.61 h
+[r8] start wsd_H2r_s0: train.py --arm tH2r --seed 0 --lr 0.002 --tokens 1200000000 --sched wsd --branch_at 75000000,150000000,300000000,600000000,1200000000 --n_evals 12 --name wsd_H2r_s0 --runs_dir /path/to/repo/runs/round8 --keep_params
+[r8] end wsd_H2r_s0: rc 0, 16.1 min, round-8 total 1.88 h
+[r8] start wsd_CB_s0: train.py --arm tCB --seed 0 --lr 0.002 --tokens 1200000000 --sched wsd --branch_at 75000000,150000000,300000000,600000000,1200000000 --n_evals 12 --name wsd_CB_s0 --runs_dir /path/to/repo/runs/round8 --keep_params
+[r8] end wsd_CB_s0: rc 0, 104.5 min, round-8 total 3.62 h
+[r8] finished

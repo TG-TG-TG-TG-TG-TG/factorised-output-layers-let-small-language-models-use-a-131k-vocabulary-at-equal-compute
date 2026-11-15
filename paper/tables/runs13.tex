@@ -1,0 +1,22 @@
+\begin{tabular}{llcc}
+\toprule
+run (\texttt{runs/round13}) & arm & seed & BPB at the main point \\
+\midrule
+\texttt{wsd\_tBproxy\_50M\_s0} & 50k cluster proxy (flat, $d=128$) & 0 & -- \\
+\texttt{wsd\_B384m\_315M\_s0} & flat 50k (0.5$\times$, 1$\times$ branches) & 0 & 1.1753 \\
+\texttt{wsd\_H3p384\_575M\_s0} & two-level 50k, proxy clusters & 0 & 1.1626 \\
+\texttt{wsd\_AS384\_624M\_s0} & adaptive softmax 50k & 0 & 1.1624 \\
+\texttt{wsd\_B384m\_315M\_s1} & flat 50k (0.5$\times$, 1$\times$ branches) & 1 & 1.1763 \\
+\texttt{wsd\_H3p384\_575M\_s1} & two-level 50k, proxy clusters & 1 & 1.1616 \\
+\texttt{wsd\_AS384\_624M\_s1} & adaptive softmax 50k & 1 & 1.1632 \\
+\texttt{wsd\_B384x2\_630M\_s0} & flat 50k, 2$\times$ & 0 & 1.1409 \\
+\texttt{wsd\_H3p384x2\_1150M\_s0} & two-level 50k, 2$\times$ & 0 & 1.1352 \\
+\texttt{wsd\_AS128k384\_620M\_s0} & adaptive softmax 131k, setup 1 & 0 & 1.1735 \\
+\texttt{wsd\_AS128k384\_620M\_s1} & adaptive softmax 131k, setup 1 & 1 & 1.1738 \\
+\texttt{wsd\_AS128k384c49\_612M\_s0} & adaptive softmax 131k, setup 2 & 0 & 1.1629 \\
+\texttt{wsd\_AS128k384c49\_612M\_s1} & adaptive softmax 131k, setup 2 & 1 & 1.1628 \\
+\texttt{wsd\_AS128k384c49w\_540M\_s0} & adaptive softmax 131k, full width & 0 & 1.1522 \\
+\texttt{wsd\_AS128k384c49w\_540M\_s1} & adaptive softmax 131k, full width & 1 & 1.1536 \\
+\texttt{wsd\_H128k384\_575M\_s1} & two-level 131k (seed 0 is in \texttt{round12}) & 1 & 1.1539 \\
+\bottomrule
+\end{tabular}

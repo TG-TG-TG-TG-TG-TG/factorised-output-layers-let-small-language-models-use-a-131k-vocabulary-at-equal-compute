@@ -1,0 +1,42 @@
+[launchA] chainR7 stopped after B384 s1 Tue Nov 10 22:51:22 CET 2026
+[r12chain] one d384 tF128k:0 --label tF128k_proxy --tokens 50003968 --branch_at 50003968 start Tue Nov 10 22:51:22 CET 2026
+[r12] start wsd_tF128k_proxy_50M_s0: train.py --arm tF128k --seed 0 --lr 0.002 --tokens 50003968 --sched wsd --branch_at 50003968 --decay_frac 0.1 --n_evals 12 --name wsd_tF128k_proxy_50M_s0 --runs_dir /path/to/repo/runs/round12 --keep_params
+[r12] end wsd_tF128k_proxy_50M_s0: rc 0, 8.4 min, round-12 total 0.14 h
+[r12] finished
+[r12chain] one d384 tF128k:0 --label tF128k_proxy --tokens 50003968 --branch_at 50003968 end Tue Nov 10 22:59:48 CET 2026
+[r12chain] py round12_require.py gates start Tue Nov 10 23:41:06 CET 2026
+REQUIRE OK
+[r12chain] py round12_require.py gates end Tue Nov 10 23:41:05 CET 2026
+[r12chain] smoke B@315162624 F128k384@160759808 H128k384@574750720 start Tue Nov 10 23:41:05 CET 2026
+step 200/4809 loss 5.9153 156,669 tok/s wait 0.0ms mem 3.90GB
+done smoke_B: val nan in 1.8 min
+step 200/2453 loss 6.3278 68,543 tok/s wait 0.0ms mem 3.96GB
+done smoke_F128k384: val nan in 3.6 min
+step 200/8770 loss 6.1543 286,882 tok/s wait 0.0ms mem 3.58GB
+done smoke_H128k384: val nan in 1.2 min
+[r12chain] smoke B@315162624 F128k384@160759808 H128k384@574750720 end Tue Nov 10 23:47:55 CET 2026
+[r12chain] py round12_smoke_check.py start Tue Nov 10 23:47:55 CET 2026
+B        loss@200 5.9153     156,669 tok/s (1.00x B)  step 418 ms  peak 3.90 GB  wait 0.0 ms  head 38,633,472 FLOPs/tok (1.000x B)  train FLOPs 1.000x B  est full 41 min  data hash OK
+F128k384 loss@200 6.3278      68,543 tok/s (0.44x B)  step 956 ms  peak 3.96 GB  wait 0.0 ms  head 100,663,296 FLOPs/tok (2.606x B)  train FLOPs 1.960x B  est full 47 min  data hash n/a (bpe131072)
+H128k384 loss@200 6.1543     286,882 tok/s (1.83x B)  step 228 ms  peak 3.58 GB  wait 0.0 ms  head 9,463,296 FLOPs/tok (0.245x B)  train FLOPs 0.548x B  est full 41 min  data hash n/a (bpe131072)
+gate 4 (data) / smoke: OK
+[r12chain] py round12_smoke_check.py end Tue Nov 10 23:47:56 CET 2026
+[r12chain] py round12_require.py smoke start Tue Nov 10 23:47:56 CET 2026
+gate 4 OK: F128k384 and H128k384 saw identical first 3 batches
+B: est full 41 min
+F128k384: est full 47 min
+H128k384: est full 41 min
+REQUIRE OK
+[r12chain] py round12_require.py smoke end Tue Nov 10 23:47:56 CET 2026
+[r12chain] one d384 B:0 --label B384m --tokens 315162624 --branch_at 164429824,315162624 start Tue Nov 10 23:47:56 CET 2026
+[r12] start wsd_B384m_315M_s0: train.py --arm B --seed 0 --lr 0.002 --tokens 315162624 --sched wsd --branch_at 164429824,315162624 --decay_frac 0.1 --n_evals 12 --name wsd_B384m_315M_s0 --runs_dir /path/to/repo/runs/round12 --keep_params
+[r12] end wsd_B384m_315M_s0: rc 0, 37.8 min, round-12 total 0.77 h
+[r12] finished
+[r12chain] one d384 B:0 --label B384m --tokens 315162624 --branch_at 164429824,315162624 end Wed Nov 11 00:25:42 CET 2026
+[r12chain] one d384 B:1 --label B384m --tokens 315162624 --branch_at 164429824,315162624 start Wed Nov 11 00:25:42 CET 2026
+[r12] start wsd_B384m_315M_s1: train.py --arm B --seed 1 --lr 0.002 --tokens 315162624 --sched wsd --branch_at 164429824,315162624 --decay_frac 0.1 --n_evals 12 --name wsd_B384m_315M_s1 --runs_dir /path/to/repo/runs/round12 --keep_params
+[r12] end wsd_B384m_315M_s1: rc 0, 36.9 min, round-12 total 1.39 h
+[r12] finished
+[r12chain] one d384 B:1 --label B384m --tokens 315162624 --branch_at 164429824,315162624 end Wed Nov 11 01:02:38 CET 2026
+[r12chain] one d384 F128k384:0 --label F128k384 --tokens 160759808 --branch_at 83886080,160759808 --extra=--keep_branch=83886080 start Wed Nov 11 01:02:38 CET 2026
+[r12] start wsd_F128k384_161M_s0: train.py --arm F128k384 --seed 0 --lr 0.002 --tokens 160759808 --sched wsd --branch_at 83886080,160759808 --decay_frac 0.1 --n_evals 12 --name wsd_F128k384_161M_s0 --runs_dir /path/to/repo/runs/round12 --keep_params --keep_branch=83886080

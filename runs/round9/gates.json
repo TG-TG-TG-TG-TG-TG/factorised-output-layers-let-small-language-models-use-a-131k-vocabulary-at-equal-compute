@@ -1,0 +1,287 @@
+{
+ "acct tH2tm": {
+  "total_params": 7753856,
+  "new_params": 132096,
+  "head_fwd_flops_per_token": 275336.6328125,
+  "head_ratio_to_B": 0.021380679904656252,
+  "train_flops_per_token": {
+   "non_embedding": 11796480,
+   "head": 826009.8984375,
+   "total": 12622489.8984375
+  }
+ },
+ "4 tH2tm backbone init bit-identical to tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "1 tH2tm [init] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "11.154831 vs 11.154831"
+ },
+ "1 tH2tm [init] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 tH2tm [init] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 4.77e-07"
+ },
+ "2 tH2tm [init] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 4.29e-07 (max |grad| 1.04e-01)"
+ },
+ "2 tH2tm [init] dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 5.88e-09 (max |grad| 6.34e-01)"
+ },
+ "2 tH2tm [init] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 1.50e-09 (max |grad| 3.11e-01)"
+ },
+ "1 tH2tm [trainedB] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "6.572600 vs 6.572600"
+ },
+ "1 tH2tm [trainedB] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 5.72e-06"
+ },
+ "1 tH2tm [trainedB] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 1.07e-06"
+ },
+ "2 tH2tm [trainedB] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 3.83e-07 (max |grad| 1.17e-01)"
+ },
+ "2 tH2tm [trainedB] dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 5.86e-08 (max |grad| 2.03e+00)"
+ },
+ "2 tH2tm [trainedB] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 1.70e-08 (max |grad| 2.19e-01)"
+ },
+ "5 tH2tm tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 11.05481, losses [11.0905, 11.0729] -> [11.05481, 11.0368]"
+ },
+ "acct tH2a": {
+  "total_params": 7753856,
+  "new_params": 132096,
+  "head_fwd_flops_per_token": 1322496,
+  "head_ratio_to_B": 0.1026956106870229,
+  "train_flops_per_token": {
+   "non_embedding": 11796480,
+   "head": 3967488,
+   "total": 15763968
+  }
+ },
+ "4 tH2a backbone init bit-identical to tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "3 tH2a frequent/tail disjoint and cover": {
+  "ok": true,
+  "detail": "4096 frequent + 46161 tail = 50257; cluster sizes min 13 max 46, histogram {13: 1, 17: 1, 19: 1, 22: 2, 23: 3, 25: 2, 26: 1, 27: 1, 29: 2, 30: 5, 31: 2, 32: 2, 33: 1, 34: 3, 35: 4, 36: 5, 37: 3, 38: 6, 39: 3, 40: 7, 41: 14, 42: 8, 43: 15, 44: 17, 45: 22, 46: 893}"
+ },
+ "1 tH2a [init] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "9.942062 vs 9.942063"
+ },
+ "1 tH2a [init] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 tH2a [init] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 5.36e-07"
+ },
+ "2 tH2a [init] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 1.80e-07 (max |grad| 8.30e-02)"
+ },
+ "2 tH2a [init] dL/dhead.Vc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 2.99e-08 (max |grad| 1.75e-02)"
+ },
+ "2 tH2a [init] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 1.50e-08 (max |grad| 7.76e-03)"
+ },
+ "1 tH2a [trainedB] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "5.655055 vs 5.655055"
+ },
+ "1 tH2a [trainedB] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 9.54e-06"
+ },
+ "1 tH2a [trainedB] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 8.34e-07"
+ },
+ "2 tH2a [trainedB] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 2.84e-07 (max |grad| 3.15e-01)"
+ },
+ "2 tH2a [trainedB] dL/dhead.Vc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 1.13e-07 (max |grad| 1.31e-01)"
+ },
+ "2 tH2a [trainedB] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 1.05e-07 (max |grad| 8.87e-03)"
+ },
+ "5 tH2a tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 9.88390, losses [9.89808, 9.89111] -> [9.8839, 9.87654]"
+ },
+ "acct tH2atm": {
+  "total_params": 7753856,
+  "new_params": 132096,
+  "head_fwd_flops_per_token": 1322888.6328125,
+  "head_ratio_to_B": 0.10272609975198449,
+  "train_flops_per_token": {
+   "non_embedding": 11796480,
+   "head": 3968665.8984375,
+   "total": 15765145.8984375
+  }
+ },
+ "4 tH2atm backbone init bit-identical to tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "3 tH2atm frequent/tail disjoint and cover": {
+  "ok": true,
+  "detail": "4096 frequent + 46161 tail = 50257; cluster sizes min 13 max 46, histogram {13: 1, 17: 1, 19: 1, 22: 2, 23: 3, 25: 2, 26: 1, 27: 1, 29: 2, 30: 5, 31: 2, 32: 2, 33: 1, 34: 3, 35: 4, 36: 5, 37: 3, 38: 6, 39: 3, 40: 7, 41: 14, 42: 8, 43: 15, 44: 17, 45: 22, 46: 893}"
+ },
+ "1 tH2atm [init] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "9.861095 vs 9.861096"
+ },
+ "1 tH2atm [init] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 tH2atm [init] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 4.77e-07"
+ },
+ "2 tH2atm [init] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 8.98e-08 (max |grad| 8.30e-02)"
+ },
+ "2 tH2atm [init] dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 2.68e-08 (max |grad| 1.74e-02)"
+ },
+ "2 tH2atm [init] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 7.56e-09 (max |grad| 7.70e-03)"
+ },
+ "1 tH2atm [trainedB] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "5.002807 vs 5.002807"
+ },
+ "1 tH2atm [trainedB] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 9.54e-06"
+ },
+ "1 tH2atm [trainedB] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 8.34e-07"
+ },
+ "2 tH2atm [trainedB] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 9.13e-07 (max |grad| 1.14e-01)"
+ },
+ "2 tH2atm [trainedB] dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 5.43e-08 (max |grad| 1.20e-01)"
+ },
+ "2 tH2atm [trainedB] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 4.20e-08 (max |grad| 7.80e-03)"
+ },
+ "5 tH2atm tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 9.78363, losses [9.79671, 9.79004] -> [9.78363, 9.77641]"
+ },
+ "acct tH2u": {
+  "total_params": 14186752,
+  "new_params": 6564992,
+  "head_fwd_flops_per_token": 274944,
+  "head_ratio_to_B": 0.021350190839694656,
+  "train_flops_per_token": {
+   "non_embedding": 11796480,
+   "head": 824832,
+   "total": 12621312
+  }
+ },
+ "4 tH2u backbone init bit-identical to tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "1 tH2u [init] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "11.487128 vs 11.487128"
+ },
+ "1 tH2u [init] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 tH2u [init] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 5.36e-07"
+ },
+ "2 tH2u [init] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 0.00e+00 (max |grad| 0.00e+00)"
+ },
+ "2 tH2u [init] dL/dhead.Uo fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 6.66e-07 (max |grad| 6.72e-02)"
+ },
+ "2 tH2u [init] dL/dhead.Vc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 0.00e+00 (max |grad| 6.34e-01)"
+ },
+ "2 tH2u [init] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 0.00e+00 (max |grad| 3.11e-01)"
+ },
+ "1 tH2u [trainedB] lm_loss == mean -ref[y] (16384 tok)": {
+  "ok": true,
+  "detail": "10.960919 vs 10.960919"
+ },
+ "1 tH2u [trainedB] fast == -ref[y] per token (2048)": {
+  "ok": true,
+  "detail": "max |diff| 3.81e-06"
+ },
+ "1 tH2u [trainedB] sum exp(ref) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 4.77e-07"
+ },
+ "2 tH2u [trainedB] dL/demb fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 0.00e+00 (max |grad| 0.00e+00)"
+ },
+ "2 tH2u [trainedB] dL/dhead.Uo fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 5.96e-07 (max |grad| 9.38e-02)"
+ },
+ "2 tH2u [trainedB] dL/dhead.Vc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 0.00e+00 (max |grad| 2.85e+00)"
+ },
+ "2 tH2u [trainedB] dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "max |diff| / max |grad| 0.00e+00 (max |grad| 3.10e-01)"
+ },
+ "5 tH2u tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 11.30021, losses [11.42484, 11.36257] -> [11.30021, 11.23924]"
+ },
+ "fails": []
+}

@@ -1,0 +1,50 @@
+tH3k8: params 7,753,856 (new 132,096); head fwd FLOPs/token 2,370,441 = 0.1841 x B
+[OK] 4 tH3k8 backbone init bit-identical to tB: 62 tensors
+[OK] 3 tH3k8 frequent/tail disjoint and cover: 8192 frequent + 42065 tail = 50257; cluster sizes min 8 max 42, histogram {8: 2, 11: 1, 12: 1, 16: 1, 17: 1, 19: 1, 21: 2, 22: 2, 23: 1, 24: 2, 25: 1, 26: 3, 27: 2, 28: 6, 29: 2, 30: 2, 31: 1, 32: 4, 33: 4, 34: 7, 35: 4, 36: 7, 37: 10, 38: 10, 39: 11, 40: 9, 41: 20, 42: 907}
+[OK] 1 tH3k8 [init] lm_loss == mean -ref[y] (16384 tok): 10.182816 vs 10.182815
+[OK] 1 tH3k8 [init] fast == -ref[y] per token (2048): max |diff| 1.91e-06
+[OK] 1 tH3k8 [init] sum exp(ref) == 1: max |sum - 1| 5.36e-07
+[OK] 2 tH3k8 [init] dL/demb fast == ref: max |diff| / max |grad| 8.98e-08 (max |grad| 8.30e-02)
+[OK] 2 tH3k8 [init] dL/dhead.R fast == ref: max |diff| / max |grad| 2.99e-08 (max |grad| 7.78e-03)
+[OK] 2 tH3k8 [init] dL/dhead.bc fast == ref: max |diff| / max |grad| 8.71e-09 (max |grad| 3.34e-03)
+[OK] 1 tH3k8 [trainedB] lm_loss == mean -ref[y] (16384 tok): 4.652033 vs 4.652033
+[OK] 1 tH3k8 [trainedB] fast == -ref[y] per token (2048): max |diff| 9.54e-06
+[OK] 1 tH3k8 [trainedB] sum exp(ref) == 1: max |sum - 1| 8.34e-07
+[OK] 2 tH3k8 [trainedB] dL/demb fast == ref: max |diff| / max |grad| 9.14e-07 (max |grad| 9.78e-02)
+[OK] 2 tH3k8 [trainedB] dL/dhead.R fast == ref: max |diff| / max |grad| 4.94e-08 (max |grad| 1.13e-01)
+[OK] 2 tH3k8 [trainedB] dL/dhead.bc fast == ref: max |diff| / max |grad| 6.82e-08 (max |grad| 3.41e-03)
+[OK] 5 tH3k8 tracer leak (scan, jit eval, scan): eval 10.08247, losses [10.09533, 10.08895] -> [10.08247, 10.07572]
+tH3c4: params 8,150,144 (new 528,384); head fwd FLOPs/token 2,100,617 = 0.1631 x B
+[OK] 4 tH3c4 backbone init bit-identical to tB: 62 tensors
+[OK] 3 tH3c4 frequent/tail disjoint and cover: 4096 frequent + 46161 tail = 50257; cluster sizes min 1 max 12, histogram {1: 28, 2: 46, 3: 26, 4: 49, 5: 44, 6: 35, 7: 53, 8: 39, 9: 66, 10: 104, 11: 252, 12: 3354}
+[OK] 1 tH3c4 [init] lm_loss == mean -ref[y] (16384 tok): 9.951193 vs 9.951194
+[OK] 1 tH3c4 [init] fast == -ref[y] per token (2048): max |diff| 1.91e-06
+[OK] 1 tH3c4 [init] sum exp(ref) == 1: max |sum - 1| 4.77e-07
+[OK] 2 tH3c4 [init] dL/demb fast == ref: max |diff| / max |grad| 4.49e-08 (max |grad| 8.30e-02)
+[OK] 2 tH3c4 [init] dL/dhead.R fast == ref: max |diff| / max |grad| 2.85e-08 (max |grad| 1.64e-02)
+[OK] 2 tH3c4 [init] dL/dhead.bc fast == ref: max |diff| / max |grad| 3.24e-08 (max |grad| 7.18e-03)
+[OK] 1 tH3c4 [trainedB] lm_loss == mean -ref[y] (16384 tok): 4.809400 vs 4.809400
+[OK] 1 tH3c4 [trainedB] fast == -ref[y] per token (2048): max |diff| 9.54e-06
+[OK] 1 tH3c4 [trainedB] sum exp(ref) == 1: max |sum - 1| 8.34e-07
+[OK] 2 tH3c4 [trainedB] dL/demb fast == ref: max |diff| / max |grad| 6.98e-07 (max |grad| 1.01e-01)
+[OK] 2 tH3c4 [trainedB] dL/dhead.R fast == ref: max |diff| / max |grad| 1.32e-07 (max |grad| 1.27e-01)
+[OK] 2 tH3c4 [trainedB] dL/dhead.bc fast == ref: max |diff| / max |grad| 6.41e-08 (max |grad| 7.27e-03)
+[OK] 5 tH3c4 tracer leak (scan, jit eval, scan): eval 9.86711, losses [9.88007, 9.87375] -> [9.86711, 9.86017]
+tH3k8c4: params 8,150,144 (new 528,384); head fwd FLOPs/token 3,148,937 = 0.2445 x B
+[OK] 4 tH3k8c4 backbone init bit-identical to tB: 62 tensors
+[OK] 3 tH3k8c4 frequent/tail disjoint and cover: 8192 frequent + 42065 tail = 50257; cluster sizes min 1 max 11, histogram {1: 49, 2: 39, 3: 42, 4: 50, 5: 52, 6: 43, 7: 55, 8: 80, 9: 110, 10: 257, 11: 3319}
+[OK] 1 tH3k8c4 [init] lm_loss == mean -ref[y] (16384 tok): 10.230408 vs 10.230408
+[OK] 1 tH3k8c4 [init] fast == -ref[y] per token (2048): max |diff| 1.91e-06
+[OK] 1 tH3k8c4 [init] sum exp(ref) == 1: max |sum - 1| 4.77e-07
+[OK] 2 tH3k8c4 [init] dL/demb fast == ref: max |diff| / max |grad| 2.24e-08 (max |grad| 8.30e-02)
+[OK] 2 tH3k8c4 [init] dL/dhead.R fast == ref: max |diff| / max |grad| 2.95e-08 (max |grad| 7.90e-03)
+[OK] 2 tH3k8c4 [init] dL/dhead.bc fast == ref: max |diff| / max |grad| 1.73e-08 (max |grad| 3.37e-03)
+[OK] 1 tH3k8c4 [trainedB] lm_loss == mean -ref[y] (16384 tok): 4.530510 vs 4.530510
+[OK] 1 tH3k8c4 [trainedB] fast == -ref[y] per token (2048): max |diff| 8.58e-06
+[OK] 1 tH3k8c4 [trainedB] sum exp(ref) == 1: max |sum - 1| 7.15e-07
+[OK] 2 tH3k8c4 [trainedB] dL/demb fast == ref: max |diff| / max |grad| 7.78e-07 (max |grad| 9.81e-02)
+[OK] 2 tH3k8c4 [trainedB] dL/dhead.R fast == ref: max |diff| / max |grad| 6.54e-08 (max |grad| 1.14e-01)
+[OK] 2 tH3k8c4 [trainedB] dL/dhead.bc fast == ref: max |diff| / max |grad| 5.27e-08 (max |grad| 3.31e-03)
+[OK] 5 tH3k8c4 tracer leak (scan, jit eval, scan): eval 10.14621, losses [10.15905, 10.15267] -> [10.14621, 10.13941]
+
+ALL GATES OK

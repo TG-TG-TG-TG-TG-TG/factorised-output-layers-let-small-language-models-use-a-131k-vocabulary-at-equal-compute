@@ -1,0 +1,404 @@
+{
+ "acct Rloop": {
+  "blocks": 1179648,
+  "per_copy": 36992,
+  "tied_embedding": 6438912,
+  "head": 528384,
+  "ngram": 0,
+  "total": 8183936,
+  "train_flops_per_token": {
+   "non_embedding": 47185920,
+   "head": 9446809.8984375,
+   "total": 56632729.8984375
+  },
+  "train_flops_vs_tB": 1.1229978941569785,
+  "n_eff": 24,
+  "alpha0": 0.14433756729740646,
+  "d": 128,
+  "f": 512,
+  "H": 2
+ },
+ "C1 Rloop schedule": {
+  "ok": true,
+  "detail": "24 applications, blocks [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5], 24 copies"
+ },
+ "C3 Rloop shared blocks == tB init, gates gam 1 beta 0": {
+  "ok": true,
+  "detail": "blocks True, gates True"
+ },
+ "C2 Rloop alpha init 1/sqrt(2*24)": {
+  "ok": true,
+  "detail": "0.144338 on all 24 copies"
+ },
+ "1 Rloop lm_loss == mean -ref[y] (2048 tok)": {
+  "ok": true,
+  "detail": "10.224258 vs 10.224259"
+ },
+ "1 Rloop fast == -ref[y] per token": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 Rloop sum exp(ref) == 1": {
+  "ok": true,
+  "detail": ""
+ },
+ "2 Rloop dL/demb fast == ref": {
+  "ok": true,
+  "detail": "rel 3.91e-08"
+ },
+ "2 Rloop dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "rel 2.65e-08"
+ },
+ "2 Rloop dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "rel 3.45e-08"
+ },
+ "acct Rdeep": {
+  "blocks": 4718592,
+  "per_copy": 12416,
+  "tied_embedding": 6438912,
+  "head": 528384,
+  "ngram": 0,
+  "total": 11698304,
+  "train_flops_per_token": {
+   "non_embedding": 47185920,
+   "head": 9446809.8984375,
+   "total": 56632729.8984375
+  },
+  "train_flops_vs_tB": 1.1229978941569785,
+  "n_eff": 24,
+  "alpha0": 0.14433756729740646,
+  "d": 128,
+  "f": 512,
+  "H": 2
+ },
+ "C1 Rdeep schedule": {
+  "ok": true,
+  "detail": "24 unique blocks, d 128"
+ },
+ "C2 Rdeep alpha init 1/sqrt(2*24)": {
+  "ok": true,
+  "detail": "0.144338 on all 24 copies"
+ },
+ "1 Rdeep lm_loss == mean -ref[y] (2048 tok)": {
+  "ok": true,
+  "detail": "10.158330 vs 10.158329"
+ },
+ "1 Rdeep fast == -ref[y] per token": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 Rdeep sum exp(ref) == 1": {
+  "ok": true,
+  "detail": ""
+ },
+ "2 Rdeep dL/demb fast == ref": {
+  "ok": true,
+  "detail": "rel 7.55e-08"
+ },
+ "2 Rdeep dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "rel 5.54e-08"
+ },
+ "2 Rdeep dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "rel 1.72e-08"
+ },
+ "acct Rwide": {
+  "blocks": 4718592,
+  "per_copy": 6400,
+  "tied_embedding": 12877824,
+  "head": 1052672,
+  "ngram": 0,
+  "total": 18655488,
+  "train_flops_per_token": {
+   "non_embedding": 37748736,
+   "head": 18893619.796875,
+   "total": 56642355.796875
+  },
+  "train_flops_vs_tB": 1.1231887707700972,
+  "n_eff": 6,
+  "alpha0": 0.2886751345948129,
+  "d": 256,
+  "f": 1024,
+  "H": 4
+ },
+ "C1 Rwide schedule": {
+  "ok": true,
+  "detail": "6 unique blocks, d 256"
+ },
+ "C2 Rwide alpha init 1/sqrt(2*6)": {
+  "ok": true,
+  "detail": "0.288675 on all 6 copies"
+ },
+ "1 Rwide lm_loss == mean -ref[y] (2048 tok)": {
+  "ok": true,
+  "detail": "10.141216 vs 10.141216"
+ },
+ "1 Rwide fast == -ref[y] per token": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 Rwide sum exp(ref) == 1": {
+  "ok": true,
+  "detail": ""
+ },
+ "2 Rwide dL/demb fast == ref": {
+  "ok": true,
+  "detail": "rel 1.61e-08"
+ },
+ "2 Rwide dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "rel 4.46e-08"
+ },
+ "2 Rwide dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "rel 1.71e-08"
+ },
+ "acct RB24": {
+  "blocks": 4718592,
+  "per_copy": 12416,
+  "tied_embedding": 6438912,
+  "head": 0,
+  "ngram": 0,
+  "total": 11169920,
+  "train_flops_per_token": {
+   "non_embedding": 47185920,
+   "head": 38633472,
+   "total": 85819392
+  },
+  "train_flops_vs_tB": 1.7017543859649122,
+  "n_eff": 24,
+  "alpha0": 0.14433756729740646,
+  "d": 128,
+  "f": 512,
+  "H": 2
+ },
+ "C1 RB24 schedule": {
+  "ok": true,
+  "detail": "24 unique blocks, d 128"
+ },
+ "C2 RB24 alpha init 1/sqrt(2*24)": {
+  "ok": true,
+  "detail": "0.144338 on all 24 copies"
+ },
+ "acct tD1": {
+  "blocks": 1179648,
+  "per_copy": 3200,
+  "tied_embedding": 6438912,
+  "head": 528384,
+  "ngram": 134217728,
+  "total": 142367872,
+  "train_flops_per_token": {
+   "non_embedding": 11796480,
+   "head": 9446809.8984375,
+   "total": 21243289.8984375
+  },
+  "train_flops_vs_tB": 0.4212435081920661,
+  "n_eff": 6,
+  "alpha0": 0.2886751345948129,
+  "d": 128,
+  "f": 512,
+  "H": 2
+ },
+ "C1 tD1 schedule": {
+  "ok": true,
+  "detail": "6 unique blocks, d 128"
+ },
+ "C2 tD1 alpha init 1/sqrt(2*6)": {
+  "ok": true,
+  "detail": "0.288675 on all 6 copies"
+ },
+ "1 tD1 lm_loss == mean -ref[y] (2048 tok)": {
+  "ok": true,
+  "detail": "10.240114 vs 10.240114"
+ },
+ "1 tD1 fast == -ref[y] per token": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 tD1 sum exp(ref) == 1": {
+  "ok": true,
+  "detail": ""
+ },
+ "2 tD1 dL/demb fast == ref": {
+  "ok": true,
+  "detail": "rel 4.42e-08"
+ },
+ "2 tD1 dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "rel 2.99e-08"
+ },
+ "2 tD1 dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "rel 1.72e-08"
+ },
+ "D1 tD1 init == tH3k8c4 (params, loss, shared grads)": {
+  "ok": true,
+  "detail": "loss 10.1591473 vs 10.1591473, grads True, params True"
+ },
+ "D2 tD1 ng2 ids == python reference": {
+  "ok": true,
+  "detail": "2048 positions, 3 EOTs, 5 with a missing previous token, 1693 distinct ids"
+ },
+ "D3 tD1 ng2 sparse row grads == dense grad": {
+  "ok": true,
+  "detail": "1693 rows, rel err 0.00e+00, untouched rows' dense grad all zero True"
+ },
+ "acct tD2": {
+  "blocks": 1179648,
+  "per_copy": 3200,
+  "tied_embedding": 6438912,
+  "head": 528384,
+  "ngram": 268435456,
+  "total": 276585600,
+  "train_flops_per_token": {
+   "non_embedding": 11796480,
+   "head": 9446809.8984375,
+   "total": 21243289.8984375
+  },
+  "train_flops_vs_tB": 0.4212435081920661,
+  "n_eff": 6,
+  "alpha0": 0.2886751345948129,
+  "d": 128,
+  "f": 512,
+  "H": 2
+ },
+ "C1 tD2 schedule": {
+  "ok": true,
+  "detail": "6 unique blocks, d 128"
+ },
+ "C2 tD2 alpha init 1/sqrt(2*6)": {
+  "ok": true,
+  "detail": "0.288675 on all 6 copies"
+ },
+ "1 tD2 lm_loss == mean -ref[y] (2048 tok)": {
+  "ok": true,
+  "detail": "10.236979 vs 10.236979"
+ },
+ "1 tD2 fast == -ref[y] per token": {
+  "ok": true,
+  "detail": "max |diff| 2.86e-06"
+ },
+ "1 tD2 sum exp(ref) == 1": {
+  "ok": true,
+  "detail": ""
+ },
+ "2 tD2 dL/demb fast == ref": {
+  "ok": true,
+  "detail": "rel 4.44e-08"
+ },
+ "2 tD2 dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "rel 6.15e-08"
+ },
+ "2 tD2 dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "rel 3.44e-08"
+ },
+ "D1 tD2 init == tH3k8c4 (params, loss, shared grads)": {
+  "ok": true,
+  "detail": "loss 10.1591473 vs 10.1591473, grads True, params True"
+ },
+ "D2 tD2 ng2 ids == python reference": {
+  "ok": true,
+  "detail": "2048 positions, 3 EOTs, 5 with a missing previous token, 1693 distinct ids"
+ },
+ "D2 tD2 ng3 ids == python reference": {
+  "ok": true,
+  "detail": "2048 positions, 3 EOTs, 10 with a missing previous token, 1940 distinct ids"
+ },
+ "D3 tD2 ng2 sparse row grads == dense grad": {
+  "ok": true,
+  "detail": "1693 rows, rel err 0.00e+00, untouched rows' dense grad all zero True"
+ },
+ "D3 tD2 ng3 sparse row grads == dense grad": {
+  "ok": true,
+  "detail": "1940 rows, rel err 0.00e+00, untouched rows' dense grad all zero True"
+ },
+ "acct H3s384": {
+  "blocks": 10616832,
+  "per_copy": 9600,
+  "tied_embedding": 19316736,
+  "head": 1576960,
+  "ngram": 0,
+  "total": 31520128,
+  "train_flops_per_token": {
+   "non_embedding": 77856768,
+   "head": 28340429.6953125,
+   "total": 106197197.6953125
+  },
+  "train_flops_vs_tB": 2.105835787734093,
+  "n_eff": 6,
+  "alpha0": 0.2886751345948129,
+  "d": 384,
+  "f": 1536,
+  "H": 6
+ },
+ "C1 H3s384 schedule": {
+  "ok": true,
+  "detail": "6 unique blocks, d 384"
+ },
+ "C2 H3s384 alpha init 1/sqrt(2*6)": {
+  "ok": true,
+  "detail": "0.288675 on all 6 copies"
+ },
+ "1 H3s384 lm_loss == mean -ref[y] (2048 tok)": {
+  "ok": true,
+  "detail": "10.178701 vs 10.178701"
+ },
+ "1 H3s384 fast == -ref[y] per token": {
+  "ok": true,
+  "detail": "max |diff| 2.86e-06"
+ },
+ "1 H3s384 sum exp(ref) == 1": {
+  "ok": true,
+  "detail": ""
+ },
+ "2 H3s384 dL/demb fast == ref": {
+  "ok": true,
+  "detail": "rel 3.82e-08"
+ },
+ "2 H3s384 dL/dhead.R fast == ref": {
+  "ok": true,
+  "detail": "rel 2.91e-08"
+ },
+ "2 H3s384 dL/dhead.bc fast == ref": {
+  "ok": true,
+  "detail": "rel 1.73e-08"
+ },
+ "D4 lazy AdamW == optax.adamw on touched rows (3 steps), untouched rows unchanged": {
+  "ok": true,
+  "detail": "max |diff| touched 7.45e-09, untouched change 0.0e+00 (dense AdamW decays untouched rows: 1.98e-04)"
+ },
+ "5 Rloop tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 10.12974, losses [10.14291, 10.13628] -> [10.12974, 10.12303]"
+ },
+ "5 Rdeep tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 10.04287, losses [10.07405, 10.05826] -> [10.04287, 10.02742]"
+ },
+ "5 Rwide tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 10.02100, losses [10.0528, 10.03721] -> [10.021, 10.00512]"
+ },
+ "5 RB24 tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 11.29946, losses [11.32968, 11.31471] -> [11.29946, 11.28467]"
+ },
+ "5 tD1 tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 10.14626, losses [10.15905, 10.1526] -> [10.14626, 10.13926]"
+ },
+ "5 tD2 tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 10.14580, losses [10.15905, 10.15243] -> [10.1458, 10.1387]"
+ },
+ "5 H3s384 tracer leak (scan, jit eval, scan)": {
+  "ok": true,
+  "detail": "eval 10.04370, losses [10.09264, 10.0681] -> [10.0437, 10.01902]"
+ },
+ "fails": []
+}

@@ -1,0 +1,4 @@
+smoke_H128k384: 12,203,392 non-emb params, 8770 steps, accum 4x16
+step 100/8770 loss 6.9367 292,211 tok/s wait 0.0ms mem 3.58GB
+step 200/8770 loss 6.1543 286,882 tok/s wait 0.0ms mem 3.58GB
+done smoke_H128k384: val nan in 1.2 min

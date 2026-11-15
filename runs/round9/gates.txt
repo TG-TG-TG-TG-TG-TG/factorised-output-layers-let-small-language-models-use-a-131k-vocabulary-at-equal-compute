@@ -1,0 +1,66 @@
+tH2tm: params 7,753,856 (new 132,096); head fwd FLOPs/token 275,337 = 0.0214 x B
+[OK] 4 tH2tm backbone init bit-identical to tB: 62 tensors
+[OK] 1 tH2tm [init] lm_loss == mean -ref[y] (16384 tok): 11.154831 vs 11.154831
+[OK] 1 tH2tm [init] fast == -ref[y] per token (2048): max |diff| 1.91e-06
+[OK] 1 tH2tm [init] sum exp(ref) == 1: max |sum - 1| 4.77e-07
+[OK] 2 tH2tm [init] dL/demb fast == ref: max |diff| / max |grad| 4.29e-07 (max |grad| 1.04e-01)
+[OK] 2 tH2tm [init] dL/dhead.R fast == ref: max |diff| / max |grad| 5.88e-09 (max |grad| 6.34e-01)
+[OK] 2 tH2tm [init] dL/dhead.bc fast == ref: max |diff| / max |grad| 1.50e-09 (max |grad| 3.11e-01)
+[OK] 1 tH2tm [trainedB] lm_loss == mean -ref[y] (16384 tok): 6.572600 vs 6.572600
+[OK] 1 tH2tm [trainedB] fast == -ref[y] per token (2048): max |diff| 5.72e-06
+[OK] 1 tH2tm [trainedB] sum exp(ref) == 1: max |sum - 1| 1.07e-06
+[OK] 2 tH2tm [trainedB] dL/demb fast == ref: max |diff| / max |grad| 3.83e-07 (max |grad| 1.17e-01)
+[OK] 2 tH2tm [trainedB] dL/dhead.R fast == ref: max |diff| / max |grad| 5.86e-08 (max |grad| 2.03e+00)
+[OK] 2 tH2tm [trainedB] dL/dhead.bc fast == ref: max |diff| / max |grad| 1.70e-08 (max |grad| 2.19e-01)
+[OK] 5 tH2tm tracer leak (scan, jit eval, scan): eval 11.05481, losses [11.0905, 11.0729] -> [11.05481, 11.0368]
+tH2a: params 7,753,856 (new 132,096); head fwd FLOPs/token 1,322,496 = 0.1027 x B
+[OK] 4 tH2a backbone init bit-identical to tB: 62 tensors
+[OK] 3 tH2a frequent/tail disjoint and cover: 4096 frequent + 46161 tail = 50257; cluster sizes min 13 max 46, histogram {13: 1, 17: 1, 19: 1, 22: 2, 23: 3, 25: 2, 26: 1, 27: 1, 29: 2, 30: 5, 31: 2, 32: 2, 33: 1, 34: 3, 35: 4, 36: 5, 37: 3, 38: 6, 39: 3, 40: 7, 41: 14, 42: 8, 43: 15, 44: 17, 45: 22, 46: 893}
+[OK] 1 tH2a [init] lm_loss == mean -ref[y] (16384 tok): 9.942062 vs 9.942063
+[OK] 1 tH2a [init] fast == -ref[y] per token (2048): max |diff| 1.91e-06
+[OK] 1 tH2a [init] sum exp(ref) == 1: max |sum - 1| 5.36e-07
+[OK] 2 tH2a [init] dL/demb fast == ref: max |diff| / max |grad| 1.80e-07 (max |grad| 8.30e-02)
+[OK] 2 tH2a [init] dL/dhead.Vc fast == ref: max |diff| / max |grad| 2.99e-08 (max |grad| 1.75e-02)
+[OK] 2 tH2a [init] dL/dhead.bc fast == ref: max |diff| / max |grad| 1.50e-08 (max |grad| 7.76e-03)
+[OK] 1 tH2a [trainedB] lm_loss == mean -ref[y] (16384 tok): 5.655055 vs 5.655055
+[OK] 1 tH2a [trainedB] fast == -ref[y] per token (2048): max |diff| 9.54e-06
+[OK] 1 tH2a [trainedB] sum exp(ref) == 1: max |sum - 1| 8.34e-07
+[OK] 2 tH2a [trainedB] dL/demb fast == ref: max |diff| / max |grad| 2.84e-07 (max |grad| 3.15e-01)
+[OK] 2 tH2a [trainedB] dL/dhead.Vc fast == ref: max |diff| / max |grad| 1.13e-07 (max |grad| 1.31e-01)
+[OK] 2 tH2a [trainedB] dL/dhead.bc fast == ref: max |diff| / max |grad| 1.05e-07 (max |grad| 8.87e-03)
+[OK] 5 tH2a tracer leak (scan, jit eval, scan): eval 9.88390, losses [9.89808, 9.89111] -> [9.8839, 9.87654]
+tH2atm: params 7,753,856 (new 132,096); head fwd FLOPs/token 1,322,889 = 0.1027 x B
+[OK] 4 tH2atm backbone init bit-identical to tB: 62 tensors
+[OK] 3 tH2atm frequent/tail disjoint and cover: 4096 frequent + 46161 tail = 50257; cluster sizes min 13 max 46, histogram {13: 1, 17: 1, 19: 1, 22: 2, 23: 3, 25: 2, 26: 1, 27: 1, 29: 2, 30: 5, 31: 2, 32: 2, 33: 1, 34: 3, 35: 4, 36: 5, 37: 3, 38: 6, 39: 3, 40: 7, 41: 14, 42: 8, 43: 15, 44: 17, 45: 22, 46: 893}
+[OK] 1 tH2atm [init] lm_loss == mean -ref[y] (16384 tok): 9.861095 vs 9.861096
+[OK] 1 tH2atm [init] fast == -ref[y] per token (2048): max |diff| 1.91e-06
+[OK] 1 tH2atm [init] sum exp(ref) == 1: max |sum - 1| 4.77e-07
+[OK] 2 tH2atm [init] dL/demb fast == ref: max |diff| / max |grad| 8.98e-08 (max |grad| 8.30e-02)
+[OK] 2 tH2atm [init] dL/dhead.R fast == ref: max |diff| / max |grad| 2.68e-08 (max |grad| 1.74e-02)
+[OK] 2 tH2atm [init] dL/dhead.bc fast == ref: max |diff| / max |grad| 7.56e-09 (max |grad| 7.70e-03)
+[OK] 1 tH2atm [trainedB] lm_loss == mean -ref[y] (16384 tok): 5.002807 vs 5.002807
+[OK] 1 tH2atm [trainedB] fast == -ref[y] per token (2048): max |diff| 9.54e-06
+[OK] 1 tH2atm [trainedB] sum exp(ref) == 1: max |sum - 1| 8.34e-07
+[OK] 2 tH2atm [trainedB] dL/demb fast == ref: max |diff| / max |grad| 9.13e-07 (max |grad| 1.14e-01)
+[OK] 2 tH2atm [trainedB] dL/dhead.R fast == ref: max |diff| / max |grad| 5.43e-08 (max |grad| 1.20e-01)
+[OK] 2 tH2atm [trainedB] dL/dhead.bc fast == ref: max |diff| / max |grad| 4.20e-08 (max |grad| 7.80e-03)
+[OK] 5 tH2atm tracer leak (scan, jit eval, scan): eval 9.78363, losses [9.79671, 9.79004] -> [9.78363, 9.77641]
+tH2u: params 14,186,752 (new 6,564,992); head fwd FLOPs/token 274,944 = 0.0214 x B
+[OK] 4 tH2u backbone init bit-identical to tB: 62 tensors
+[OK] 1 tH2u [init] lm_loss == mean -ref[y] (16384 tok): 11.487128 vs 11.487128
+[OK] 1 tH2u [init] fast == -ref[y] per token (2048): max |diff| 1.91e-06
+[OK] 1 tH2u [init] sum exp(ref) == 1: max |sum - 1| 5.36e-07
+[OK] 2 tH2u [init] dL/demb fast == ref: max |diff| / max |grad| 0.00e+00 (max |grad| 0.00e+00)
+[OK] 2 tH2u [init] dL/dhead.Uo fast == ref: max |diff| / max |grad| 6.66e-07 (max |grad| 6.72e-02)
+[OK] 2 tH2u [init] dL/dhead.Vc fast == ref: max |diff| / max |grad| 0.00e+00 (max |grad| 6.34e-01)
+[OK] 2 tH2u [init] dL/dhead.bc fast == ref: max |diff| / max |grad| 0.00e+00 (max |grad| 3.11e-01)
+[OK] 1 tH2u [trainedB] lm_loss == mean -ref[y] (16384 tok): 10.960919 vs 10.960919
+[OK] 1 tH2u [trainedB] fast == -ref[y] per token (2048): max |diff| 3.81e-06
+[OK] 1 tH2u [trainedB] sum exp(ref) == 1: max |sum - 1| 4.77e-07
+[OK] 2 tH2u [trainedB] dL/demb fast == ref: max |diff| / max |grad| 0.00e+00 (max |grad| 0.00e+00)
+[OK] 2 tH2u [trainedB] dL/dhead.Uo fast == ref: max |diff| / max |grad| 5.96e-07 (max |grad| 9.38e-02)
+[OK] 2 tH2u [trainedB] dL/dhead.Vc fast == ref: max |diff| / max |grad| 0.00e+00 (max |grad| 2.85e+00)
+[OK] 2 tH2u [trainedB] dL/dhead.bc fast == ref: max |diff| / max |grad| 0.00e+00 (max |grad| 3.10e-01)
+[OK] 5 tH2u tracer leak (scan, jit eval, scan): eval 11.30021, losses [11.42484, 11.36257] -> [11.30021, 11.23924]
+
+ALL GATES OK

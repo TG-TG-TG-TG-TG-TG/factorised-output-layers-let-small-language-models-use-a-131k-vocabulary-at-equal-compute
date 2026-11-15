@@ -1,0 +1,90 @@
+{
+ "arms": {
+  "tD2": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 5.974498271942139,
+   "tok_s": 557421.5783419576,
+   "step_ms": 117.56990139301007,
+   "peak_mem_gb": 5.252992153167725,
+   "data_wait_ms": 0.035858907656988896,
+   "est_full_min": 43.52847836814159,
+   "head_fwd_flops_per_token": 3148936.6328125,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 276585600,
+    "non_embedding": 270146688,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 9446809.8984375,
+    "total": 21243289.8984375
+   },
+   "total_tokens": 1320032665.6000001,
+   "mtime": 1794152529.260401,
+   "speed_vs_B": null,
+   "head_flops_vs_B": null,
+   "train_flops_vs_B": null
+  },
+  "tD2_lazy": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 6.011310577392578,
+   "tok_s": 817151.3799349281,
+   "step_ms": 80.200562110314,
+   "peak_mem_gb": 4.284823179244995,
+   "data_wait_ms": 0.036823400025754474,
+   "est_full_min": 29.693045512234747,
+   "head_fwd_flops_per_token": 3148936.6328125,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 276585600,
+    "non_embedding": 270146688,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 9446809.8984375,
+    "total": 21243289.8984375
+   },
+   "total_tokens": 1320032665.6000001,
+   "mtime": 1794152570.7462466,
+   "speed_vs_B": null,
+   "head_flops_vs_B": null,
+   "train_flops_vs_B": null
+  },
+  "tH3k8c4": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 6.180157661437988,
+   "tok_s": 846836.1625391932,
+   "step_ms": 77.38923170627692,
+   "peak_mem_gb": 1.2448878288269043,
+   "data_wait_ms": 0.032744184602798224,
+   "est_full_min": 28.652192936635814,
+   "head_fwd_flops_per_token": 3148936.6328125,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 8150144,
+    "non_embedding": 1711232,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 9446809.8984375,
+    "total": 21243289.8984375
+   },
+   "total_tokens": 1320032665.6000001,
+   "mtime": 1794152480.5004032,
+   "speed_vs_B": null,
+   "head_flops_vs_B": null,
+   "train_flops_vs_B": null
+  }
+ },
+ "overhead_factor": 1.1028687583468804,
+ "fails": []
+}

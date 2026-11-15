@@ -1,0 +1,18 @@
+[r13chain] one d384 tB:0 --label tBproxy --tokens 50003968 --branch_at 50003968 start Wed Nov 11 21:40:15 CET 2026
+[r13] start wsd_tBproxy_50M_s0: train.py --arm tB --seed 0 --lr 0.002 --tokens 50003968 --sched wsd --branch_at 50003968 --decay_frac 0.1 --n_evals 12 --name wsd_tBproxy_50M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_tBproxy_50M_s0: rc 0, 3.8 min, round-12 total 0.06 h
+[r13] finished
+[r13chain] one d384 tB:0 --label tBproxy --tokens 50003968 --branch_at 50003968 end Wed Nov 11 21:44:03 CET 2026
+[r13chain] cpu round13_classes.py start Wed Nov 11 21:44:03 CET 2026
+{"K": 8192, "C": 4096, "proxy": "wsd_tBproxy_50M_s0", "n_tail": 42065, "capacity": 11, "kmeans_s": 58.817004919052124, "sizes": {"min": 1, "median": 11.0, "max": 11, "n_full": 3311, "n_empty": 0}, "pair_agreement_vs_round10": 0.999605, "same_cluster_rate_random_pairs": 0.000215, "identical_to_round10": false, "disjoint_and_cover": true}
+[r13chain] cpu round13_classes.py end Wed Nov 11 21:45:05 CET 2026
+[r13chain] smoke H3p384@575e6 start Wed Nov 11 21:45:05 CET 2026
+step 200/8774 loss 5.8447 328,899 tok/s wait 0.0ms mem 3.06GB
+done smoke_H3p384: val nan in 1.1 min
+[r13chain] smoke H3p384@575e6 end Wed Nov 11 21:46:16 CET 2026
+[r13chain] one d384 H3p384:0 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 start Wed Nov 11 21:46:16 CET 2026
+[r13] start wsd_H3p384_575M_s0: train.py --arm H3p384 --seed 0 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 276299776,300e6,551288832,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3p384_575M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_H3p384_575M_s0: rc 0, 41.5 min, round-12 total 0.76 h
+[r13] finished
+[r13chain] one d384 H3p384:0 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 end Wed Nov 11 22:27:47 CET 2026
+[launchA] done Wed Nov 11 22:27:47 CET 2026

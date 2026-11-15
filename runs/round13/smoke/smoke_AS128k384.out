@@ -1,0 +1,4 @@
+smoke_AS128k384: 14,802,050 non-emb params, 9460 steps, accum 4x16
+step 100/9460 loss 6.9934 82,872 tok/s wait 0.0ms mem 4.27GB
+step 200/9460 loss 6.2687 83,615 tok/s wait 0.0ms mem 4.27GB
+done smoke_AS128k384: val nan in 3.2 min

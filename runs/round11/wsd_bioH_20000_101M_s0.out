@@ -1,0 +1,31 @@
+wsd_bioH_20000_101M_s0: 1,711,232 non-emb params, 1542 steps, accum 4x16
+step 100/1542 loss 1.6015 562,606 tok/s wait 0.0ms mem 1.24GB
+  eval @ 8.4M tok: val 1.3372
+step 200/1542 loss 1.1968 587,287 tok/s wait 0.0ms mem 1.24GB
+  eval @ 16.8M tok: val 1.1859
+step 300/1542 loss 1.1793 602,951 tok/s wait 0.0ms mem 1.24GB
+  eval @ 25.3M tok: val 1.1646
+step 400/1542 loss 1.1670 594,565 tok/s wait 0.0ms mem 1.24GB
+step 500/1542 loss 1.1506 613,677 tok/s wait 0.0ms mem 1.24GB
+  eval @ 33.7M tok: val 1.1402
+step 600/1542 loss 1.1196 613,161 tok/s wait 0.0ms mem 1.24GB
+  eval @ 42.1M tok: val 1.1023
+step 700/1542 loss 1.0908 606,510 tok/s wait 0.0ms mem 1.24GB
+  eval @ 50.5M tok: val 1.0641
+step 800/1542 loss 1.0607 605,208 tok/s wait 0.0ms mem 1.24GB
+step 900/1542 loss 1.0378 610,882 tok/s wait 0.0ms mem 1.24GB
+  eval @ 59.0M tok: val 1.0306
+step 1000/1542 loss 1.0265 607,740 tok/s wait 0.0ms mem 1.24GB
+  eval @ 67.4M tok: val 0.9881
+step 1100/1542 loss 0.9820 609,692 tok/s wait 0.0ms mem 1.24GB
+  eval @ 75.8M tok: val 0.9315
+step 1200/1542 loss 0.9389 610,782 tok/s wait 0.0ms mem 1.24GB
+  eval @ 84.2M tok: val 0.8657
+step 1300/1542 loss 0.8816 607,643 tok/s wait 0.0ms mem 1.24GB
+step 1400/1542 loss 0.8331 611,813 tok/s wait 0.0ms mem 1.24GB
+  eval @ 92.7M tok: val 0.8034
+step 1500/1542 loss 0.7842 614,469 tok/s wait 0.0ms mem 1.24GB
+step 1542/1542 loss 0.7896 613,358 tok/s wait 0.0ms mem 1.24GB
+  eval @ 101.1M tok: val 0.7529
+  branch @ 101M (+154 decay steps): val_full 0.6169
+done wsd_bioH_20000_101M_s0: val 0.6169 in 3.3 min

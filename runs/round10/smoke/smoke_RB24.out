@@ -1,0 +1,4 @@
+smoke_RB24: 4,731,008 non-emb params, 9155 steps, accum 4x16
+step 100/9155 loss 6.9459 238,543 tok/s wait 0.0ms mem 3.63GB
+step 200/9155 loss 6.2469 236,930 tok/s wait 0.0ms mem 3.63GB
+done smoke_RB24: val nan in 1.4 min

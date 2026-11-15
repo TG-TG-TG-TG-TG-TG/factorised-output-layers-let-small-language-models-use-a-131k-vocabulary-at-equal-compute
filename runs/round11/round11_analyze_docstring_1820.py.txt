@@ -1,0 +1,61 @@
+"""Round 11 analysis: is the two-level head cheap AND good? Writes runs/round11/round11_summary.md, round11_results.json and
+every figure (headline last). Windows Python:  PYTHONIOENCODING=utf8 python round11_analyze.py
+
+Decision rules, pinned 2026-11-09 18:20 before any run they depend on had finished (anything decided after seeing a
+result is labelled post-hoc in the summary):
+
+Accounting (Part A and everywhere): training FLOPs of a reported branch = the run's logged flops_per_token["total"]
+  (model.flops_per_token: 6N rule + causal attention; the flat head counts the padded vocab, 6 * d * 50,304 for GPT-2
+  arms; two-level heads count 3x their forward FLOPs; re-scored heads add 3 * 2 * M * L * d) x (stable + decay tokens)
+  = flops_per_token x (branch_step + decay_steps) x 65,536. The user's table used stable tokens only; Part A reports both
+  and says so. D arms (round-10 n-gram) are excluded from Part A by the user's scope decision.
+Part B horizons: F8k-384 stable = 9,633 steps (631,308,288 tokens), branch at 5,026 steps (329,383,936); F4k-384 stable
+  10,674 steps (699,531,264), branch 5,570 steps (365,035,520). Each = the step count S whose S + round(0.1 S) total steps
+  x 65,536 x fpt(arm) is closest to H3*-384's 575M run (8,774 + 877 steps) or its 300M branch (4,578 + 458 steps) at
+  fpt(H3s384) (ties rounded up). Matched FLOPs = within 0.02% (stated per run).
+  Metric: BPB on the shared FineWeb-Edu val bytes (round11_bytes.py). GPT-2 arms: the logged val loss x tokens /
+  (bytes x ln 2) over the 23,160,213 scored bytes; other tokenizers: the byte-aligned evaluator (each GPT-2 val row's
+  first token is context, the rest is scored; windows of 1,025 with >= 512 tokens of in-row context). Any byte the
+  evaluator cannot score (a row cut inside a UTF-8 character) is reported.
+  Verdict: two-level wins if BPB(H3*-384) <= BPB(F8k-384) - 0.003 at matched FLOPs (575M run vs the F8k final branch;
+  also reported at the 300M-matched branch), small vocab wins if the reverse, else tie (then decode ms per byte).
+Part C: tH3rs16 (M = 16) first. Run M = 64 only if tH3rs16 beats H3k8c4 (wsd_H3k8c4_s0, 4.1552) by more than 0.010 at
+  1200M. Best M = the lower 1200M loss among the M arms run. The best M then runs at d=384 (H3rs<M>_384, 575M,
+  branches 300M / 575M). Verdicts: gap closed if Δ vs B_r8 at 1200M <= +0.010 with head FLOPs <= 0.30x B's head;
+  partial if better than H3k8c4 by more than 0.010; no help otherwise. Hit fraction = share of tail targets (rank >= the
+  K singletons) whose cluster is among the top M, over the 4,880 x 1,024 val targets.
+Part D (optional): H3s512 (or H3rs<best M>_512 if Part C is "partial" or better) stable 5,484 steps (359,399,424 tokens).
+Part E models: d=384: B384 (wsd_B384_300M_s0 re-run, weights kept), H3*-384 at 300M (wsd_H3s384_300M_s0 re-run) and 575M
+  (round-10 wsd_H3s384_575M_s0), F8k-384 (both branches), the best Part-C d=384 arm if run. d=128: B_r8 and H3k8c4 at 1200M
+  (+ tH3rs arms in E5). Part A/B tables use the original logged losses; Part E uses the re-run checkpoints (both are shown
+  where they overlap; a re-run more than 0.01 from its original is stopped and reported).
+  Every E comparison at equal tokens (H3*-384 300M vs B384 300M) and at equal FLOPs (H3*-384 575M vs B384 300M; their
+  FLOPs differ by 5%: 6.72e16 vs 6.39e16, stated). F8k-384 is compared at equal FLOPs only (equal tokens is not defined
+  across tokenizers) and is left out of every per-GPT-2-token-bucket table.
+  E1: BPB on FineWeb-Edu val, WikiText-103 test (raw, documents = articles split at " = Title = " headings, joined by EOT),
+      PG-19 test (emozilla/pg19-test mirror; books in dataset order until >= 1,000,000 GPT-2 tokens); rows of 1,025 GPT-2
+      tokens, contiguous, EOT between documents; other tokenizers byte-aligned as Part B. OOD holds if H3*-384 (575M) BPB <=
+      B384 BPB - 0.003 on both OOD sets.
+  E2: BLiMP, all 67 subsets; a pair is correct if sum log p(good) > sum log p(bad), each sentence scored after one EOT, no
+      length normalisation; groups = the dataset's linguistics_term field. A difference > 1.0 point overall is real.
+  E3: LAMBADA (EleutherAI/lambada_openai test): context = text up to the last space, target = " " + last word. Accuracy =
+      every target token is the argmax of the full next-token distribution (teacher forced = greedy until the word is
+      complete; lm-eval-harness is_greedy). Word NLL in bits per UTF-8 byte of the target string. Split by the training-set
+      rank of the target's first GPT-2 token (< 4,096 vs >= 4,096), for every model.
+  E4: bios (round11_bios.py). Exposures = (stable + decay steps) x 64 x 1,025 stream tokens / (N x 55.636 tokens per bio
+      incl. EOT). N = 20,000: 1,542 stable steps; N = 100,000: 7,710 stable steps (100 exposures each); H3k8c4 equal-FLOPs at
+      N = 100,000: 18,303 stable steps (237.4 exposures = 100 x fpt(tB) / fpt(tH3k8c4)). Knowledge bits = sum over people
+      and attributes of max(0, log2|A| - NLL_bits(value tokens | canonical probe)); greedy exact match = teacher-forced
+      argmax of the full distribution at every value token. All N people unless eval > 10 min (then a fixed 5,000 sample,
+      scaled, stated). No knowledge penalty if H3k8c4 >= 95% of B's bits at equal exposures for both N; more tokens -> more
+      knowledge if the equal-FLOPs H3k8c4 run stores more bits than B at N = 100,000.
+  E5: L = 1,024. E5a: the first 2,000 FineWeb-Edu val rows, tokens 1..512 repeated (row = 512 + 512 tokens, after one EOT
+      context token); E5b: 2,000 rows of 512 tokens drawn uniformly (np.random.default_rng(11)) from training ranks >= 4,096,
+      repeated. NLL per token on copy 1 and copy 2 by round-9 A1 rank bucket; Δ = two-level - flat at equal tokens and at
+      equal FLOPs. Prior-only if the rank >= 4,096 Δ on copy 2 <= 0.02 nats and <= 1/3 of the copy-1 Δ (E5a); can't copy if
+      the E5b copy-2 Δ > 0.05 nats (then the tH3rs arms are checked).
+Seeds: a verdict within ±0.003 BPB (B, E1), ±0.010 nats (C, D), ±1 point (E2) or ±5% of bits (E4) of its threshold runs
+  seed 1 for both sides; the seed spread is then the floor.
+Colours: round 10's validated palette (blue #2a78d6, yellow #eda100, aqua #1baf7a, red #e34948, grey #6f6e69 for flat
+  GPT-2 baselines), at most four coloured series per figure.
+"""

@@ -1,0 +1,16 @@
+[r13chain] one d384 H3p384:1 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 start Thu Nov 12 13:19:45 CET 2026
+[r13] start wsd_H3p384_575M_s1: train.py --arm H3p384 --seed 1 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 276299776,300e6,551288832,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3p384_575M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_H3p384_575M_s1: rc 0, 39.2 min, round-13 total 1.41 h
+[r13] finished
+[r13chain] one d384 H3p384:1 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 end Thu Nov 12 13:58:57 CET 2026
+[r13chain] one d384 B:0 --label B384x2 --tokens 630259712 --branch_at 315162624,630259712 start Thu Nov 12 13:58:57 CET 2026
+[r13] start wsd_B384x2_630M_s0: train.py --arm B --seed 0 --lr 0.002 --tokens 630259712 --sched wsd --branch_at 315162624,630259712 --decay_frac 0.1 --n_evals 12 --name wsd_B384x2_630M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_B384x2_630M_s0: rc 0, 138.9 min, round-13 total 3.72 h
+[r13] finished
+[r13chain] one d384 B:0 --label B384x2 --tokens 630259712 --branch_at 315162624,630259712 end Thu Nov 12 16:17:49 CET 2026
+[r13chain] one d384 H3p384:0 --label H3p384x2 --tokens 1149960192 --branch_at 1126236160,1149960192 start Thu Nov 12 16:17:49 CET 2026
+[r13] start wsd_H3p384x2_1150M_s0: train.py --arm H3p384 --seed 0 --lr 0.002 --tokens 1149960192 --sched wsd --branch_at 1126236160,1149960192 --decay_frac 0.1 --n_evals 12 --name wsd_H3p384x2_1150M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_H3p384x2_1150M_s0: rc 0, 82.5 min, round-13 total 5.10 h
+[r13] finished
+[r13chain] one d384 H3p384:0 --label H3p384x2 --tokens 1149960192 --branch_at 1126236160,1149960192 end Thu Nov 12 17:40:18 CET 2026
+[launchB] done Thu Nov 12 17:40:18 CET 2026

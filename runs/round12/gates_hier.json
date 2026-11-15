@@ -1,0 +1,51 @@
+{
+ "checks": {
+  "tables": {
+   "V": 131072,
+   "K": 8192,
+   "C": 4096,
+   "L": 30,
+   "min_count": 30,
+   "max_count": 30
+  },
+  "G1 reference sums to 1": {
+   "ok": true,
+   "detail": "max |logsumexp| 4.77e-07"
+  },
+  "G1 fast NLL == reference": {
+   "ok": true,
+   "detail": "fast 10.7634649 ref 10.7634649 |diff| 0.00e+00"
+  },
+  "G2 grad emb": {
+   "ok": true,
+   "detail": "relative error 5.76e-07 (|ref| 2.383e+00)"
+  },
+  "G2 grad R": {
+   "ok": true,
+   "detail": "relative error 2.43e-08 (|ref| 5.009e-01)"
+  },
+  "G2 grad bc": {
+   "ok": true,
+   "detail": "relative error 2.52e-08 (|ref| 2.718e-02)"
+  },
+  "greedy exact (h x 1)": {
+   "ok": true,
+   "detail": "exact-match 1.0000 on 1,000 contexts; fallback rate 0.295"
+  },
+  "greedy_fallback_h1": 0.29500001668930054,
+  "greedy exact (h x 8)": {
+   "ok": true,
+   "detail": "exact-match 1.0000 on 1,000 contexts; fallback rate 0.000"
+  },
+  "greedy_fallback_h8": 0.0,
+  "sampling: two-stage probabilities == reference": {
+   "ok": true,
+   "detail": "max |p_two-stage - p_ref| 2.33e-09 over 1,000 contexts (h and 8h) x 131072 ids"
+  },
+  "sampling: empirical TV": {
+   "ok": true,
+   "detail": "TV(two-stage, 200k) 0.0022 vs TV(direct, 200k) 0.0018 (ratio 1.198); max p 0.614"
+  }
+ },
+ "fails": []
+}

@@ -1,0 +1,75 @@
+{
+ "checks": {
+  "G1 M=16 reference sums to 1": {
+   "ok": true,
+   "detail": "max |logsumexp| 9.09e-07"
+  },
+  "G1 M=16 same top-M clusters": {
+   "ok": true,
+   "detail": "fraction of tokens with identical top-16 sets 1.000000"
+  },
+  "G1 M=16 fast NLL == reference": {
+   "ok": true,
+   "detail": "fast 4.7440453 ref 4.7440453 |diff| 0.00e+00; tail targets in top-16: 86/245"
+  },
+  "hit_fraction_gate_batch_M16": 0.3510204081632653,
+  "G2 M=16 grad emb": {
+   "ok": true,
+   "detail": "relative error 7.32e-07 (|ref| 1.343e+00)"
+  },
+  "G2 M=16 grad ac": {
+   "ok": true,
+   "detail": "relative error 1.58e-07 (|ref| 2.375e-02)"
+  },
+  "G2 M=16 grad R": {
+   "ok": true,
+   "detail": "relative error 3.21e-08 (|ref| 3.003e-01)"
+  },
+  "G4 M=16 causal": {
+   "ok": true,
+   "detail": "max |\u0394NLL| targets <= t: 0.0e+00; after: 2.33e+01"
+  },
+  "G4 M=16 no tracer leak": {
+   "ok": true,
+   "detail": "jit at two shapes and grad traced cleanly"
+  },
+  "G1 M=64 reference sums to 1": {
+   "ok": true,
+   "detail": "max |logsumexp| 9.69e-07"
+  },
+  "G1 M=64 same top-M clusters": {
+   "ok": true,
+   "detail": "fraction of tokens with identical top-64 sets 1.000000"
+  },
+  "G1 M=64 fast NLL == reference": {
+   "ok": true,
+   "detail": "fast 5.3009253 ref 5.3009253 |diff| 0.00e+00; tail targets in top-64: 138/245"
+  },
+  "hit_fraction_gate_batch_M64": 0.563265306122449,
+  "G2 M=64 grad emb": {
+   "ok": true,
+   "detail": "relative error 6.39e-07 (|ref| 1.890e+00)"
+  },
+  "G2 M=64 grad ac": {
+   "ok": true,
+   "detail": "relative error 2.55e-07 (|ref| 4.565e-02)"
+  },
+  "G2 M=64 grad R": {
+   "ok": true,
+   "detail": "relative error 1.95e-07 (|ref| 2.358e-01)"
+  },
+  "G4 M=64 causal": {
+   "ok": true,
+   "detail": "max |\u0394NLL| targets <= t: 0.0e+00; after: 2.42e+01"
+  },
+  "G4 M=64 no tracer leak": {
+   "ok": true,
+   "detail": "jit at two shapes and grad traced cleanly"
+  },
+  "G3 M=0 bit-identical to H3k8c4": {
+   "ok": true,
+   "detail": "params equal True, loss 10.1084023 vs 10.1084023, grads equal True"
+  }
+ },
+ "fails": []
+}

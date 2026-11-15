@@ -1,0 +1,24 @@
+[round9] d384 B384:0, start Sat Nov  7 16:31:25 CET 2026
+[r9] start wsd_B384_s0: train.py --arm B --seed 0 --lr 0.002 --tokens 300e6 --sched wsd --branch_at 150e6,300e6 --decay_frac 0.1 --n_evals 12 --name wsd_B384_s0 --runs_dir /path/to/repo/runs/round9
+[r9] end wsd_B384_s0: rc 0, 37.2 min, round-9 total 0.62 h
+[r9] finished
+[round9] d384 B384:0, end Sat Nov  7 17:08:38 CET 2026
+[round9] tiny H2tm:0,H2a:0,H2atm:0, start Sat Nov  7 17:13:04 CET 2026
+[r9] start wsd_H2tm_s0: train.py --arm tH2tm --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H2tm_s0 --runs_dir /path/to/repo/runs/round9 --keep_params
+[r9] end wsd_H2tm_s0: rc 0, 16.2 min, round-9 total 0.89 h
+[r9] start wsd_H2a_s0: train.py --arm tH2a --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H2a_s0 --runs_dir /path/to/repo/runs/round9 --keep_params
+[r9] end wsd_H2a_s0: rc 0, 21.1 min, round-9 total 1.24 h
+[r9] start wsd_H2atm_s0: train.py --arm tH2atm --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H2atm_s0 --runs_dir /path/to/repo/runs/round9 --keep_params
+[r9] end wsd_H2atm_s0: rc 0, 21.4 min, round-9 total 1.60 h
+[r9] finished
+[round9] tiny H2tm:0,H2a:0,H2atm:0, end Sat Nov  7 18:11:45 CET 2026
+[round9] D H2atm:0, start Sat Nov  7 18:12:23 CET 2026
+[r9] start wsd_H2atm_4800M_s0: train.py --arm tH2atm --seed 0 --lr 0.002 --tokens 4800e6 --sched wsd --branch_at 1200e6,2400e6,4800e6 --decay_frac 0.1 --n_evals 12 --name wsd_H2atm_4800M_s0 --runs_dir /path/to/repo/runs/round9 --keep_params
+[r9] end wsd_H2atm_4800M_s0: rc 0, 87.3 min, round-9 total 3.05 h
+[r9] finished
+[round9] D H2atm:0, end Sat Nov  7 19:39:42 CET 2026
+[round9] d384 H2atm384:0, start Sat Nov  7 19:42:41 CET 2026
+[r9] start wsd_H2atm384_s0: train.py --arm H2atm384 --seed 0 --lr 0.002 --tokens 300e6 --sched wsd --branch_at 150e6,300e6 --decay_frac 0.1 --n_evals 12 --name wsd_H2atm384_s0 --runs_dir /path/to/repo/runs/round9
+[r9] end wsd_H2atm384_s0: rc 0, 17.4 min, round-9 total 3.34 h
+[r9] finished
+[round9] d384 H2atm384:0, end Sat Nov  7 20:00:04 CET 2026

@@ -1,0 +1,41 @@
+{
+ "n": 5153,
+ "n_earlier": 4201,
+ "n_rest": 952,
+ "models": {
+  "B384": {
+   "bpb_whole": 1.6272651127904223,
+   "bytes_whole": 1688837,
+   "word_bpb": 1.7147232338273035,
+   "word_bpb_earlier": 1.6956025979540605,
+   "word_bpb_rest": 1.7990990650284509
+  },
+  "H3s384_575M": {
+   "bpb_whole": 1.6074349541578998,
+   "bytes_whole": 1688837,
+   "word_bpb": 1.704228604169339,
+   "word_bpb_earlier": 1.6892796685429952,
+   "word_bpb_rest": 1.7701954934196247
+  },
+  "F8k384_631M": {
+   "bpb_whole": 1.6280747024485809,
+   "bytes_whole": 1688837,
+   "word_bpb": 1.3986345215115243,
+   "word_bpb_earlier": 1.3062825040574042,
+   "word_bpb_rest": 1.8061669010543375
+  },
+  "F4k384_700M": {
+   "bpb_whole": 1.6441204441753579,
+   "bytes_whole": 1688837,
+   "word_bpb": 1.3186644069759716,
+   "word_bpb_earlier": 1.2078339035982963,
+   "word_bpb_rest": 1.807738928708759
+  }
+ },
+ "verdict": {
+  "d_whole_F8k_minus_H3s": 0.020639748290681048,
+  "adv_earlier": 0.38299716448559096,
+  "adv_rest": -0.03597140763471285,
+  "verdict": "real effect"
+ }
+}

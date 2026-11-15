@@ -1,0 +1,7 @@
+[r11chain] one d384 B:1 --label B384 --tokens 300e6 --branch_at 150e6,300e6 start Tue Nov 10 22:13:45 CET 2026
+[r11] start wsd_B384_300M_s1: train.py --arm B --seed 1 --lr 0.002 --tokens 300e6 --sched wsd --branch_at 150e6,300e6 --decay_frac 0.1 --n_evals 12 --name wsd_B384_300M_s1 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_B384_300M_s1: rc 0, 37.3 min, round-11 total 8.27 h
+[r11] finished
+[r11chain] one d384 B:1 --label B384 --tokens 300e6 --branch_at 150e6,300e6 end Tue Nov 10 22:51:01 CET 2026
+[r11chain] one d384 H3s384:1 --label H3s384 --tokens 575e6 --branch_at 300e6,575e6 --extra=--keep_branch=300e6 start Tue Nov 10 22:51:01 CET 2026
+[r11] start wsd_H3s384_575M_s1: train.py --arm H3s384 --seed 1 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 300e6,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3s384_575M_s1 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=300e6

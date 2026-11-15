@@ -1,0 +1,27 @@
+\begin{tabular}{lrrr}
+\toprule
+\multicolumn{4}{l}{\textit{training step{,} micro-batch rows}} \\
+head & 16 & 32 & 64 \\ \midrule
+flat 50k & 157k / 3.79 & 157k / 5.53 & 96k / 9.05 \\
+two-level 50k & 311k / 2.94 & 321k / 4.69 & 324k / 8.15 \\
+flat 8k & 427k / 2.17 & 431k / 3.89 & 432k / 7.43 \\
+flat 131k & 69k / 3.73 & 72k / 5.47 & 43k / 8.95 \\
+two-level 131k & 295k / 3.35 & 311k / 5.09 & 316k / 8.56 \\
+\midrule
+\multicolumn{4}{l}{\textit{forward-only scoring{,} rows}} \\
+head & 32 & 64 \\ \midrule
+flat 50k & 680k / 0.97 & 673k / 1.01 \\
+two-level 50k & 1{,}136k / 0.63 & 1{,}127k / 0.82 \\
+flat 8k & 1{,}485k / 0.33 & 1{,}512k / 0.66 \\
+flat 131k & 324k / 0.87 & 319k / 0.96 \\
+two-level 131k & 1{,}152k / 0.67 & 1{,}137k / 0.94 \\
+\midrule
+\multicolumn{4}{l}{\textit{KV-cache decode{,} batch}} \\
+head & 1 & 32 & 128 \\ \midrule
+flat 50k & 3k / 0.08 & 17k / 0.58 & 18k / 2.17 \\
+two-level 50k & 5k / 0.09 & 17k / 0.59 & 19k / 2.18 \\
+flat 8k & 5k / 0.05 & 18k / 0.55 & 19k / 2.14 \\
+flat 131k & 3k / 0.14 & 16k / 0.64 & 18k / 2.23 \\
+two-level 131k & 5k / 0.14 & 17k / 0.65 & 19k / 2.24 \\
+\bottomrule
+\end{tabular}

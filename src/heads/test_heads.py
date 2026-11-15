@@ -1,0 +1,35 @@
+import sys; sys.path.insert(0, "/home/claude/work")
+import numpy as np, jax, jax.numpy as jnp
+jax.config.update("jax_enable_x64", True)
+from heads import *
+V, d, C, B = 600, 16, 24, 64
+k = iter(jax.random.split(jax.random.PRNGKey(0), 16))
+U = jax.random.normal(next(k), (V, d)) / np.sqrt(d) * 3; b = 0.3 * jax.random.normal(next(k), (V,))
+Vc = jax.random.normal(next(k), (d, C)) / np.sqrt(d) * 3; bc = jnp.zeros(C)
+h = jax.random.normal(next(k), (B, d)); y = jax.random.randint(next(k), (B,), 0, V)
+cls = jnp.asarray(balanced_kmeans(U, C)); sizes = np.bincount(np.asarray(cls), minlength=C)
+print("balanced_kmeans sizes min/max:", sizes.min(), sizes.max())
+members, mask, pos = class_tables(cls, C)
+lp = hier_logprobs_full(h, U, b, Vc, bc, cls, C)
+print("rows sum to 1:", float(jnp.abs(jnp.exp(lp).sum(1) - 1).max()) < 1e-10)
+nll_fast = hier_nll(h, y, U, b, Vc, bc, cls, members, mask, pos)
+print("fast NLL == full NLL:", float(jnp.abs(nll_fast + jnp.take_along_axis(lp, y[:, None], 1)[:, 0]).max()) < 1e-10)
+ok, exp = 0, []
+for i in range(B):
+    w, n = hier_greedy(h[i], U, b, Vc, bc, members, mask); ok += int(w == int(jnp.argmax(lp[i]))); exp.append(n)
+print(f"exact greedy matches argmax: {ok}/{B}; classes expanded mean {np.mean(exp):.2f} of {C}")
+hs = jnp.repeat(h[:1], 200000, 0)
+smp = np.asarray(hier_sample(jax.random.PRNGKey(5), hs, U, b, Vc, bc, members, mask))
+emp = np.bincount(smp, minlength=V) / len(smp); tv = 0.5 * np.abs(emp - np.exp(np.asarray(lp[0]))).sum()
+print(f"ancestral sampling TV distance to model distribution (200k samples): {tv:.4f}")
+Vg = jax.random.normal(next(k), (d, C)) / np.sqrt(d); ag = jnp.zeros(C)
+H = jax.random.normal(next(k), (500, d))
+rk = lambda A: int((np.linalg.svd(np.asarray(A), compute_uv=False) > 1e-9 * np.linalg.svd(np.asarray(A), compute_uv=False)[0]).sum())
+print("rank flat / class-bias / hier:", rk(jax.nn.log_softmax(flat_logits(H, U, b))), rk(jax.nn.log_softmax(class_bias_logits(H, U, b, Vg, ag, cls))),
+      rk(hier_logprobs_full(H, U, b, Vc, bc, cls, C)), f"(bounds {d+2}, {d+C+1}, {d+C+1})")
+S = jnp.asarray(np.eye(C)[np.asarray(cls)]); p = jax.nn.softmax(jax.random.normal(next(k), (B, V))); yo = jax.nn.one_hot(y, V)
+print(f"grad_retention random residual: flat {grad_retention(U, None, p, yo):.4f} (~{(d+1)/V:.4f}), with classes {grad_retention(U, S, p, yo):.4f} (~{(d+C+1)/V:.4f})")
+g1 = hier_nll_grouped(h, y, U, b, Vc, bc, cls, members, mask, pos)
+gr = jax.grad(lambda U: hier_nll_grouped(h, y, U, b, Vc, bc, cls, members, mask, pos).sum())(U)
+gf = jax.grad(lambda U: hier_nll(h, y, U, b, Vc, bc, cls, members, mask, pos).sum())(U)
+print("grouped (ragged_dot) NLL == gather NLL:", float(jnp.abs(g1 - nll_fast).max()) < 1e-10, "| grads equal:", float(jnp.abs(gr - gf).max()) < 1e-10)

@@ -1,0 +1,5 @@
+﻿[r10chain] cpu round10_classes.py 8192:1024 4096:4096 8192:4096 start Sat Nov  7 20:36:51 CET 2026
+{"K": 8192, "C": 1024, "n_tail": 42065, "capacity": 42, "kmeans_s": 12.705800771713257, "sizes": {"min": 8, "median": 42.0, "max": 42, "n_full": 907, "n_empty": 0}, "frequent_share_of_train_targets": 0.8722540209871242, "count_at_rank_K": 16441, "disjoint_and_cover": true}
+{"K": 4096, "C": 4096, "n_tail": 46161, "capacity": 12, "kmeans_s": 60.722208738327026, "sizes": {"min": 1, "median": 12.0, "max": 12, "n_full": 3354, "n_empty": 0}, "frequent_share_of_train_targets": 0.7978181267977826, "count_at_rank_K": 36108, "disjoint_and_cover": true}
+{"K": 8192, "C": 4096, "n_tail": 42065, "capacity": 11, "kmeans_s": 53.37609839439392, "sizes": {"min": 1, "median": 11.0, "max": 11, "n_full": 3319, "n_empty": 0}, "frequent_share_of_train_targets": 0.8722540209871242, "count_at_rank_K": 16441, "disjoint_and_cover": true}
+[r10chain] cpu round10_classes.py 8192:1024 4096:4096 8192:4096 end Sat Nov  7 20:39:01 CET 2026

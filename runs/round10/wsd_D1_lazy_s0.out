@@ -1,0 +1,203 @@
+wsd_D1_lazy_s0: 135,928,960 non-emb params, 18311 steps, accum 4x16
+step 100/18311 loss 6.7402 819,894 tok/s wait 0.0ms mem 2.78GB
+step 200/18311 loss 6.0309 844,039 tok/s wait 0.0ms mem 2.78GB
+step 300/18311 loss 5.7372 835,045 tok/s wait 0.0ms mem 2.78GB
+step 400/18311 loss 5.5019 827,811 tok/s wait 0.0ms mem 2.78GB
+step 500/18311 loss 5.4347 825,465 tok/s wait 0.0ms mem 2.78GB
+step 600/18311 loss 5.3299 833,018 tok/s wait 0.0ms mem 2.78GB
+step 700/18311 loss 5.2668 831,101 tok/s wait 0.0ms mem 2.78GB
+step 800/18311 loss 5.1303 827,714 tok/s wait 0.0ms mem 2.78GB
+step 900/18311 loss 5.1140 826,149 tok/s wait 0.0ms mem 2.78GB
+step 1000/18311 loss 5.0185 830,563 tok/s wait 0.0ms mem 2.78GB
+step 1100/18311 loss 4.8832 829,540 tok/s wait 0.0ms mem 2.78GB
+  branch @ 75M (+114 decay steps): val_full 4.7550
+step 1200/18311 loss 4.8761 827,113 tok/s wait 0.0ms mem 4.38GB
+step 1300/18311 loss 4.8468 826,412 tok/s wait 0.0ms mem 4.38GB
+step 1400/18311 loss 4.7362 825,501 tok/s wait 0.0ms mem 4.38GB
+step 1500/18311 loss 4.7729 824,707 tok/s wait 0.0ms mem 4.38GB
+  eval @ 100.0M tok: val 4.6137
+step 1600/18311 loss 4.7467 826,592 tok/s wait 0.0ms mem 4.38GB
+step 1700/18311 loss 4.4705 825,876 tok/s wait 0.0ms mem 4.38GB
+step 1800/18311 loss 4.6853 825,363 tok/s wait 0.0ms mem 4.38GB
+step 1900/18311 loss 4.4779 824,746 tok/s wait 0.0ms mem 4.38GB
+step 2000/18311 loss 4.5460 826,488 tok/s wait 0.0ms mem 4.38GB
+step 2100/18311 loss 4.2023 825,830 tok/s wait 0.0ms mem 4.38GB
+step 2200/18311 loss 4.4442 825,106 tok/s wait 0.0ms mem 4.38GB
+  branch @ 150M (+229 decay steps): val_full 4.3637
+step 2300/18311 loss 4.5556 824,209 tok/s wait 0.0ms mem 4.38GB
+step 2400/18311 loss 4.5083 823,927 tok/s wait 0.0ms mem 4.38GB
+step 2500/18311 loss 4.3984 825,252 tok/s wait 0.0ms mem 4.38GB
+step 2600/18311 loss 4.3742 826,202 tok/s wait 0.0ms mem 4.38GB
+step 2700/18311 loss 4.5837 827,379 tok/s wait 0.0ms mem 4.38GB
+step 2800/18311 loss 4.2938 828,505 tok/s wait 0.0ms mem 4.38GB
+step 2900/18311 loss 4.4873 831,047 tok/s wait 0.0ms mem 4.38GB
+step 3000/18311 loss 4.3868 831,988 tok/s wait 0.0ms mem 4.38GB
+  eval @ 200.0M tok: val 4.3303
+step 3100/18311 loss 4.4304 832,830 tok/s wait 0.0ms mem 4.38GB
+step 3200/18311 loss 4.3788 833,688 tok/s wait 0.0ms mem 4.38GB
+step 3300/18311 loss 4.4246 835,883 tok/s wait 0.0ms mem 4.38GB
+step 3400/18311 loss 4.3829 836,583 tok/s wait 0.0ms mem 4.38GB
+step 3500/18311 loss 4.4900 837,212 tok/s wait 0.0ms mem 4.38GB
+step 3600/18311 loss 4.3151 837,852 tok/s wait 0.0ms mem 4.38GB
+step 3700/18311 loss 4.3939 838,463 tok/s wait 0.0ms mem 4.38GB
+step 3800/18311 loss 4.3002 840,197 tok/s wait 0.0ms mem 4.38GB
+step 3900/18311 loss 4.3599 840,649 tok/s wait 0.0ms mem 4.38GB
+step 4000/18311 loss 4.2407 841,112 tok/s wait 0.0ms mem 4.38GB
+step 4100/18311 loss 4.3708 841,578 tok/s wait 0.0ms mem 4.38GB
+step 4200/18311 loss 4.3148 843,153 tok/s wait 0.0ms mem 4.38GB
+step 4300/18311 loss 4.2063 843,511 tok/s wait 0.0ms mem 4.38GB
+step 4400/18311 loss 4.4787 843,894 tok/s wait 0.0ms mem 4.38GB
+step 4500/18311 loss 4.4811 844,290 tok/s wait 0.0ms mem 4.38GB
+  eval @ 300.0M tok: val 4.2643
+  branch @ 300M (+458 decay steps): val_full 4.1788
+step 4600/18311 loss 4.3205 845,546 tok/s wait 0.0ms mem 4.38GB
+step 4700/18311 loss 4.3245 845,874 tok/s wait 0.0ms mem 4.38GB
+step 4800/18311 loss 4.3253 846,180 tok/s wait 0.0ms mem 4.38GB
+step 4900/18311 loss 4.6077 846,479 tok/s wait 0.0ms mem 4.38GB
+step 5000/18311 loss 4.2854 847,655 tok/s wait 0.0ms mem 4.38GB
+step 5100/18311 loss 4.4456 847,926 tok/s wait 0.0ms mem 4.38GB
+step 5200/18311 loss 4.2786 848,132 tok/s wait 0.0ms mem 4.38GB
+step 5300/18311 loss 4.2148 848,301 tok/s wait 0.0ms mem 4.38GB
+step 5400/18311 loss 4.3017 849,503 tok/s wait 0.0ms mem 4.38GB
+step 5500/18311 loss 4.2958 849,682 tok/s wait 0.0ms mem 4.38GB
+step 5600/18311 loss 4.2506 849,872 tok/s wait 0.0ms mem 4.38GB
+step 5700/18311 loss 4.2204 850,081 tok/s wait 0.0ms mem 4.38GB
+step 5800/18311 loss 4.6732 850,872 tok/s wait 0.0ms mem 4.38GB
+step 5900/18311 loss 4.2630 851,037 tok/s wait 0.0ms mem 4.38GB
+step 6000/18311 loss 4.2148 851,161 tok/s wait 0.0ms mem 4.38GB
+step 6100/18311 loss 4.2699 851,304 tok/s wait 0.0ms mem 4.38GB
+  eval @ 400.0M tok: val 4.2042
+step 6200/18311 loss 4.3377 852,179 tok/s wait 0.0ms mem 4.38GB
+step 6300/18311 loss 4.2620 852,319 tok/s wait 0.0ms mem 4.38GB
+step 6400/18311 loss 4.2314 852,447 tok/s wait 0.0ms mem 4.38GB
+step 6500/18311 loss 4.1713 852,475 tok/s wait 0.0ms mem 4.38GB
+step 6600/18311 loss 4.0919 853,422 tok/s wait 0.0ms mem 4.38GB
+step 6700/18311 loss 4.3686 853,562 tok/s wait 0.0ms mem 4.38GB
+step 6800/18311 loss 4.3258 853,645 tok/s wait 0.0ms mem 4.38GB
+step 6900/18311 loss 4.3600 853,687 tok/s wait 0.0ms mem 4.38GB
+step 7000/18311 loss 4.2399 853,782 tok/s wait 0.0ms mem 4.38GB
+step 7100/18311 loss 4.4031 854,616 tok/s wait 0.0ms mem 4.38GB
+step 7200/18311 loss 4.3061 854,663 tok/s wait 0.0ms mem 4.38GB
+step 7300/18311 loss 4.2257 854,679 tok/s wait 0.0ms mem 4.38GB
+step 7400/18311 loss 4.1923 854,757 tok/s wait 0.0ms mem 4.38GB
+step 7500/18311 loss 4.3058 855,544 tok/s wait 0.0ms mem 4.38GB
+step 7600/18311 loss 4.2052 855,569 tok/s wait 0.0ms mem 4.38GB
+  eval @ 500.0M tok: val 4.1813
+step 7700/18311 loss 4.2364 855,576 tok/s wait 0.0ms mem 4.38GB
+step 7800/18311 loss 4.1291 855,621 tok/s wait 0.0ms mem 4.38GB
+step 7900/18311 loss 4.2397 856,327 tok/s wait 0.0ms mem 4.38GB
+step 8000/18311 loss 4.2024 856,392 tok/s wait 0.0ms mem 4.38GB
+step 8100/18311 loss 4.4382 856,370 tok/s wait 0.0ms mem 4.38GB
+step 8200/18311 loss 4.2254 856,423 tok/s wait 0.0ms mem 4.38GB
+step 8300/18311 loss 4.2908 857,036 tok/s wait 0.0ms mem 4.38GB
+step 8400/18311 loss 4.1681 857,177 tok/s wait 0.0ms mem 4.38GB
+step 8500/18311 loss 4.4324 857,181 tok/s wait 0.0ms mem 4.38GB
+step 8600/18311 loss 4.1634 857,144 tok/s wait 0.0ms mem 4.38GB
+step 8700/18311 loss 4.2128 857,736 tok/s wait 0.0ms mem 4.38GB
+step 8800/18311 loss 4.1737 857,746 tok/s wait 0.0ms mem 4.38GB
+step 8900/18311 loss 4.2690 857,720 tok/s wait 0.0ms mem 4.38GB
+step 9000/18311 loss 4.2890 857,760 tok/s wait 0.0ms mem 4.38GB
+step 9100/18311 loss 4.2285 857,797 tok/s wait 0.0ms mem 4.38GB
+  branch @ 600M (+916 decay steps): val_full 4.0719
+  eval @ 600.0M tok: val 4.1577
+step 9200/18311 loss 4.2811 858,297 tok/s wait 0.0ms mem 4.38GB
+step 9300/18311 loss 4.0907 858,331 tok/s wait 0.0ms mem 4.38GB
+step 9400/18311 loss 4.2238 858,377 tok/s wait 0.0ms mem 4.38GB
+step 9500/18311 loss 4.2029 858,912 tok/s wait 0.0ms mem 4.38GB
+step 9600/18311 loss 4.2841 858,904 tok/s wait 0.0ms mem 4.38GB
+step 9700/18311 loss 4.1766 858,936 tok/s wait 0.0ms mem 4.38GB
+step 9800/18311 loss 4.0496 858,956 tok/s wait 0.0ms mem 4.38GB
+step 9900/18311 loss 4.1388 859,471 tok/s wait 0.0ms mem 4.38GB
+step 10000/18311 loss 4.1704 859,460 tok/s wait 0.0ms mem 4.38GB
+step 10100/18311 loss 4.1869 859,438 tok/s wait 0.0ms mem 4.38GB
+step 10200/18311 loss 4.2534 859,386 tok/s wait 0.0ms mem 4.38GB
+step 10300/18311 loss 4.2449 859,847 tok/s wait 0.0ms mem 4.38GB
+step 10400/18311 loss 4.2159 859,844 tok/s wait 0.0ms mem 4.38GB
+step 10500/18311 loss 4.2331 859,856 tok/s wait 0.0ms mem 4.38GB
+step 10600/18311 loss 4.1028 859,865 tok/s wait 0.0ms mem 4.38GB
+  eval @ 700.0M tok: val 4.1450
+step 10700/18311 loss 4.1558 860,324 tok/s wait 0.0ms mem 4.38GB
+step 10800/18311 loss 4.0634 860,329 tok/s wait 0.0ms mem 4.38GB
+step 10900/18311 loss 4.1619 860,332 tok/s wait 0.0ms mem 4.38GB
+step 11000/18311 loss 4.1430 860,337 tok/s wait 0.0ms mem 4.38GB
+step 11100/18311 loss 4.2103 860,326 tok/s wait 0.0ms mem 4.38GB
+step 11200/18311 loss 4.2004 860,753 tok/s wait 0.0ms mem 4.38GB
+step 11300/18311 loss 4.1913 860,759 tok/s wait 0.0ms mem 4.38GB
+step 11400/18311 loss 4.1007 859,225 tok/s wait 0.2ms mem 4.38GB
+step 11500/18311 loss 4.0696 859,237 tok/s wait 0.2ms mem 4.38GB
+step 11600/18311 loss 4.0706 859,670 tok/s wait 0.2ms mem 4.38GB
+step 11700/18311 loss 4.3125 859,684 tok/s wait 0.2ms mem 4.38GB
+step 11800/18311 loss 4.2716 859,695 tok/s wait 0.2ms mem 4.38GB
+step 11900/18311 loss 4.5725 859,687 tok/s wait 0.2ms mem 4.38GB
+step 12000/18311 loss 4.2430 860,092 tok/s wait 0.2ms mem 4.38GB
+step 12100/18311 loss 4.1683 860,097 tok/s wait 0.2ms mem 4.38GB
+step 12200/18311 loss 4.2151 860,081 tok/s wait 0.2ms mem 4.38GB
+  eval @ 800.0M tok: val 4.1310
+step 12300/18311 loss 4.2438 860,078 tok/s wait 0.2ms mem 4.38GB
+step 12400/18311 loss 4.2466 860,476 tok/s wait 0.2ms mem 4.38GB
+step 12500/18311 loss 4.1464 860,480 tok/s wait 0.2ms mem 4.38GB
+step 12600/18311 loss 4.3209 860,472 tok/s wait 0.2ms mem 4.38GB
+step 12700/18311 loss 4.1723 860,478 tok/s wait 0.2ms mem 4.38GB
+step 12800/18311 loss 4.2424 860,864 tok/s wait 0.2ms mem 4.38GB
+step 12900/18311 loss 4.4323 860,858 tok/s wait 0.2ms mem 4.38GB
+step 13000/18311 loss 4.1515 860,853 tok/s wait 0.2ms mem 4.38GB
+step 13100/18311 loss 4.2691 860,852 tok/s wait 0.2ms mem 4.38GB
+step 13200/18311 loss 4.1692 860,809 tok/s wait 0.2ms mem 4.38GB
+step 13300/18311 loss 4.2611 861,160 tok/s wait 0.2ms mem 4.38GB
+step 13400/18311 loss 4.1151 861,157 tok/s wait 0.2ms mem 4.38GB
+step 13500/18311 loss 4.1606 861,134 tok/s wait 0.2ms mem 4.38GB
+step 13600/18311 loss 4.0495 861,111 tok/s wait 0.2ms mem 4.38GB
+step 13700/18311 loss 4.2234 861,485 tok/s wait 0.2ms mem 4.38GB
+  eval @ 900.0M tok: val 4.1216
+step 13800/18311 loss 4.2243 861,470 tok/s wait 0.2ms mem 4.38GB
+step 13900/18311 loss 4.2676 861,451 tok/s wait 0.2ms mem 4.38GB
+step 14000/18311 loss 4.2243 861,412 tok/s wait 0.2ms mem 4.38GB
+step 14100/18311 loss 4.1168 861,802 tok/s wait 0.2ms mem 4.38GB
+step 14200/18311 loss 4.2288 861,816 tok/s wait 0.2ms mem 4.38GB
+step 14300/18311 loss 4.2156 861,819 tok/s wait 0.1ms mem 4.38GB
+step 14400/18311 loss 4.0585 861,772 tok/s wait 0.1ms mem 4.38GB
+step 14500/18311 loss 4.2492 861,817 tok/s wait 0.1ms mem 4.38GB
+step 14600/18311 loss 4.0465 861,945 tok/s wait 0.1ms mem 4.38GB
+step 14700/18311 loss 4.2656 862,000 tok/s wait 0.1ms mem 4.38GB
+step 14800/18311 loss 4.1747 862,000 tok/s wait 0.1ms mem 4.38GB
+step 14900/18311 loss 4.3313 862,290 tok/s wait 0.1ms mem 4.38GB
+step 15000/18311 loss 4.1516 862,308 tok/s wait 0.1ms mem 4.38GB
+step 15100/18311 loss 4.1499 862,287 tok/s wait 0.1ms mem 4.38GB
+step 15200/18311 loss 4.1320 862,266 tok/s wait 0.1ms mem 4.38GB
+  eval @ 1000.0M tok: val 4.1133
+step 15300/18311 loss 4.2613 862,249 tok/s wait 0.1ms mem 4.38GB
+step 15400/18311 loss 4.2138 862,585 tok/s wait 0.1ms mem 4.38GB
+step 15500/18311 loss 4.1842 862,542 tok/s wait 0.1ms mem 4.38GB
+step 15600/18311 loss 4.0195 862,513 tok/s wait 0.1ms mem 4.38GB
+step 15700/18311 loss 4.1860 862,504 tok/s wait 0.1ms mem 4.38GB
+step 15800/18311 loss 4.2850 862,835 tok/s wait 0.1ms mem 4.38GB
+step 15900/18311 loss 4.1968 862,797 tok/s wait 0.1ms mem 4.38GB
+step 16000/18311 loss 4.0166 862,763 tok/s wait 0.1ms mem 4.38GB
+step 16100/18311 loss 4.3195 862,743 tok/s wait 0.1ms mem 4.38GB
+step 16200/18311 loss 4.1835 863,034 tok/s wait 0.1ms mem 4.38GB
+step 16300/18311 loss 4.1406 863,041 tok/s wait 0.1ms mem 4.38GB
+step 16400/18311 loss 4.1531 862,996 tok/s wait 0.1ms mem 4.38GB
+step 16500/18311 loss 4.0724 862,953 tok/s wait 0.1ms mem 4.38GB
+step 16600/18311 loss 4.0699 863,070 tok/s wait 0.1ms mem 4.38GB
+step 16700/18311 loss 4.2129 862,733 tok/s wait 0.1ms mem 4.38GB
+  eval @ 1100.0M tok: val 4.1317
+step 16800/18311 loss 4.2234 862,412 tok/s wait 0.1ms mem 4.38GB
+step 16900/18311 loss 4.2702 862,104 tok/s wait 0.1ms mem 4.38GB
+step 17000/18311 loss 4.2167 862,067 tok/s wait 0.1ms mem 4.38GB
+step 17100/18311 loss 4.0306 861,783 tok/s wait 0.1ms mem 4.38GB
+step 17200/18311 loss 4.1276 861,447 tok/s wait 0.1ms mem 4.38GB
+step 17300/18311 loss 4.2877 861,169 tok/s wait 0.1ms mem 4.38GB
+step 17400/18311 loss 4.1207 861,184 tok/s wait 0.1ms mem 4.38GB
+step 17500/18311 loss 4.0731 860,940 tok/s wait 0.1ms mem 4.38GB
+step 17600/18311 loss 4.1697 860,623 tok/s wait 0.1ms mem 4.38GB
+step 17700/18311 loss 4.1055 860,344 tok/s wait 0.1ms mem 4.38GB
+step 17800/18311 loss 4.1576 860,131 tok/s wait 0.1ms mem 4.38GB
+step 17900/18311 loss 4.0484 860,025 tok/s wait 0.1ms mem 4.38GB
+step 18000/18311 loss 4.3179 859,782 tok/s wait 0.1ms mem 4.38GB
+step 18100/18311 loss 4.2127 859,530 tok/s wait 0.1ms mem 4.38GB
+step 18200/18311 loss 4.1535 859,543 tok/s wait 0.1ms mem 4.38GB
+step 18300/18311 loss 3.9576 859,282 tok/s wait 0.1ms mem 4.38GB
+step 18311/18311 loss 4.0777 859,246 tok/s wait 0.1ms mem 4.38GB
+  eval @ 1200.0M tok: val 4.0951
+  branch @ 1200M (+1831 decay steps): val_full 4.0047
+done wsd_D1_lazy_s0: val 4.0047 in 28.7 min

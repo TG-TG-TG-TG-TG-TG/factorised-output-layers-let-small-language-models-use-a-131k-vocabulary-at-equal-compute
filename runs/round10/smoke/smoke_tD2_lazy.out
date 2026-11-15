@@ -1,0 +1,4 @@
+smoke_tD2_lazy: 270,146,688 non-emb params, 18311 steps, accum 4x16
+step 100/18311 loss 6.7263 823,349 tok/s wait 0.0ms mem 4.28GB
+step 200/18311 loss 6.0113 817,151 tok/s wait 0.0ms mem 4.28GB
+done smoke_tD2_lazy: val nan in 0.6 min

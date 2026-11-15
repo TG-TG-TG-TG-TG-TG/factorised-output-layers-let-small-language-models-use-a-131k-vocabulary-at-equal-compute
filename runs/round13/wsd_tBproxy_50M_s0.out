@@ -1,0 +1,23 @@
+wsd_tBproxy_50M_s0: 1,182,848 non-emb params, 763 steps, accum 4x16
+  eval @ 4.2M tok: val 7.1908
+step 100/763 loss 6.9074 311,820 tok/s wait 0.0ms mem 2.18GB
+  eval @ 8.3M tok: val 6.5288
+  eval @ 12.5M tok: val 6.2168
+step 200/763 loss 6.2099 314,626 tok/s wait 0.0ms mem 2.18GB
+  eval @ 16.6M tok: val 5.9797
+step 300/763 loss 5.9094 315,240 tok/s wait 0.0ms mem 2.18GB
+  eval @ 20.8M tok: val 5.8070
+  eval @ 25.0M tok: val 5.6681
+step 400/763 loss 5.6852 316,881 tok/s wait 0.0ms mem 2.18GB
+  eval @ 29.2M tok: val 5.5485
+step 500/763 loss 5.6107 318,439 tok/s wait 0.0ms mem 2.18GB
+  eval @ 33.4M tok: val 5.4567
+  eval @ 37.5M tok: val 5.3546
+step 600/763 loss 5.4786 318,652 tok/s wait 0.0ms mem 2.18GB
+  eval @ 41.7M tok: val 5.3009
+  eval @ 45.8M tok: val 5.2549
+step 700/763 loss 5.4433 318,963 tok/s wait 0.0ms mem 2.18GB
+step 763/763 loss 5.2600 319,284 tok/s wait 0.0ms mem 2.18GB
+  eval @ 50.0M tok: val 5.1819
+  branch @ 50M (+76 decay steps): val_full 5.1483
+done wsd_tBproxy_50M_s0: val 5.1483 in 3.7 min

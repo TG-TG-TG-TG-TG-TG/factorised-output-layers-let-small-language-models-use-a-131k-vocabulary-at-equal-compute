@@ -1,0 +1,124 @@
+{
+ "accounting": {
+  "tB": {
+   "total_params": 7621760,
+   "new_params": 0,
+   "head_fwd_flops_per_token": 12877824,
+   "head_ratio_to_B": 1.0,
+   "train_flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 38633472,
+    "total": 50429952
+   }
+  },
+  "tH2": {
+   "total_params": 7753856,
+   "new_params": 132096,
+   "head_fwd_flops_per_token": 274944,
+   "head_ratio_to_B": 0.021350190839694656,
+   "train_flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 824832,
+    "total": 12621312
+   }
+  },
+  "tH2r": {
+   "total_params": 7753856,
+   "new_params": 132096,
+   "head_fwd_flops_per_token": 274944,
+   "head_ratio_to_B": 0.021350190839694656,
+   "train_flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 824832,
+    "total": 12621312
+   }
+  },
+  "tCB": {
+   "total_params": 7753856,
+   "new_params": 132096,
+   "head_fwd_flops_per_token": 13127936,
+   "head_ratio_to_B": 1.0194219147582697,
+   "train_flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 39383808,
+    "total": 51180288
+   }
+  },
+  "tH2w": {
+   "total_params": 33944192,
+   "new_params": 26322432,
+   "head_fwd_flops_per_token": 1230848,
+   "head_ratio_to_B": 0.09557888040712469,
+   "train_flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 3692544,
+    "total": 15489024
+   }
+  }
+ },
+ "4 backbone init bit-identical tH2 vs tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "4 backbone init bit-identical tH2r vs tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "4 backbone init bit-identical tCB vs tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "4 backbone init bit-identical tH2w vs tB": {
+  "ok": true,
+  "detail": "62 tensors"
+ },
+ "1 tH2 grouped == gather (16384 tok)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06, mean NLL 11.69281 (ln V = 10.82491)"
+ },
+ "1 tH2 grouped == -full[y] (2048 tok)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 tH2 sum exp(full) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 4.77e-07"
+ },
+ "wiring lm_loss(tH2) == mean gather (training path)": {
+  "ok": true,
+  "detail": "11.692807 vs 11.692806"
+ },
+ "wiring lm_loss(tH2) == mean grouped": {
+  "ok": true,
+  "detail": "11.692807 vs 11.692806"
+ },
+ "2 tH2 dL/dU grouped == gather": {
+  "ok": true,
+  "detail": "max |diff| 1.15e-07 (max |grad| 7.19e-02)"
+ },
+ "3 tH2 hier_greedy == argmax full (256 pos)": {
+  "ok": true,
+  "detail": "256/256 match; classes expanded mean 101.88, max 239 (of 1024); init model"
+ },
+ "greedy_expanded_init": {
+  "mean": 101.8828125,
+  "max": 239
+ },
+ "1 tH2r grouped == gather (16384 tok)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06, mean NLL 11.83338 (ln V = 10.82491)"
+ },
+ "1 tH2r grouped == -full[y] (2048 tok)": {
+  "ok": true,
+  "detail": "max |diff| 1.91e-06"
+ },
+ "1 tH2r sum exp(full) == 1": {
+  "ok": true,
+  "detail": "max |sum - 1| 4.77e-07"
+ },
+ "CB cb_logits(fp32) == heads.class_bias_logits": {
+  "ok": true,
+  "detail": "max |diff| 0.00e+00"
+ },
+ "fails": []
+}

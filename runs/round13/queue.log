@@ -1,0 +1,74 @@
+[round13] d384 tB:0 --label tBproxy --tokens 50003968 --branch_at 50003968 start Wed Nov 11 21:40:15 CET 2026
+[r13] start wsd_tBproxy_50M_s0: train.py --arm tB --seed 0 --lr 0.002 --tokens 50003968 --sched wsd --branch_at 50003968 --decay_frac 0.1 --n_evals 12 --name wsd_tBproxy_50M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_tBproxy_50M_s0: rc 0, 3.8 min, round-12 total 0.06 h
+[r13] finished
+[round13] d384 tB:0 --label tBproxy --tokens 50003968 --branch_at 50003968 end Wed Nov 11 21:44:03 CET 2026
+[round13] d384 H3p384:0 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 start Wed Nov 11 21:46:16 CET 2026
+[r13] start wsd_H3p384_575M_s0: train.py --arm H3p384 --seed 0 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 276299776,300e6,551288832,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3p384_575M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_H3p384_575M_s0: rc 0, 41.5 min, round-12 total 0.76 h
+[r13] finished
+[round13] d384 H3p384:0 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 end Wed Nov 11 22:27:47 CET 2026
+[round13] d384 H3p384:1 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 start Thu Nov 12 13:19:45 CET 2026
+[r13] start wsd_H3p384_575M_s1: train.py --arm H3p384 --seed 1 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 276299776,300e6,551288832,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3p384_575M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_H3p384_575M_s1: rc 0, 39.2 min, round-13 total 1.41 h
+[r13] finished
+[round13] d384 H3p384:1 --label H3p384 --tokens 575e6 --branch_at 276299776,300e6,551288832,575e6 end Thu Nov 12 13:58:57 CET 2026
+[round13] d384 B:0 --label B384x2 --tokens 630259712 --branch_at 315162624,630259712 start Thu Nov 12 13:58:57 CET 2026
+[r13] start wsd_B384x2_630M_s0: train.py --arm B --seed 0 --lr 0.002 --tokens 630259712 --sched wsd --branch_at 315162624,630259712 --decay_frac 0.1 --n_evals 12 --name wsd_B384x2_630M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_B384x2_630M_s0: rc 0, 138.9 min, round-13 total 3.72 h
+[r13] finished
+[round13] d384 B:0 --label B384x2 --tokens 630259712 --branch_at 315162624,630259712 end Thu Nov 12 16:17:49 CET 2026
+[round13] d384 H3p384:0 --label H3p384x2 --tokens 1149960192 --branch_at 1126236160,1149960192 start Thu Nov 12 16:17:49 CET 2026
+[r13] start wsd_H3p384x2_1150M_s0: train.py --arm H3p384 --seed 0 --lr 0.002 --tokens 1149960192 --sched wsd --branch_at 1126236160,1149960192 --decay_frac 0.1 --n_evals 12 --name wsd_H3p384x2_1150M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_H3p384x2_1150M_s0: rc 0, 82.5 min, round-13 total 5.10 h
+[r13] finished
+[round13] d384 H3p384:0 --label H3p384x2 --tokens 1149960192 --branch_at 1126236160,1149960192 end Thu Nov 12 17:40:18 CET 2026
+[round13] d384 AS384:0 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 start Thu Nov 12 18:22:28 CET 2026
+[r13] start wsd_AS384_624M_s0: train.py --arm AS384 --seed 0 --lr 0.002 --tokens 624427008 --sched wsd --branch_at 325844992,624427008 --decay_frac 0.1 --n_evals 12 --name wsd_AS384_624M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_AS384_624M_s0: rc 0, 71.1 min, round-13 total 6.28 h
+[r13] finished
+[round13] d384 AS384:0 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 end Thu Nov 12 19:33:32 CET 2026
+[round13] d384 AS384:1 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 start Thu Nov 12 19:33:32 CET 2026
+[r13] start wsd_AS384_624M_s1: train.py --arm AS384 --seed 1 --lr 0.002 --tokens 624427008 --sched wsd --branch_at 325844992,624427008 --decay_frac 0.1 --n_evals 12 --name wsd_AS384_624M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_AS384_624M_s1: rc 0, 68.6 min, round-13 total 7.42 h
+[r13] finished
+[round13] d384 AS384:1 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 end Thu Nov 12 20:42:05 CET 2026
+[round13] d384 AS128k384:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 start Thu Nov 12 20:42:05 CET 2026
+[r13] wsd_AS128k384_620M_s0 is DONE; skipped
+[r13] finished
+[round13] d384 AS128k384:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 end Thu Nov 12 20:42:06 CET 2026
+[round13] d384 AS128k384s:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 start Thu Nov 12 22:14:37 CET 2026
+[r13] start wsd_AS128k384_620M_s0: train.py --arm AS128k384s --seed 0 --lr 0.002 --tokens 619970560 --sched wsd --branch_at 323485696,619970560 --decay_frac 0.1 --n_evals 12 --name wsd_AS128k384_620M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=323485696
+[r13] end wsd_AS128k384_620M_s0: rc 0, 89.5 min, round-13 total 8.92 h
+[r13] finished
+[round13] d384 AS128k384s:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 end Thu Nov 12 23:44:08 CET 2026
+[round13] d384 H128k384:1 --label H128k384 --tokens 574750720 --branch_at 299892736,521797632,574750720 --extra=--keep_branch=299892736,521797632 start Fri Nov 13 12:14:24 CET 2026
+[r13] start wsd_H128k384_575M_s1: train.py --arm H128k384 --seed 1 --lr 0.002 --tokens 574750720 --sched wsd --branch_at 299892736,521797632,574750720 --decay_frac 0.1 --n_evals 12 --name wsd_H128k384_575M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=299892736,521797632
+[r13] end wsd_H128k384_575M_s1: rc 0, 38.2 min, round-13 total 9.55 h
+[r13] finished
+[round13] d384 H128k384:1 --label H128k384 --tokens 574750720 --branch_at 299892736,521797632,574750720 --extra=--keep_branch=299892736,521797632 end Fri Nov 13 12:52:37 CET 2026
+[round13] d384 AS128k384s:1 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 start Fri Nov 13 12:52:37 CET 2026
+[r13] start wsd_AS128k384_620M_s1: train.py --arm AS128k384s --seed 1 --lr 0.002 --tokens 619970560 --sched wsd --branch_at 323485696,619970560 --decay_frac 0.1 --n_evals 12 --name wsd_AS128k384_620M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=323485696
+[r13] end wsd_AS128k384_620M_s1: rc 0, 121.4 min, round-13 total 11.58 h
+[r13] finished
+[round13] d384 AS128k384s:1 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 end Fri Nov 13 14:54:05 CET 2026
+[round13] d384 AS128k384c49:0 --label AS128k384c49 --tokens 611909632 --branch_at 319356928,611909632 --extra=--keep_branch=319356928 start Fri Nov 13 14:54:05 CET 2026
+[r13] start wsd_AS128k384c49_612M_s0: train.py --arm AS128k384c49 --seed 0 --lr 0.002 --tokens 611909632 --sched wsd --branch_at 319356928,611909632 --decay_frac 0.1 --n_evals 12 --name wsd_AS128k384c49_612M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=319356928
+[r13] end wsd_AS128k384c49_612M_s0: rc 0, 109.1 min, round-13 total 13.40 h
+[r13] finished
+[round13] d384 AS128k384c49:0 --label AS128k384c49 --tokens 611909632 --branch_at 319356928,611909632 --extra=--keep_branch=319356928 end Fri Nov 13 16:43:12 CET 2026
+[round13] d384 AS128k384c49:1 --label AS128k384c49 --tokens 611909632 --branch_at 319356928,611909632 --extra=--keep_branch=319356928 start Fri Nov 13 18:12:26 CET 2026
+[r13] start wsd_AS128k384c49_612M_s1: train.py --arm AS128k384c49 --seed 1 --lr 0.002 --tokens 611909632 --sched wsd --branch_at 319356928,611909632 --decay_frac 0.1 --n_evals 12 --name wsd_AS128k384c49_612M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=319356928
+[r13] end wsd_AS128k384c49_612M_s1: rc 0, 82.5 min, round-13 total 14.77 h
+[r13] finished
+[round13] d384 AS128k384c49:1 --label AS128k384c49 --tokens 611909632 --branch_at 319356928,611909632 --extra=--keep_branch=319356928 end Fri Nov 13 19:34:54 CET 2026
+[round13] d384 AS128k384c49w:0 --label AS128k384c49w --tokens 539623424 --branch_at 281608192,539623424 --extra=--keep_branch=281608192 start Fri Nov 13 21:49:59 CET 2026
+[r13] start wsd_AS128k384c49w_540M_s0: train.py --arm AS128k384c49w --seed 0 --lr 0.002 --tokens 539623424 --sched wsd --branch_at 281608192,539623424 --decay_frac 0.1 --n_evals 12 --name wsd_AS128k384c49w_540M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=281608192
+[r13] end wsd_AS128k384c49w_540M_s0: rc 0, 100.9 min, round-13 total 16.45 h
+[r13] finished
+[round13] d384 AS128k384c49w:0 --label AS128k384c49w --tokens 539623424 --branch_at 281608192,539623424 --extra=--keep_branch=281608192 end Fri Nov 13 23:30:54 CET 2026
+[round13] d384 AS128k384c49w:1 --label AS128k384c49w --tokens 539623424 --branch_at 281608192,539623424 --extra=--keep_branch=281608192 start Sat Nov 14 11:55:25 CET 2026
+[r13] start wsd_AS128k384c49w_540M_s1: train.py --arm AS128k384c49w --seed 1 --lr 0.002 --tokens 539623424 --sched wsd --branch_at 281608192,539623424 --decay_frac 0.1 --n_evals 12 --name wsd_AS128k384c49w_540M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=281608192
+[r13] end wsd_AS128k384c49w_540M_s1: rc 0, 97.4 min, round-13 total 18.08 h
+[r13] finished
+[round13] d384 AS128k384c49w:1 --label AS128k384c49w --tokens 539623424 --branch_at 281608192,539623424 --extra=--keep_branch=281608192 end Sat Nov 14 13:32:48 CET 2026

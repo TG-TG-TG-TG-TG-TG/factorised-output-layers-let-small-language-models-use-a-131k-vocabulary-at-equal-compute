@@ -1,0 +1,11 @@
+[r13chain] smoke AS128k384c49w@539623424 start Fri Nov 13 21:42:57 CET 2026
+step 200/8234 loss 6.2321 106,162 tok/s wait 0.0ms mem 5.03GB
+done smoke_AS128k384c49w: val nan in 2.7 min
+[r13chain] smoke AS128k384c49w@539623424 end Fri Nov 13 21:45:47 CET 2026
+[r13chain] py round13_smoke_check.py --tag exp5 --arms AS128k384c49w start Fri Nov 13 21:45:47 CET 2026
+AS128k384c49w loss@200 6.2321     106,162 tok/s (0.00x B)  step 617 ms  peak 5.03 GB  wait 0.0 ms  head 11,764,618 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 103 min  data hash n/a (bpe131072)
+gate 4 (data) / smoke: OK
+[r13chain] py round13_smoke_check.py --tag exp5 --arms AS128k384c49w end Fri Nov 13 21:45:48 CET 2026
+[r13chain] py round13_require_fast.py runs/round13/smoke_check_exp5.json AS128k384c49w start Fri Nov 13 21:45:48 CET 2026
+[require_fast] AS128k384c49w: est 103 min, 106,162 tok/s (limit 115 min)
+[r13chain] py round13_require_fast.py runs/round13/smoke_check_exp5.json AS128k384c49w end Fri Nov 13 21:45:48 CET 2026

@@ -1,0 +1,5 @@
+﻿[r10chain] one tiny Rwide1200:0 start Sun Nov  8 15:53:10 CET 2026
+[r10] start wsd_Rwide1200_s0: train.py --arm Rwide1200 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_Rwide1200_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_Rwide1200_s0: rc 0, 47.4 min, round-10 total 6.08 h
+[r10] finished
+[r10chain] one tiny Rwide1200:0 end Sun Nov  8 16:40:35 CET 2026

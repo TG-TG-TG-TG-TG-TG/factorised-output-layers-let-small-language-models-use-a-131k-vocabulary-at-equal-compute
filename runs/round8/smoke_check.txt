@@ -1,0 +1,6 @@
+tB    loss@200 6.2097    313,860 tok/s (1.00x tB)  step 209 ms  peak 2.18 GB  wait 0.0 ms  est full 77 min  data hash OK
+tCB   loss@200 6.1743    225,119 tok/s (0.72x tB)  step 291 ms  peak 2.41 GB  wait 0.0 ms  est full 108 min  data hash OK
+tH2   loss@200 6.1511  1,342,057 tok/s (4.28x tB)  step 49 ms  peak 0.77 GB  wait 0.0 ms  est full 18 min  data hash OK
+tH2r  loss@200 6.2951  1,791,871 tok/s (5.71x tB)  step 37 ms  peak 0.77 GB  wait 0.0 ms  est full 14 min  data hash OK
+tH2w  loss@200 5.9570    972,414 tok/s (3.10x tB)  step 67 ms  peak 1.23 GB  wait 0.0 ms  est full 25 min  data hash OK
+gate 5 / smoke: OK (all arms ran; all see the reference first 3 batches)

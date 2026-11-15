@@ -1,0 +1,138 @@
+[r11chain] one d384 F8k384:0 --label F8k384 --tokens 631308288 --branch_at 329383936,631308288 --extra=--keep_branch=329383936 start Mon Nov  9 20:47:27 CET 2026
+[r11] start wsd_F8k384_631M_s0: train.py --arm F8k384 --seed 0 --lr 0.002 --tokens 631308288 --sched wsd --branch_at 329383936,631308288 --decay_frac 0.1 --n_evals 12 --name wsd_F8k384_631M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=329383936
+[r11] end wsd_F8k384_631M_s0: rc 0, 28.2 min, round-11 total 2.58 h
+[r11] finished
+[r11chain] one d384 F8k384:0 --label F8k384 --tokens 631308288 --branch_at 329383936,631308288 --extra=--keep_branch=329383936 end Mon Nov  9 21:15:40 CET 2026
+[r11chain] pytry round11_eval.py validate start Mon Nov  9 21:15:40 CET 2026
+B384 {'logged_val_loss_full': 3.7849866069731166, 'direct_minus_logged': 0.0002596463739541477, 'gate_ok': True, 'direct_bpb': 1.1787558463234427, 'direct_bytes': 23160213, 'direct_nll_per_token': 3.7852462533470708, 'aligned_bpb': 1.178773980476067, 'aligned_bytes': 23160080, 'aligned_unscored': 133}
+H3s384_300M {'logged_val_loss_full': 3.8220531182210955, 'direct_minus_logged': 0.00024679897240620363, 'gate_ok': True, 'direct_bpb': 1.190294652510243, 'direct_bytes': 23160213, 'direct_nll_per_token': 3.8222999171935017, 'aligned_bpb': 1.1903110717924743, 'aligned_bytes': 23160080, 'aligned_unscored': 133}
+[r11chain] pytry round11_eval.py validate end Mon Nov  9 21:16:39 CET 2026
+[r11chain] pytry round11_eval.py bpb start Mon Nov  9 21:16:39 CET 2026
+[bpb] models: ['B384', 'H3s384_300M', 'H3s384_575M', 'F8k384_329M', 'F8k384_631M', 'B_r8', 'H3k8c4', 'H3rs16']
+[bpb] B384             fineweb      BPB 1.1788  nll/target 3.7852  bytes 23,160,213 (+0 unscored)  17s
+[bpb] B384             wikitext103  BPB 1.4424  nll/target 4.5436  bytes 1,284,392 (+0 unscored)  5s
+[bpb] B384             pg19         BPB 1.7347  nll/target 4.5367  bytes 3,875,124 (+0 unscored)  8s
+[bpb] H3s384_300M      fineweb      BPB 1.1903  nll/target 3.8223  bytes 23,160,213 (+0 unscored)  10s
+[bpb] H3s384_300M      wikitext103  BPB 1.4498  nll/target 4.5669  bytes 1,284,392 (+0 unscored)  3s
+[bpb] H3s384_300M      pg19         BPB 1.7423  nll/target 4.5565  bytes 3,875,124 (+0 unscored)  4s
+[bpb] H3s384_575M      fineweb      BPB 1.1560  nll/target 3.7123  bytes 23,160,213 (+0 unscored)  10s
+[bpb] H3s384_575M      wikitext103  BPB 1.4116  nll/target 4.4465  bytes 1,284,392 (+0 unscored)  3s
+[bpb] H3s384_575M      pg19         BPB 1.7093  nll/target 4.4703  bytes 3,875,124 (+0 unscored)  5s
+[bpb] F8k384_329M      fineweb      BPB 1.2233  nll/target 3.3322  bytes 23,160,080 (+133 unscored)  19s
+[bpb] F8k384_329M      wikitext103  BPB 1.4925  nll/target 3.7572  bytes 1,284,391 (+1 unscored)  6s
+[bpb] F8k384_329M      pg19         BPB 1.7384  nll/target 3.8281  bytes 3,875,111 (+13 unscored)  9s
+[bpb] F8k384_631M      fineweb      BPB 1.1875  nll/target 3.2345  bytes 23,160,080 (+133 unscored)  19s
+[bpb] F8k384_631M      wikitext103  BPB 1.4328  nll/target 3.6070  bytes 1,284,391 (+1 unscored)  3s
+[bpb] F8k384_631M      pg19         BPB 1.7020  nll/target 3.7480  bytes 3,875,111 (+13 unscored)  5s
+[bpb] B_r8             fineweb      BPB 1.2840  nll/target 4.1231  bytes 23,160,213 (+0 unscored)  11s
+[bpb] B_r8             wikitext103  BPB 1.5907  nll/target 5.0107  bytes 1,284,392 (+0 unscored)  3s
+[bpb] B_r8             pg19         BPB 1.8658  nll/target 4.8794  bytes 3,875,124 (+0 unscored)  5s
+[bpb] H3k8c4           fineweb      BPB 1.2940  nll/target 4.1555  bytes 23,160,213 (+0 unscored)  7s
+[bpb] H3k8c4           wikitext103  BPB 1.6006  nll/target 5.0421  bytes 1,284,392 (+0 unscored)  3s
+[bpb] H3k8c4           pg19         BPB 1.8677  nll/target 4.8846  bytes 3,875,124 (+0 unscored)  4s
+[bpb] H3rs16           fineweb      BPB 1.2928  nll/target 4.1516  bytes 23,160,213 (+0 unscored)  9s
+[bpb] H3rs16           wikitext103  BPB 1.5958  nll/target 5.0270  bytes 1,284,392 (+0 unscored)  2s
+[bpb] H3rs16           pg19         BPB 1.8608  nll/target 4.8665  bytes 3,875,124 (+0 unscored)  3s
+[r11chain] pytry round11_eval.py bpb end Mon Nov  9 21:19:40 CET 2026
+[r11chain] pytry round11_eval.py lambada start Mon Nov  9 21:19:40 CET 2026
+[lambada] models: ['B384', 'H3s384_300M', 'H3s384_575M', 'F8k384_329M', 'F8k384_631M', 'B_r8', 'H3k8c4', 'H3rs16']
+[lambada] B384             acc 14.81% (top4096 15.15 / rest 14.67) word bits/byte 1.7147  22s
+[lambada] H3s384_300M      acc 11.82% (top4096 13.99 / rest 10.95) word bits/byte 1.7646  14s
+[lambada] H3s384_575M      acc 14.15% (top4096 15.90 / rest 13.45) word bits/byte 1.7042  13s
+[lambada] F8k384_329M      acc 15.95% (top4096 14.20 / rest 16.65) word bits/byte 1.4540  11s
+[lambada] F8k384_631M      acc 16.83% (top4096 15.01 / rest 17.55) word bits/byte 1.3986  11s
+[lambada] B_r8             acc 7.67% (top4096 9.58 / rest 6.90) word bits/byte 2.0355  16s
+[lambada] H3k8c4           acc 6.52% (top4096 8.83 / rest 5.60) word bits/byte 2.0778  10s
+[lambada] H3rs16           acc 7.28% (top4096 9.65 / rest 6.33) word bits/byte 2.1000  9s
+[r11chain] pytry round11_eval.py lambada end Mon Nov  9 21:21:32 CET 2026
+[r11chain] pytry round11_eval.py blimp start Mon Nov  9 21:21:32 CET 2026
+[blimp] models: ['B384', 'H3s384_300M', 'H3s384_575M', 'F8k384_329M', 'F8k384_631M', 'B_r8', 'H3k8c4', 'H3rs16']
+[blimp] B384             acc 71.68%  30s
+[blimp] H3s384_300M      acc 71.87%  20s
+[blimp] H3s384_575M      acc 72.06%  21s
+[blimp] F8k384_329M      acc 68.90%  13s
+[blimp] F8k384_631M      acc 69.99%  14s
+[blimp] B_r8             acc 68.99%  23s
+[blimp] H3k8c4           acc 68.71%  15s
+[blimp] H3rs16           acc 68.78%  19s
+[r11chain] pytry round11_eval.py blimp end Mon Nov  9 21:25:32 CET 2026
+[r11chain] pytry round11_eval.py copy start Mon Nov  9 21:25:32 CET 2026
+[copy] models: ['B384', 'H3s384_300M', 'H3s384_575M', 'F8k384_329M', 'F8k384_631M', 'B_r8', 'H3k8c4', 'H3rs16']
+[copy] B384             E5a copy1 3.8068 copy2 3.0196 | E5b copy1 12.5262 copy2 9.0053
+[copy] H3s384_300M      E5a copy1 3.8416 copy2 3.0785 | E5b copy1 13.3986 copy2 9.3085
+[copy] H3s384_575M      E5a copy1 3.7341 copy2 2.9208 | E5b copy1 13.4296 copy2 7.5387
+[copy] F8k384_329M: not a GPT-2-vocab model; skipped (pinned rule)
+[copy] F8k384_631M: not a GPT-2-vocab model; skipped (pinned rule)
+[copy] B_r8             E5a copy1 4.1481 copy2 3.1896 | E5b copy1 13.6092 copy2 13.1006
+[copy] H3k8c4           E5a copy1 4.1799 copy2 3.2249 | E5b copy1 13.7831 copy2 12.2599
+[copy] H3rs16           E5a copy1 4.1679 copy2 3.2435 | E5b copy1 13.9973 copy2 13.4408
+[r11chain] pytry round11_eval.py copy end Mon Nov  9 21:26:22 CET 2026
+[r11chain] pytry round11_buckets.py --tag partC --arms H3k8c4:tH3k8c4:wsd_H3k8c4_s0,H3rs16:tH3rs16:wsd_H3rs16_s0 start Mon Nov  9 21:26:22 CET 2026
+{'nll_all_mean': 4.12283182144165, 'base': 'tB:wsd_B_r8_s0', 'total': 4.122830390930176, 'total_bucket': [2.5055789947509766, 4.779547214508057, 5.550568103790283, 6.25298547744751, 7.74137020111084]}
+E1109 21:26:43.487519   49245 slow_operation_alarm.cc:73] Constant folding an instruction is taking > 1s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.149, %constant.167, %constant.335), update_window_dims={1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata={op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime. XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be able to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+E1109 21:26:51.354843   49171 slow_operation_alarm.cc:140] The operation took 8.867434345s
+Constant folding an instruction is taking > 1s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.149, %constant.167, %constant.335), update_window_dims={1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata={op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime. XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be able to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+H3k8c4 {"arm": "tH3k8c4", "ckpt": "wsd_H3k8c4_s0", "total": 4.155220031738281, "d_total": 0.03238891810178757, "top": 4.034814357757568, "within": 0.12040461599826813, "d_top": 0.03310015797615051, "d_within": -0.0007112416788004339, "total_bucket": [2.4958527088165283, 4.767212390899658, 5.5551581382751465, 6.420838356018066, 7.990999221801758], "d_total_bucket": [-0.00972632598131895, -0.012335298582911491, 0.004590047989040613, 0.1678522825241089, 0.24962815642356873], "d_top_bucket": [-0.00972632598131895, -0.012335298582911491, 0.004590047989040613, 0.164856418967247, 0.2680659592151642], "d_within_bucket": [0.0, 0.0, 0.0, 0.002995859133079648, -0.018437808379530907], "contrib_bucket": [-0.004960587248206139, -0.0016787353670224547, 0.0007128907018341124, 0.0231031347066164, 0.01521221548318863], "tail_share": 0.12555391905737706, "hit_fraction": null, "hit_fraction_bucket": [null, null, null, null, null], "nll_tail_hit": null, "nll_tail_miss": null}
+E1109 21:27:01.439516   49245 slow_operation_alarm.cc:73] Constant folding an instruction is taking > 2s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.197, %constant.185, %constant.362), update_window_dims={1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata={op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime. XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be able to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+E1109 21:27:08.321350   49171 slow_operation_alarm.cc:140] The operation took 8.881933699s
+Constant folding an instruction is taking > 2s:
+
+  %scatter-add.5 = f32[4096,128]{1,0} scatter(%broadcast_in_dim.197, %constant.185, %constant.362), update_window_dims={1,2}, inserted_window_dims={}, scatter_dims_to_operand_dims={0}, index_vector_dim=1, to_apply=%region_25.29, metadata={op_name="jit(f)/scatter-add" stack_frame_id=8}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime. XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be able to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+H3rs16 {"arm": "tH3rs16", "ckpt": "wsd_H3rs16_s0", "total": 4.151386737823486, "d_total": 0.028556454926729202, "top": 4.031213283538818, "within": 0.12017369270324707, "d_top": 0.029498616233468056, "d_within": -0.0009421625873073936, "total_bucket": [2.487456798553467, 4.765073299407959, 5.550401210784912, 6.400841236114502, 8.060441970825195], "d_total_bucket": [-0.018122144043445587, -0.014474405907094479, -0.0001669896737439558, 0.14785532653331757, 0.31907176971435547], "d_top_bucket": [-0.018122144043445587, -0.014474405907094479, -0.0001669896737439558, 0.14592067897319794, 0.3389020264148712], "d_within_bucket": [0.0, 0.0, 0.0, 0.0019346416229382157, -0.019830258563160896], "contrib_bucket": [-0.009242593310773373, -0.0019698506221175194, -2.5935543817467988e-05, 0.020350759848952293, 0.019444074481725693], "tail_share": 0.12555391905737706, "hit_fraction": 0.4327773952515747, "hit_fraction_bucket": [null, null, null, 0.49803955575652087, 0.3635796428501061], "nll_tail_hit": 4.217604637145996, "nll_tail_miss": 9.860846519470215}
+[r11chain] pytry round11_buckets.py --tag partC --arms H3k8c4:tH3k8c4:wsd_H3k8c4_s0,H3rs16:tH3rs16:wsd_H3rs16_s0 end Mon Nov  9 21:27:17 CET 2026
+[r11chain] one bios bioB_20000:0 --tokens 101056512 --branch_at 101056512 start Mon Nov  9 21:27:17 CET 2026
+[r11] start wsd_bioB_20000_101M_s0: train.py --arm bioB_20000 --seed 0 --lr 0.002 --tokens 101056512 --sched wsd --branch_at 101056512 --decay_frac 0.1 --n_evals 12 --name wsd_bioB_20000_101M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioB_20000_101M_s0: rc 0, 6.1 min, round-11 total 2.68 h
+[r11] finished
+[r11chain] one bios bioB_20000:0 --tokens 101056512 --branch_at 101056512 end Mon Nov  9 21:33:23 CET 2026
+[r11chain] one bios bioH_20000:0 --tokens 101056512 --branch_at 101056512 start Mon Nov  9 21:33:23 CET 2026
+[r11] start wsd_bioH_20000_101M_s0: train.py --arm bioH_20000 --seed 0 --lr 0.002 --tokens 101056512 --sched wsd --branch_at 101056512 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_20000_101M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioH_20000_101M_s0: rc 0, 3.4 min, round-11 total 2.74 h
+[r11] finished
+[r11chain] one bios bioH_20000:0 --tokens 101056512 --branch_at 101056512 end Mon Nov  9 21:36:47 CET 2026
+[r11chain] one bios bioB_100000:0 --tokens 505282560 --branch_at 505282560 start Mon Nov  9 21:36:47 CET 2026
+[r11] start wsd_bioB_100000_505M_s0: train.py --arm bioB_100000 --seed 0 --lr 0.002 --tokens 505282560 --sched wsd --branch_at 505282560 --decay_frac 0.1 --n_evals 12 --name wsd_bioB_100000_505M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioB_100000_505M_s0: rc 0, 30.6 min, round-11 total 3.25 h
+[r11] finished
+[r11chain] one bios bioB_100000:0 --tokens 505282560 --branch_at 505282560 end Mon Nov  9 22:07:20 CET 2026
+[r11chain] one bios bioH_100000:0 --tokens 505282560 --branch_at 505282560 start Mon Nov  9 22:07:20 CET 2026
+[r11] start wsd_bioH_100000_505M_s0: train.py --arm bioH_100000 --seed 0 --lr 0.002 --tokens 505282560 --sched wsd --branch_at 505282560 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_100000_505M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioH_100000_505M_s0: rc 0, 16.1 min, round-11 total 3.52 h
+[r11] finished
+[r11chain] one bios bioH_100000:0 --tokens 505282560 --branch_at 505282560 end Mon Nov  9 22:23:29 CET 2026
+[r11chain] pytry round11_e4.py start Mon Nov  9 22:23:29 CET 2026
+[bios] bioB_20000       N 20000 bits 387489 / 930370  exact 17.11%  bits/param 0.0508  27s
+[bios] bioH_20000       N 20000 bits 428311 / 930370  exact 23.34%  bits/param 0.0526  28s
+[bios] bioB_100000      N 100000 bits 711813 / 4651849  exact 3.00%  bits/param 0.0934  70s
+[bios] bioH_100000      N 100000 bits 722797 / 4651849  exact 3.40%  bits/param 0.0887  83s
+[bios] bioH_100000_eqF: no checkpoint wsd_bioH_100000_1200M_s0
+[r11chain] pytry round11_e4.py end Mon Nov  9 22:27:01 CET 2026
+[r11chain] one d384 F4k384:0 --label F4k384 --tokens 699531264 --branch_at 365035520,699531264 --extra=--keep_branch=365035520 start Mon Nov  9 22:27:01 CET 2026
+[r11] start wsd_F4k384_700M_s0: train.py --arm F4k384 --seed 0 --lr 0.002 --tokens 699531264 --sched wsd --branch_at 365035520,699531264 --decay_frac 0.1 --n_evals 12 --name wsd_F4k384_700M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=365035520
+[r11] end wsd_F4k384_700M_s0: rc 0, 26.8 min, round-11 total 3.96 h
+[r11] finished
+[r11chain] one d384 F4k384:0 --label F4k384 --tokens 699531264 --branch_at 365035520,699531264 --extra=--keep_branch=365035520 end Mon Nov  9 22:53:47 CET 2026
+[r11chain] one bios bioH_100000:0 --tokens 1199505408 --branch_at 1199505408 start Mon Nov  9 22:53:47 CET 2026
+[r11] start wsd_bioH_100000_1200M_s0: train.py --arm bioH_100000 --seed 0 --lr 0.002 --tokens 1199505408 --sched wsd --branch_at 1199505408 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_100000_1200M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params

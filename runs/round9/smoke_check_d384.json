@@ -1,0 +1,58 @@
+{
+ "arms": {
+  "B": {
+   "d": 384,
+   "steps": 200,
+   "loss_at_200": 5.918718338012695,
+   "tok_s": 162399.98232933573,
+   "step_ms": 403.5468419392904,
+   "peak_mem_gb": 3.9063682556152344,
+   "data_wait_ms": 0.04140227184763763,
+   "est_full_min": 37.35530256473513,
+   "head_fwd_flops_per_token": 38633472,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 29943168,
+    "non_embedding": 10626432,
+    "embedding": 19316736
+   },
+   "flops_per_token": {
+    "non_embedding": 77856768,
+    "head": 115900416,
+    "total": 193757184
+   },
+   "mtime": 1794076893.795524,
+   "speed_vs_B": 1.0,
+   "head_flops_vs_B": 1.0
+  },
+  "H2atm384": {
+   "d": 384,
+   "steps": 200,
+   "loss_at_200": 5.799995422363281,
+   "tok_s": 352135.125526023,
+   "step_ms": 186.1103742550581,
+   "peak_mem_gb": 2.752951145172119,
+   "data_wait_ms": 0.04030332814018505,
+   "est_full_min": 17.22776297126785,
+   "head_fwd_flops_per_token": 3968665.8984375,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 30337408,
+    "non_embedding": 11020672,
+    "embedding": 19316736
+   },
+   "flops_per_token": {
+    "non_embedding": 77856768,
+    "head": 11905997.6953125,
+    "total": 89762765.6953125
+   },
+   "mtime": 1794076960.948123,
+   "speed_vs_B": 2.1683199743945645,
+   "head_flops_vs_B": 0.10272609975198449
+  }
+ },
+ "overhead_factor": 1.1028687583468804,
+ "fails": []
+}

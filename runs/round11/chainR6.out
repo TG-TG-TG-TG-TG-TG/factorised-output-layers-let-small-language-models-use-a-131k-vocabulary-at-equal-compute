@@ -1,0 +1,107 @@
+[r11chain] one bios bioH_100000:0 --tokens 1199505408 --branch_at 1199505408 start Tue Nov 10 17:23:09 CET 2026
+[r11] start wsd_bioH_100000_1200M_s0: train.py --arm bioH_100000 --seed 0 --lr 0.002 --tokens 1199505408 --sched wsd --branch_at 1199505408 --decay_frac 0.1 --n_evals 12 --name wsd_bioH_100000_1200M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_bioH_100000_1200M_s0: rc 0, 40.5 min, round-11 total 4.64 h
+[r11] finished
+[r11chain] one bios bioH_100000:0 --tokens 1199505408 --branch_at 1199505408 end Tue Nov 10 18:03:37 CET 2026
+[r11chain] pytry round11_e4.py bioH_100000_eqF start Tue Nov 10 18:03:37 CET 2026
+[bios] bioH_100000_eqF  N 100000 bits 1215439 / 4651849  exact 8.05%  bits/param 0.1491  92s
+[r11chain] pytry round11_e4.py bioH_100000_eqF end Tue Nov 10 18:05:15 CET 2026
+[r11chain] pytry round11_partc384.py start Tue Nov 10 18:05:15 CET 2026
+[partC384] 1200M losses {16: 4.151361325529755}; best M = 16
+[r11] start wsd_H3rs16_384_575M_s0: train.py --arm H3rs16_384 --seed 0 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 300e6,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3rs16_384_575M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3rs16_384_575M_s0: rc 0, 78.8 min, round-11 total 5.95 h
+[r11] finished
+[r11chain] pytry round11_partc384.py end Tue Nov 10 19:24:05 CET 2026
+[r11chain] pytry round11_eval.py bpb F4k384_365M,F4k384_700M,H3rs16_384_575M start Tue Nov 10 19:24:05 CET 2026
+[bpb] models: ['F4k384_365M', 'F4k384_700M', 'H3rs16_384_575M']
+[bpb] F4k384_365M      fineweb      BPB 1.2410  nll/target 2.9851  bytes 23,160,080 (+133 unscored)  26s
+[bpb] F4k384_365M      wikitext103  BPB 1.5074  nll/target 3.3508  bytes 1,284,391 (+1 unscored)  6s
+[bpb] F4k384_365M      pg19         BPB 1.7583  nll/target 3.5377  bytes 3,875,111 (+13 unscored)  9s
+[bpb] F4k384_700M      fineweb      BPB 1.2056  nll/target 2.9000  bytes 23,160,080 (+133 unscored)  19s
+[bpb] F4k384_700M      wikitext103  BPB 1.4725  nll/target 3.2733  bytes 1,284,391 (+1 unscored)  4s
+[bpb] F4k384_700M      pg19         BPB 1.7148  nll/target 3.4503  bytes 3,875,111 (+13 unscored)  6s
+[bpb] H3rs16_384_575M  fineweb      BPB 1.1531  nll/target 3.7030  bytes 23,160,213 (+0 unscored)  15s
+[bpb] H3rs16_384_575M  wikitext103  BPB 1.4119  nll/target 4.4474  bytes 1,284,392 (+0 unscored)  6s
+[bpb] H3rs16_384_575M  pg19         BPB 1.7017  nll/target 4.4504  bytes 3,875,124 (+0 unscored)  7s
+[r11chain] pytry round11_eval.py bpb F4k384_365M,F4k384_700M,H3rs16_384_575M end Tue Nov 10 19:25:51 CET 2026
+[r11chain] pytry round11_eval.py lambada F4k384_365M,F4k384_700M,H3rs16_384_575M start Tue Nov 10 19:25:51 CET 2026
+[lambada] models: ['F4k384_365M', 'F4k384_700M', 'H3rs16_384_575M']
+[lambada] F4k384_365M      acc 14.96% (top4096 13.52 / rest 15.54) word bits/byte 1.3954  22s
+[lambada] F4k384_700M      acc 17.33% (top4096 16.85 / rest 17.52) word bits/byte 1.3187  10s
+[lambada] H3rs16_384_575M  acc 14.94% (top4096 15.35 / rest 14.78) word bits/byte 1.7138  21s
+[r11chain] pytry round11_eval.py lambada F4k384_365M,F4k384_700M,H3rs16_384_575M end Tue Nov 10 19:26:53 CET 2026
+[r11chain] pytry round11_eval.py blimp F4k384_365M,F4k384_700M,H3rs16_384_575M start Tue Nov 10 19:26:53 CET 2026
+[blimp] models: ['F4k384_365M', 'F4k384_700M', 'H3rs16_384_575M']
+[blimp] F4k384_365M      acc 68.43%  20s
+[blimp] F4k384_700M      acc 70.73%  13s
+[blimp] H3rs16_384_575M  acc 72.17%  26s
+[r11chain] pytry round11_eval.py blimp F4k384_365M,F4k384_700M,H3rs16_384_575M end Tue Nov 10 19:29:13 CET 2026
+[r11chain] pytry round11_eval.py copy H3rs16_384_575M start Tue Nov 10 19:29:13 CET 2026
+[copy] models: ['H3rs16_384_575M']
+[copy] H3rs16_384_575M  E5a copy1 3.7241 copy2 2.9018 | E5b copy1 13.3301 copy2 7.5360
+[r11chain] pytry round11_eval.py copy H3rs16_384_575M end Tue Nov 10 19:29:31 CET 2026
+[r11chain] pytry round11_decode.py run 0 8192 4096 start Tue Nov 10 19:29:31 CET 2026
+{"proc": 0, "K": 8192, "C": 4096, "arm": "B", "spec": [6, 1, 128, 2, 512, false, 0, "flat_sample", 50304, 0], "ms_per_token": 0.14185135937694326, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "H3s", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.14649943359401618, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "H3rs16", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 16], "ms_per_token": 0.1768446015617542, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "H3rs64", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 64], "ms_per_token": 0.17561711328184515, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "B384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 50304, 0], "ms_per_token": 0.27679384374934557, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "H3s384", "spec": [6, 1, 384, 6, 1536, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.19181682421631763, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "H3rs16_384", "spec": [6, 1, 384, 6, 1536, false, 0, "hier9_sample", 50304, 16], "ms_per_token": 0.22765516015610388, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "F8k384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 8192, 0], "ms_per_token": 0.18615275000044562, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "F4k384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 4096, 0], "ms_per_token": 0.18896698437487203, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "H3s512", "spec": [6, 1, 512, 8, 2048, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.27524664453082437, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3137 MiB, 2872 MHz", "gpu_after": "96 %, 5829 MiB, 2872 MHz", "device": "cuda:0"}
+[r11chain] pytry round11_decode.py run 0 8192 4096 end Tue Nov 10 19:30:08 CET 2026
+[r11chain] pytry round11_decode.py run 1 8192 4096 start Tue Nov 10 19:30:08 CET 2026
+{"proc": 1, "K": 8192, "C": 4096, "arm": "B", "spec": [6, 1, 128, 2, 512, false, 0, "flat_sample", 50304, 0], "ms_per_token": 0.1445943085940371, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "H3s", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.14119590234429324, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "H3rs16", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 16], "ms_per_token": 0.1776239921866818, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "H3rs64", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 64], "ms_per_token": 0.176843800780091, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "B384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 50304, 0], "ms_per_token": 0.2699753867183574, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "H3s384", "spec": [6, 1, 384, 6, 1536, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.19960276171815394, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "H3rs16_384", "spec": [6, 1, 384, 6, 1536, false, 0, "hier9_sample", 50304, 16], "ms_per_token": 0.23392214843909187, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "F8k384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 8192, 0], "ms_per_token": 0.1927476757828117, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "F4k384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 4096, 0], "ms_per_token": 0.1923580585945217, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "H3s512", "spec": [6, 1, 512, 8, 2048, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.2762825195290475, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3138 MiB, 2872 MHz", "gpu_after": "96 %, 5830 MiB, 2872 MHz", "device": "cuda:0"}
+[r11chain] pytry round11_decode.py run 1 8192 4096 end Tue Nov 10 19:30:46 CET 2026
+[r11chain] pytry round11_decode.py run 2 8192 4096 start Tue Nov 10 19:30:46 CET 2026
+{"proc": 2, "K": 8192, "C": 4096, "arm": "B", "spec": [6, 1, 128, 2, 512, false, 0, "flat_sample", 50304, 0], "ms_per_token": 0.1437175078109476, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "H3s", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.14255330468770921, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "H3rs16", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 16], "ms_per_token": 0.179196054688191, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "H3rs64", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample", 50304, 64], "ms_per_token": 0.17859758593985475, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "B384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 50304, 0], "ms_per_token": 0.2746689257797641, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "H3s384", "spec": [6, 1, 384, 6, 1536, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.20292873828253732, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "H3rs16_384", "spec": [6, 1, 384, 6, 1536, false, 0, "hier9_sample", 50304, 16], "ms_per_token": 0.23666942968958438, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "F8k384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 8192, 0], "ms_per_token": 0.1945949492210275, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "F4k384", "spec": [6, 1, 384, 6, 1536, false, 0, "flat_sample", 4096, 0], "ms_per_token": 0.19580130859608857, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "H3s512", "spec": [6, 1, 512, 8, 2048, false, 0, "hier9_sample", 50304, 0], "ms_per_token": 0.27564680468827873, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "2 %, 3135 MiB, 2880 MHz", "gpu_after": "87 %, 5751 MiB, 2887 MHz", "device": "cuda:0"}
+[r11chain] pytry round11_decode.py run 2 8192 4096 end Tue Nov 10 19:31:26 CET 2026
+[r11chain] pytry round11_decode.py md start Tue Nov 10 19:31:26 CET 2026
+# Round 11 decode: batch 1, random bf16 weights, round-8 tiny protocol
+
+K = 8192 singletons + C = 4096 tail clusters. ms/token = median of 5 repeats per process; mean (min-max) over 3 processes. ms/byte = ms/token / val bytes per token (GPT-2 4.633, BPE-8k 3.933, BPE-4k 3.473).
+
+| arm | d | head | vocab | ms/token | min-max | ms/byte | vs flat GPT-2 of the same width |
+|---|---|---|---|---|---|---|---|
+| B | 128 | flat_sample | 50,304 | 0.1434 | 0.1419-0.1446 | 0.0309 | 1.00x |
+| H3s | 128 | hier9_sample | 50,304 | 0.1434 | 0.1412-0.1465 | 0.0310 | 1.00x |
+| H3rs16 | 128 | hier9_sample + top-16 re-scoring | 50,304 | 0.1779 | 0.1768-0.1792 | 0.0384 | 1.24x |
+| H3rs64 | 128 | hier9_sample + top-64 re-scoring | 50,304 | 0.1770 | 0.1756-0.1786 | 0.0382 | 1.23x |
+| B384 | 384 | flat_sample | 50,304 | 0.2738 | 0.2700-0.2768 | 0.0591 | 1.00x |
+| H3s384 | 384 | hier9_sample | 50,304 | 0.1981 | 0.1918-0.2029 | 0.0428 | 0.72x |
+| H3rs16_384 | 384 | hier9_sample + top-16 re-scoring | 50,304 | 0.2327 | 0.2277-0.2367 | 0.0502 | 0.85x |
+| F8k384 | 384 | flat_sample | 8,192 | 0.1912 | 0.1862-0.1946 | 0.0486 | 0.70x |
+| F4k384 | 384 | flat_sample | 4,096 | 0.1924 | 0.1890-0.1958 | 0.0554 | 0.70x |
+| H3s512 | 512 | hier9_sample | 50,304 | 0.2757 | 0.2752-0.2763 | 0.0595 | 1.01x |
+[r11chain] pytry round11_decode.py md end Tue Nov 10 19:31:26 CET 2026
+[r11chain] one tiny tH3rs16:1 start Tue Nov 10 19:31:26 CET 2026
+[r11] start wsd_H3rs16_s1: train.py --arm tH3rs16 --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3rs16_s1 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3rs16_s1: rc 0, 72.7 min, round-11 total 7.16 h
+[r11] finished
+[r11chain] one tiny tH3rs16:1 end Tue Nov 10 20:44:12 CET 2026
+[r11chain] pytry round11_partd.py start Tue Nov 10 20:44:12 CET 2026
+[partD] arm H3s512
+[r11] start wsd_H3s512_359M_s0: train.py --arm H3s512 --seed 0 --lr 0.002 --tokens 359399424 --sched wsd --branch_at 359399424 --decay_frac 0.1 --n_evals 12 --name wsd_H3s512_359M_s0 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_H3s512_359M_s0: rc 0, 29.3 min, round-11 total 7.65 h
+[r11] finished
+[r11chain] pytry round11_partd.py end Tue Nov 10 21:13:28 CET 2026

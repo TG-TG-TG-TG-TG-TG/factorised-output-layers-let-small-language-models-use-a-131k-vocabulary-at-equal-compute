@@ -1,0 +1,4 @@
+smoke_tH3k8c4: 1,711,232 non-emb params, 18311 steps, accum 4x16
+step 100/18311 loss 6.8458 839,516 tok/s wait 0.0ms mem 1.24GB
+step 200/18311 loss 6.1800 838,929 tok/s wait 0.0ms mem 1.24GB
+done smoke_tH3k8c4: val nan in 0.6 min

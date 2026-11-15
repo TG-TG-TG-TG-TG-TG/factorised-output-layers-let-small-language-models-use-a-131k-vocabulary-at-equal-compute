@@ -1,0 +1,76 @@
+Rloop: params total 8,183,936 = blocks 1,179,648 + per-copy 36,992 + emb 6,438,912 + head 528,384 + n-gram 0; train FLOPs/token 56,632,730 = 1.1230 x tB; n_eff 24, alpha0 0.14434
+[OK] C1 Rloop schedule: 24 applications, blocks [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5], 24 copies
+[OK] C3 Rloop shared blocks == tB init, gates gam 1 beta 0: blocks True, gates True
+[OK] C2 Rloop alpha init 1/sqrt(2*24): 0.144338 on all 24 copies
+[OK] 1 Rloop lm_loss == mean -ref[y] (2048 tok): 10.224258 vs 10.224259
+[OK] 1 Rloop fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 Rloop sum exp(ref) == 1: 
+[OK] 2 Rloop dL/demb fast == ref: rel 3.91e-08
+[OK] 2 Rloop dL/dhead.R fast == ref: rel 2.65e-08
+[OK] 2 Rloop dL/dhead.bc fast == ref: rel 3.45e-08
+Rdeep: params total 11,698,304 = blocks 4,718,592 + per-copy 12,416 + emb 6,438,912 + head 528,384 + n-gram 0; train FLOPs/token 56,632,730 = 1.1230 x tB; n_eff 24, alpha0 0.14434
+[OK] C1 Rdeep schedule: 24 unique blocks, d 128
+[OK] C2 Rdeep alpha init 1/sqrt(2*24): 0.144338 on all 24 copies
+[OK] 1 Rdeep lm_loss == mean -ref[y] (2048 tok): 10.158330 vs 10.158329
+[OK] 1 Rdeep fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 Rdeep sum exp(ref) == 1: 
+[OK] 2 Rdeep dL/demb fast == ref: rel 7.55e-08
+[OK] 2 Rdeep dL/dhead.R fast == ref: rel 5.54e-08
+[OK] 2 Rdeep dL/dhead.bc fast == ref: rel 1.72e-08
+Rwide: params total 18,655,488 = blocks 4,718,592 + per-copy 6,400 + emb 12,877,824 + head 1,052,672 + n-gram 0; train FLOPs/token 56,642,356 = 1.1232 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 Rwide schedule: 6 unique blocks, d 256
+[OK] C2 Rwide alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 Rwide lm_loss == mean -ref[y] (2048 tok): 10.141216 vs 10.141216
+[OK] 1 Rwide fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 Rwide sum exp(ref) == 1: 
+[OK] 2 Rwide dL/demb fast == ref: rel 1.61e-08
+[OK] 2 Rwide dL/dhead.R fast == ref: rel 4.46e-08
+[OK] 2 Rwide dL/dhead.bc fast == ref: rel 1.71e-08
+RB24: params total 11,169,920 = blocks 4,718,592 + per-copy 12,416 + emb 6,438,912 + head 0 + n-gram 0; train FLOPs/token 85,819,392 = 1.7018 x tB; n_eff 24, alpha0 0.14434
+[OK] C1 RB24 schedule: 24 unique blocks, d 128
+[OK] C2 RB24 alpha init 1/sqrt(2*24): 0.144338 on all 24 copies
+tD1: params total 142,367,872 = blocks 1,179,648 + per-copy 3,200 + emb 6,438,912 + head 528,384 + n-gram 134,217,728; train FLOPs/token 21,243,290 = 0.4212 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 tD1 schedule: 6 unique blocks, d 128
+[OK] C2 tD1 alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 tD1 lm_loss == mean -ref[y] (2048 tok): 10.240114 vs 10.240114
+[OK] 1 tD1 fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 tD1 sum exp(ref) == 1: 
+[OK] 2 tD1 dL/demb fast == ref: rel 4.42e-08
+[OK] 2 tD1 dL/dhead.R fast == ref: rel 2.99e-08
+[OK] 2 tD1 dL/dhead.bc fast == ref: rel 1.72e-08
+[OK] D1 tD1 init == tH3k8c4 (params, loss, shared grads): loss 10.1591473 vs 10.1591473, grads True, params True
+[OK] D2 tD1 ng2 ids == python reference: 2048 positions, 3 EOTs, 5 with a missing previous token, 1693 distinct ids
+[OK] D3 tD1 ng2 sparse row grads == dense grad: 1693 rows, rel err 0.00e+00, untouched rows' dense grad all zero True
+tD2: params total 276,585,600 = blocks 1,179,648 + per-copy 3,200 + emb 6,438,912 + head 528,384 + n-gram 268,435,456; train FLOPs/token 21,243,290 = 0.4212 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 tD2 schedule: 6 unique blocks, d 128
+[OK] C2 tD2 alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 tD2 lm_loss == mean -ref[y] (2048 tok): 10.236979 vs 10.236979
+[OK] 1 tD2 fast == -ref[y] per token: max |diff| 2.86e-06
+[OK] 1 tD2 sum exp(ref) == 1: 
+[OK] 2 tD2 dL/demb fast == ref: rel 4.44e-08
+[OK] 2 tD2 dL/dhead.R fast == ref: rel 6.15e-08
+[OK] 2 tD2 dL/dhead.bc fast == ref: rel 3.44e-08
+[OK] D1 tD2 init == tH3k8c4 (params, loss, shared grads): loss 10.1591473 vs 10.1591473, grads True, params True
+[OK] D2 tD2 ng2 ids == python reference: 2048 positions, 3 EOTs, 5 with a missing previous token, 1693 distinct ids
+[OK] D2 tD2 ng3 ids == python reference: 2048 positions, 3 EOTs, 10 with a missing previous token, 1940 distinct ids
+[OK] D3 tD2 ng2 sparse row grads == dense grad: 1693 rows, rel err 0.00e+00, untouched rows' dense grad all zero True
+[OK] D3 tD2 ng3 sparse row grads == dense grad: 1940 rows, rel err 0.00e+00, untouched rows' dense grad all zero True
+H3s384: params total 31,520,128 = blocks 10,616,832 + per-copy 9,600 + emb 19,316,736 + head 1,576,960 + n-gram 0; train FLOPs/token 106,197,198 = 2.1058 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 H3s384 schedule: 6 unique blocks, d 384
+[OK] C2 H3s384 alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 H3s384 lm_loss == mean -ref[y] (2048 tok): 10.178701 vs 10.178701
+[OK] 1 H3s384 fast == -ref[y] per token: max |diff| 2.86e-06
+[OK] 1 H3s384 sum exp(ref) == 1: 
+[OK] 2 H3s384 dL/demb fast == ref: rel 3.82e-08
+[OK] 2 H3s384 dL/dhead.R fast == ref: rel 2.91e-08
+[OK] 2 H3s384 dL/dhead.bc fast == ref: rel 1.73e-08
+[OK] D4 lazy AdamW == optax.adamw on touched rows (3 steps), untouched rows unchanged: max |diff| touched 7.45e-09, untouched change 0.0e+00 (dense AdamW decays untouched rows: 1.98e-04)
+[OK] 5 Rloop tracer leak (scan, jit eval, scan): eval 10.12974, losses [10.14291, 10.13628] -> [10.12974, 10.12303]
+[OK] 5 Rdeep tracer leak (scan, jit eval, scan): eval 10.04287, losses [10.07405, 10.05826] -> [10.04287, 10.02742]
+[OK] 5 Rwide tracer leak (scan, jit eval, scan): eval 10.02100, losses [10.0528, 10.03721] -> [10.021, 10.00512]
+[OK] 5 RB24 tracer leak (scan, jit eval, scan): eval 11.29946, losses [11.32968, 11.31471] -> [11.29946, 11.28467]
+[OK] 5 tD1 tracer leak (scan, jit eval, scan): eval 10.14626, losses [10.15905, 10.1526] -> [10.14626, 10.13926]
+[OK] 5 tD2 tracer leak (scan, jit eval, scan): eval 10.14580, losses [10.15905, 10.15243] -> [10.1458, 10.1387]
+[OK] 5 H3s384 tracer leak (scan, jit eval, scan): eval 10.04370, losses [10.09264, 10.0681] -> [10.0437, 10.01902]
+
+ALL GATES OK

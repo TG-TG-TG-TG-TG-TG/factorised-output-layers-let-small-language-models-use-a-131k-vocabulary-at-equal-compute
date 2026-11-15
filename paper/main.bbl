@@ -1,0 +1,136 @@
+\begin{thebibliography}{18}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Allen-Zhu(2025)]{allenzhu2025physics41}
+Zeyuan Allen-Zhu.
+\newblock Physics of language models: Part 4.1, architecture design and the
+  magic of canon layers.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2025.
+\newblock arXiv:2512.17351.
+
+\bibitem[Allen-Zhu and Li(2024)]{allenzhu2024physics33}
+Zeyuan Allen-Zhu and Yuanzhi Li.
+\newblock Physics of language models: Part 3.3, knowledge capacity scaling
+  laws.
+\newblock \emph{arXiv preprint arXiv:2404.05405}, 2024.
+
+\bibitem[Baevski and Auli(2019)]{baevski2019adaptive}
+Alexei Baevski and Michael Auli.
+\newblock Adaptive input representations for neural language modeling.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Chen et~al.(2016)Chen, Grangier, and Auli]{chen2016strategies}
+Wenlin Chen, David Grangier, and Michael Auli.
+\newblock Strategies for training large vocabulary neural language models.
+\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 1975--1985, 2016.
+
+\bibitem[Godey and Artzi(2026)]{godey2026lost}
+Nathan Godey and Yoav Artzi.
+\newblock Lost in backpropagation: The {LM} head is a gradient bottleneck.
+\newblock In \emph{Conference on Language Modeling (COLM)}, 2026.
+\newblock arXiv:2603.10145.
+
+\bibitem[Godey et~al.(2024)Godey, de~la Clergerie, and Sagot]{godey2024small}
+Nathan Godey, {\'E}ric de~la Clergerie, and Beno{\^\i}t Sagot.
+\newblock Why do small language models underperform? studying language model
+  saturation via the softmax bottleneck.
+\newblock \emph{arXiv preprint arXiv:2404.07647}, 2024.
+
+\bibitem[Goodman(2001)]{goodman2001classes}
+Joshua Goodman.
+\newblock Classes for fast maximum entropy training.
+\newblock In \emph{Proceedings of the IEEE International Conference on
+  Acoustics, Speech, and Signal Processing (ICASSP)}, 2001.
+\newblock arXiv:cs/0108006.
+
+\bibitem[Grave et~al.(2017)Grave, Joulin, Ciss{\'e}, Grangier, and
+  J{\'e}gou]{grave2017efficient}
+{\'E}douard Grave, Armand Joulin, Moustapha Ciss{\'e}, David Grangier, and
+  Herv{\'e} J{\'e}gou.
+\newblock Efficient softmax approximation for {GPUs}.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning (ICML)}, volume~70 of \emph{PMLR}, pages 1302--1310, 2017.
+
+\bibitem[Hu et~al.(2024)Hu, Tu, Han, He, Cui, Long, et~al.]{hu2024minicpm}
+Shengding Hu, Yuge Tu, Xu~Han, Chaoqun He, Ganqu Cui, Xiang Long, et~al.
+\newblock {MiniCPM}: Unveiling the potential of small language models with
+  scalable training strategies.
+\newblock \emph{arXiv preprint arXiv:2404.06395}, 2024.
+
+\bibitem[Jean et~al.(2015)Jean, Cho, Memisevic, and Bengio]{jean2015using}
+S{\'e}bastien Jean, Kyunghyun Cho, Roland Memisevic, and Yoshua Bengio.
+\newblock On using very large target vocabulary for neural machine translation.
+\newblock In \emph{Proceedings of the 53rd Annual Meeting of the Association
+  for Computational Linguistics and the 7th International Joint Conference on
+  Natural Language Processing (ACL-IJCNLP)}, pages 1--10, 2015.
+
+\bibitem[Merity et~al.(2017)Merity, Xiong, Bradbury, and
+  Socher]{merity2017pointer}
+Stephen Merity, Caiming Xiong, James Bradbury, and Richard Socher.
+\newblock Pointer sentinel mixture models.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2017.
+
+\bibitem[Morin and Bengio(2005)]{morin2005hierarchical}
+Frederic Morin and Yoshua Bengio.
+\newblock Hierarchical probabilistic neural network language model.
+\newblock In \emph{Proceedings of the Tenth International Workshop on
+  Artificial Intelligence and Statistics (AISTATS)}, volume~R5 of \emph{PMLR},
+  pages 246--252, 2005.
+
+\bibitem[Paperno et~al.(2016)Paperno, Kruszewski, Lazaridou, Pham, Bernardi,
+  Pezzelle, Baroni, Boleda, and Fern{\'a}ndez]{paperno2016lambada}
+Denis Paperno, Germ{\'a}n Kruszewski, Angeliki Lazaridou, Ngoc~Quan Pham,
+  Raffaella Bernardi, Sandro Pezzelle, Marco Baroni, Gemma Boleda, and Raquel
+  Fern{\'a}ndez.
+\newblock The {LAMBADA} dataset: Word prediction requiring a broad discourse
+  context.
+\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 1525--1534, 2016.
+
+\bibitem[Penedo et~al.(2024)Penedo, Kydl{\'\i}{\v{c}}ek, Ben~Allal, Lozhkov,
+  Mitchell, Raffel, Von~Werra, and Wolf]{penedo2024fineweb}
+Guilherme Penedo, Hynek Kydl{\'\i}{\v{c}}ek, Loubna Ben~Allal, Anton Lozhkov,
+  Margaret Mitchell, Colin Raffel, Leandro Von~Werra, and Thomas Wolf.
+\newblock The {FineWeb} datasets: Decanting the web for the finest text data at
+  scale.
+\newblock \emph{arXiv preprint arXiv:2406.17557}, 2024.
+
+\bibitem[Rae et~al.(2019)Rae, Potapenko, Jayakumar, and
+  Lillicrap]{rae2020compressive}
+Jack~W. Rae, Anna Potapenko, Siddhant~M. Jayakumar, and Timothy~P. Lillicrap.
+\newblock Compressive transformers for long-range sequence modelling.
+\newblock \emph{arXiv preprint arXiv:1911.05507}, 2019.
+
+\bibitem[Tao et~al.(2024)Tao, Liu, Dou, Muennighoff, Wan, Luo, Lin, and
+  Wong]{tao2024scaling}
+Chaofan Tao, Qian Liu, Longxu Dou, Niklas Muennighoff, Zhongwei Wan, Ping Luo,
+  Min Lin, and Ngai Wong.
+\newblock Scaling laws with vocabulary: Larger models deserve larger
+  vocabularies.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2024.
+
+\bibitem[Warstadt et~al.(2020)Warstadt, Parrish, Liu, Mohananey, Peng, Wang,
+  and Bowman]{warstadt2020blimp}
+Alex Warstadt, Alicia Parrish, Haokun Liu, Anhad Mohananey, Wei Peng, Sheng-Fu
+  Wang, and Samuel~R. Bowman.
+\newblock {BLiMP}: The benchmark of linguistic minimal pairs for {E}nglish.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  8:\penalty0 377--392, 2020.
+
+\bibitem[Yang et~al.(2018)Yang, Dai, Salakhutdinov, and
+  Cohen]{yang2018breaking}
+Zhilin Yang, Zihang Dai, Ruslan Salakhutdinov, and William~W. Cohen.
+\newblock Breaking the softmax bottleneck: A high-rank {RNN} language model.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2018.
+
+\end{thebibliography}

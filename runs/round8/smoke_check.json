@@ -1,0 +1,121 @@
+{
+ "arms": {
+  "tB": {
+   "steps": 200,
+   "loss_at_200": 6.209691524505615,
+   "tok_s": 313860.1853649828,
+   "step_ms": 208.80635090363333,
+   "peak_mem_gb": 2.1751527786254883,
+   "data_wait_ms": 0.033678738461818424,
+   "est_full_min": 77.30701052094031,
+   "cut_to_600M": false,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7621760,
+    "non_embedding": 1182848,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 38633472,
+    "total": 50429952
+   },
+   "speed_vs_tB": 1.0
+  },
+  "tCB": {
+   "steps": 200,
+   "loss_at_200": 6.174325942993164,
+   "tok_s": 225119.43592707618,
+   "step_ms": 291.1165787623479,
+   "peak_mem_gb": 2.414128541946411,
+   "data_wait_ms": 0.038548789738202825,
+   "est_full_min": 107.78097658335817,
+   "cut_to_600M": false,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7753856,
+    "non_embedding": 1314944,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 39383808,
+    "total": 51180288
+   },
+   "speed_vs_tB": 0.7172602528902751
+  },
+  "tH2": {
+   "steps": 200,
+   "loss_at_200": 6.1511406898498535,
+   "tok_s": 1342056.9062059787,
+   "step_ms": 48.83250456589919,
+   "peak_mem_gb": 0.7706778049468994,
+   "data_wait_ms": 0.03458567179593093,
+   "est_full_min": 18.079406722557433,
+   "cut_to_600M": false,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7753856,
+    "non_embedding": 1314944,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 824832,
+    "total": 12621312
+   },
+   "speed_vs_tB": 4.275970539701692
+  },
+  "tH2r": {
+   "steps": 200,
+   "loss_at_200": 6.2950663566589355,
+   "tok_s": 1791871.2849276755,
+   "step_ms": 36.57405559833233,
+   "peak_mem_gb": 0.7706775665283203,
+   "data_wait_ms": 0.03232902051352609,
+   "est_full_min": 13.540923868923063,
+   "cut_to_600M": false,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7753856,
+    "non_embedding": 1314944,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 824832,
+    "total": 12621312
+   },
+   "speed_vs_tB": 5.709138554302254
+  },
+  "tH2w": {
+   "steps": 200,
+   "loss_at_200": 5.957040786743164,
+   "tok_s": 972414.2525053669,
+   "step_ms": 67.39514546516614,
+   "peak_mem_gb": 1.2346880435943604,
+   "data_wait_ms": 0.04078278974504475,
+   "est_full_min": 24.95190973353312,
+   "cut_to_600M": false,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 33944192,
+    "non_embedding": 27505280,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 3692544,
+    "total": 15489024
+   },
+   "speed_vs_tB": 3.0982402287648
+  }
+ },
+ "overhead_factor": 1.1028687583468804,
+ "fails": []
+}

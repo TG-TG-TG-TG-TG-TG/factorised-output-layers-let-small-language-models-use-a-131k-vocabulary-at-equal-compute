@@ -1,0 +1,43 @@
+wsd_H2_s0: 1,314,944 non-emb params, 18311 steps, accum 4x16
+step 100/18311 loss 6.7279 1,382,242 tok/s wait 0.0ms mem 0.77GB
+step 200/18311 loss 6.1512 1,380,534 tok/s wait 0.0ms mem 0.77GB
+step 300/18311 loss 5.8839 1,383,179 tok/s wait 0.0ms mem 0.77GB
+step 400/18311 loss 5.6763 1,389,867 tok/s wait 0.0ms mem 0.77GB
+step 500/18311 loss 5.6273 1,548,819 tok/s wait 0.0ms mem 0.77GB
+step 600/18311 loss 5.5191 1,537,768 tok/s wait 0.0ms mem 0.77GB
+step 700/18311 loss 5.4950 1,528,302 tok/s wait 0.0ms mem 0.77GB
+step 800/18311 loss 5.3193 1,506,576 tok/s wait 0.0ms mem 0.77GB
+step 900/18311 loss 5.3434 1,487,956 tok/s wait 0.0ms mem 0.77GB
+step 1000/18311 loss 5.2307 1,466,548 tok/s wait 0.0ms mem 0.77GB
+step 1100/18311 loss 5.0919 1,444,144 tok/s wait 0.0ms mem 0.77GB
+Traceback (most recent call last):
+  File "/path/to/repo/train.py", line 352, in <module>
+    main()
+  File "/path/to/repo/train.py", line 317, in main
+    _, _, buf, bt, _ = run_branch(step, jax.tree.map(jnp.copy, params), jax.tree.map(jnp.copy, opt_state))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/repo/train.py", line 248, in run_branch
+    vf = evaluate(val, p)
+         ^^^^^^^^^^^^^^^^
+  File "/path/to/repo/train.py", line 164, in evaluate
+    tot += float(eval_sum(p, r))
+                 ^^^^^^^^^^^^^^
+jax.errors.UnexpectedTracerError: Encountered an unexpected tracer. A function transformed by JAX had a side effect, allowing for a reference to an intermediate value with type int32[50257] wrapped in a DynamicJaxprTracer to escape the scope of the transformation.
+JAX transformations require that functions explicitly return their outputs, and disallow saving intermediate values to global state.
+The function being traced when the value leaked was body at /path/to/repo/train.py:124 traced for scan.
+------------------------------
+The leaked intermediate value was created on line /path/to/repo/round8_heads.py:42:11 (tables). 
+------------------------------
+When the value was created, the final 5 stack frames (most recent last) excluding JAX-internal frames were:
+------------------------------
+/path/to/repo/train.py:125:19 (main.<locals>.train_step.<locals>.body)
+/path/to/repo/train.py:119:15 (main.<locals>.loss_fn)
+/path/to/repo/model.py:332:15 (lm_loss)
+/path/to/repo/round8_heads.py:71:30 (head_loss_sum)
+/path/to/repo/round8_heads.py:42:11 (tables)
+------------------------------
+
+To catch the leak earlier, try setting the environment variable JAX_CHECK_TRACER_LEAKS or using the `jax.checking_leaks` context manager.
+See https://docs.jax.dev/en/latest/errors.html#jax.errors.UnexpectedTracerError
+--------------------
+For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.

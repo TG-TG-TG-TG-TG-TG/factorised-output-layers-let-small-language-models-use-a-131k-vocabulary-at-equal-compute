@@ -1,0 +1,159 @@
+﻿[r10chain] cpu round10_gates_cd.py Rloop Rdeep Rwide RB24 tD1 tD2 H3s384 start Sun Nov  8 12:35:50 CET 2026
+Rloop: params total 8,183,936 = blocks 1,179,648 + per-copy 36,992 + emb 6,438,912 + head 528,384 + n-gram 0; train FLOPs/token 56,632,730 = 1.1230 x tB; n_eff 24, alpha0 0.14434
+[OK] C1 Rloop schedule: 24 applications, blocks [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5], 24 copies
+[OK] C3 Rloop shared blocks == tB init, gates gam 1 beta 0: blocks True, gates True
+[OK] C2 Rloop alpha init 1/sqrt(2*24): 0.144338 on all 24 copies
+[OK] 1 Rloop lm_loss == mean -ref[y] (2048 tok): 10.224258 vs 10.224259
+[OK] 1 Rloop fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 Rloop sum exp(ref) == 1: 
+[OK] 2 Rloop dL/demb fast == ref: rel 3.91e-08
+[OK] 2 Rloop dL/dhead.R fast == ref: rel 2.65e-08
+[OK] 2 Rloop dL/dhead.bc fast == ref: rel 3.45e-08
+Rdeep: params total 11,698,304 = blocks 4,718,592 + per-copy 12,416 + emb 6,438,912 + head 528,384 + n-gram 0; train FLOPs/token 56,632,730 = 1.1230 x tB; n_eff 24, alpha0 0.14434
+[OK] C1 Rdeep schedule: 24 unique blocks, d 128
+[OK] C2 Rdeep alpha init 1/sqrt(2*24): 0.144338 on all 24 copies
+[OK] 1 Rdeep lm_loss == mean -ref[y] (2048 tok): 10.158330 vs 10.158329
+[OK] 1 Rdeep fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 Rdeep sum exp(ref) == 1: 
+[OK] 2 Rdeep dL/demb fast == ref: rel 7.55e-08
+[OK] 2 Rdeep dL/dhead.R fast == ref: rel 5.54e-08
+[OK] 2 Rdeep dL/dhead.bc fast == ref: rel 1.72e-08
+Rwide: params total 18,655,488 = blocks 4,718,592 + per-copy 6,400 + emb 12,877,824 + head 1,052,672 + n-gram 0; train FLOPs/token 56,642,356 = 1.1232 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 Rwide schedule: 6 unique blocks, d 256
+[OK] C2 Rwide alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 Rwide lm_loss == mean -ref[y] (2048 tok): 10.141216 vs 10.141216
+[OK] 1 Rwide fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 Rwide sum exp(ref) == 1: 
+[OK] 2 Rwide dL/demb fast == ref: rel 1.61e-08
+[OK] 2 Rwide dL/dhead.R fast == ref: rel 4.46e-08
+[OK] 2 Rwide dL/dhead.bc fast == ref: rel 1.71e-08
+RB24: params total 11,169,920 = blocks 4,718,592 + per-copy 12,416 + emb 6,438,912 + head 0 + n-gram 0; train FLOPs/token 85,819,392 = 1.7018 x tB; n_eff 24, alpha0 0.14434
+[OK] C1 RB24 schedule: 24 unique blocks, d 128
+[OK] C2 RB24 alpha init 1/sqrt(2*24): 0.144338 on all 24 copies
+tD1: params total 142,367,872 = blocks 1,179,648 + per-copy 3,200 + emb 6,438,912 + head 528,384 + n-gram 134,217,728; train FLOPs/token 21,243,290 = 0.4212 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 tD1 schedule: 6 unique blocks, d 128
+[OK] C2 tD1 alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 tD1 lm_loss == mean -ref[y] (2048 tok): 10.240114 vs 10.240114
+[OK] 1 tD1 fast == -ref[y] per token: max |diff| 1.91e-06
+[OK] 1 tD1 sum exp(ref) == 1: 
+[OK] 2 tD1 dL/demb fast == ref: rel 4.42e-08
+[OK] 2 tD1 dL/dhead.R fast == ref: rel 2.99e-08
+[OK] 2 tD1 dL/dhead.bc fast == ref: rel 1.72e-08
+[OK] D1 tD1 init == tH3k8c4 (params, loss, shared grads): loss 10.1591473 vs 10.1591473, grads True, params True
+[OK] D2 tD1 ng2 ids == python reference: 2048 positions, 3 EOTs, 5 with a missing previous token, 1693 distinct ids
+[OK] D3 tD1 ng2 sparse row grads == dense grad: 1693 rows, rel err 0.00e+00, untouched rows' dense grad all zero True
+tD2: params total 276,585,600 = blocks 1,179,648 + per-copy 3,200 + emb 6,438,912 + head 528,384 + n-gram 268,435,456; train FLOPs/token 21,243,290 = 0.4212 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 tD2 schedule: 6 unique blocks, d 128
+[OK] C2 tD2 alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 tD2 lm_loss == mean -ref[y] (2048 tok): 10.236979 vs 10.236979
+[OK] 1 tD2 fast == -ref[y] per token: max |diff| 2.86e-06
+[OK] 1 tD2 sum exp(ref) == 1: 
+[OK] 2 tD2 dL/demb fast == ref: rel 4.44e-08
+[OK] 2 tD2 dL/dhead.R fast == ref: rel 6.15e-08
+[OK] 2 tD2 dL/dhead.bc fast == ref: rel 3.44e-08
+[OK] D1 tD2 init == tH3k8c4 (params, loss, shared grads): loss 10.1591473 vs 10.1591473, grads True, params True
+[OK] D2 tD2 ng2 ids == python reference: 2048 positions, 3 EOTs, 5 with a missing previous token, 1693 distinct ids
+[OK] D2 tD2 ng3 ids == python reference: 2048 positions, 3 EOTs, 10 with a missing previous token, 1940 distinct ids
+[OK] D3 tD2 ng2 sparse row grads == dense grad: 1693 rows, rel err 0.00e+00, untouched rows' dense grad all zero True
+[OK] D3 tD2 ng3 sparse row grads == dense grad: 1940 rows, rel err 0.00e+00, untouched rows' dense grad all zero True
+H3s384: params total 31,520,128 = blocks 10,616,832 + per-copy 9,600 + emb 19,316,736 + head 1,576,960 + n-gram 0; train FLOPs/token 106,197,198 = 2.1058 x tB; n_eff 6, alpha0 0.28868
+[OK] C1 H3s384 schedule: 6 unique blocks, d 384
+[OK] C2 H3s384 alpha init 1/sqrt(2*6): 0.288675 on all 6 copies
+[OK] 1 H3s384 lm_loss == mean -ref[y] (2048 tok): 10.178701 vs 10.178701
+[OK] 1 H3s384 fast == -ref[y] per token: max |diff| 2.86e-06
+[OK] 1 H3s384 sum exp(ref) == 1: 
+[OK] 2 H3s384 dL/demb fast == ref: rel 3.82e-08
+[OK] 2 H3s384 dL/dhead.R fast == ref: rel 2.91e-08
+[OK] 2 H3s384 dL/dhead.bc fast == ref: rel 1.73e-08
+[OK] D4 lazy AdamW == optax.adamw on touched rows (3 steps), untouched rows unchanged: max |diff| touched 7.45e-09, untouched change 0.0e+00 (dense AdamW decays untouched rows: 1.98e-04)
+[OK] 5 Rloop tracer leak (scan, jit eval, scan): eval 10.12974, losses [10.14291, 10.13628] -> [10.12974, 10.12303]
+[OK] 5 Rdeep tracer leak (scan, jit eval, scan): eval 10.04287, losses [10.07405, 10.05826] -> [10.04287, 10.02742]
+[OK] 5 Rwide tracer leak (scan, jit eval, scan): eval 10.02100, losses [10.0528, 10.03721] -> [10.021, 10.00512]
+[OK] 5 RB24 tracer leak (scan, jit eval, scan): eval 11.29946, losses [11.32968, 11.31471] -> [11.29946, 11.28467]
+[OK] 5 tD1 tracer leak (scan, jit eval, scan): eval 10.14626, losses [10.15905, 10.1526] -> [10.14626, 10.13926]
+[OK] 5 tD2 tracer leak (scan, jit eval, scan): eval 10.14580, losses [10.15905, 10.15243] -> [10.1458, 10.1387]
+[OK] 5 H3s384 tracer leak (scan, jit eval, scan): eval 10.04370, losses [10.09264, 10.0681] -> [10.0437, 10.01902]
+
+ALL GATES OK
+[r10chain] cpu round10_gates_cd.py Rloop Rdeep Rwide RB24 tD1 tD2 H3s384 end Sun Nov  8 12:39:14 CET 2026
+[r10chain] smoke tB tH3k8c4 Rloop Rdeep Rwide RB24 tD1 tD1@lazy B H3s384 start Sun Nov  8 12:39:14 CET 2026
+step 200/18311 loss 6.2097 314,372 tok/s wait 0.0ms mem 2.18GB
+done smoke_tB: val nan in 1.1 min
+step 200/18311 loss 6.1810 799,235 tok/s wait 0.0ms mem 1.24GB
+done smoke_tH3k8c4: val nan in 0.7 min
+step 200/9155 loss 6.3046 446,327 tok/s wait 0.0ms mem 2.66GB
+done smoke_Rloop: val nan in 1.2 min
+step 200/9155 loss 6.2209 443,964 tok/s wait 0.0ms mem 2.72GB
+done smoke_Rdeep: val nan in 1.0 min
+step 200/9155 loss 5.9081 494,078 tok/s wait 0.0ms mem 1.96GB
+done smoke_Rwide: val nan in 0.8 min
+step 200/9155 loss 6.2469 236,930 tok/s wait 0.0ms mem 3.63GB
+done smoke_RB24: val nan in 1.4 min
+step 200/18311 loss 5.9872 674,280 tok/s wait 0.0ms mem 3.25GB
+done smoke_tD1: val nan in 0.7 min
+step 200/18311 loss 6.0309 791,025 tok/s wait 0.0ms mem 2.78GB
+done smoke_tD1_lazy: val nan in 0.7 min
+step 200/4578 loss 5.9262 164,040 tok/s wait 0.0ms mem 3.90GB
+done smoke_B: val nan in 1.7 min
+step 200/9918 loss 5.8354 314,732 tok/s wait 0.0ms mem 3.06GB
+done smoke_H3s384: val nan in 1.1 min
+[r10chain] smoke tB tH3k8c4 Rloop Rdeep Rwide RB24 tD1 tD1@lazy B H3s384 end Sun Nov  8 12:50:14 CET 2026
+[r10chain] py round10_smoke_check.py --tag rest --arms tB,tH3k8c4,Rloop,Rdeep,Rwide,RB24,tD1,tD1_lazy,B,H3s384 start Sun Nov  8 12:50:14 CET 2026
+B        loss@200 5.9262     164,040 tok/s (1.00x B)  step 400 ms  peak 3.90 GB  wait 0.0 ms  head 38,633,472 FLOPs/tok (1.000x B)  train FLOPs 1.000x B  est full 37 min  data hash OK
+H3s384   loss@200 5.8354     314,732 tok/s (1.92x B)  step 208 ms  peak 3.06 GB  wait 0.0 ms  head 9,446,810 FLOPs/tok (0.245x B)  train FLOPs 0.548x B  est full 42 min  data hash OK
+RB24     loss@200 6.2469     236,930 tok/s (0.75x B)  step 277 ms  peak 3.63 GB  wait 0.0 ms  head 12,877,824 FLOPs/tok (1.000x B)  train FLOPs 1.702x B  est full 51 min  data hash OK
+Rdeep    loss@200 6.2209     443,964 tok/s (1.41x B)  step 148 ms  peak 2.72 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.245x B)  train FLOPs 1.123x B  est full 27 min  data hash OK
+Rloop    loss@200 6.3046     446,327 tok/s (1.42x B)  step 147 ms  peak 2.66 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.245x B)  train FLOPs 1.123x B  est full 27 min  data hash OK
+Rwide    loss@200 5.9081     494,078 tok/s (1.57x B)  step 133 ms  peak 1.96 GB  wait 0.0 ms  head 6,297,873 FLOPs/tok (0.489x B)  train FLOPs 1.123x B  est full 25 min  data hash OK
+tB       loss@200 6.2097     314,372 tok/s (1.00x B)  step 208 ms  peak 2.18 GB  wait 0.0 ms  head 12,877,824 FLOPs/tok (1.000x B)  train FLOPs 1.000x B  est full 77 min  data hash OK
+tD1      loss@200 5.9872     674,280 tok/s (2.14x B)  step 97 ms  peak 3.25 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.245x B)  train FLOPs 0.421x B  est full 36 min  data hash OK
+tD1_lazy loss@200 6.0309     791,025 tok/s (2.52x B)  step 83 ms  peak 2.78 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.245x B)  train FLOPs 0.421x B  est full 31 min  data hash OK
+tH3k8c4  loss@200 6.1810     799,235 tok/s (2.54x B)  step 82 ms  peak 1.24 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.245x B)  train FLOPs 0.421x B  est full 30 min  data hash OK
+gate 4 (data) / smoke: OK
+[r10chain] py round10_smoke_check.py --tag rest --arms tB,tH3k8c4,Rloop,Rdeep,Rwide,RB24,tD1,tD1_lazy,B,H3s384 end Sun Nov  8 12:50:15 CET 2026
+[r10chain] py round10_decode.py run 0 8192 4096 start Sun Nov  8 12:50:15 CET 2026
+{"proc": 0, "K": 8192, "C": 4096, "arm": "B", "spec": [6, 1, 128, 2, 512, false, 0, "flat_sample"], "ms_per_token": 0.17007996484386112, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "B_greedy", "spec": [6, 1, 128, 2, 512, false, 0, "flat_greedy"], "ms_per_token": 0.16679775390615603, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "H3s", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample"], "ms_per_token": 0.17346305078103086, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "Rloop", "spec": [6, 4, 128, 2, 512, true, 0, "hier9_sample"], "ms_per_token": 0.5888856601563575, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "Rdeep", "spec": [24, 1, 128, 2, 512, false, 0, "hier9_sample"], "ms_per_token": 0.6127689492188004, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "Rwide", "spec": [6, 1, 256, 4, 1024, false, 0, "hier9_sample"], "ms_per_token": 0.1673993085939962, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "D1", "spec": [6, 1, 128, 2, 512, false, 2, "hier9_sample"], "ms_per_token": 0.1724193671872598, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 0, "K": 8192, "C": 4096, "arm": "D2", "spec": [6, 1, 128, 2, 512, false, 3, "hier9_sample"], "ms_per_token": 0.17439953906261962, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "3 %, 1847 MiB, 2857 MHz", "gpu_after": "93 %, 4150 MiB, 2872 MHz", "device": "cuda:0"}
+[r10chain] py round10_decode.py run 0 8192 4096 end Sun Nov  8 12:50:50 CET 2026
+[r10chain] py round10_decode.py run 1 8192 4096 start Sun Nov  8 12:50:50 CET 2026
+{"proc": 1, "K": 8192, "C": 4096, "arm": "B", "spec": [6, 1, 128, 2, 512, false, 0, "flat_sample"], "ms_per_token": 0.13710188671911538, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "B_greedy", "spec": [6, 1, 128, 2, 512, false, 0, "flat_greedy"], "ms_per_token": 0.1352997109380638, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "H3s", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample"], "ms_per_token": 0.13619894140592947, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "Rloop", "spec": [6, 4, 128, 2, 512, true, 0, "hier9_sample"], "ms_per_token": 0.49643967578116843, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "Rdeep", "spec": [24, 1, 128, 2, 512, false, 0, "hier9_sample"], "ms_per_token": 0.4758681484373639, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "Rwide", "spec": [6, 1, 256, 4, 1024, false, 0, "hier9_sample"], "ms_per_token": 0.16302721875049997, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "D1", "spec": [6, 1, 128, 2, 512, false, 2, "hier9_sample"], "ms_per_token": 0.14015212890594597, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+{"proc": 1, "K": 8192, "C": 4096, "arm": "D2", "spec": [6, 1, 128, 2, 512, false, 3, "hier9_sample"], "ms_per_token": 0.13825990625004891, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1855 MiB, 2872 MHz", "gpu_after": "84 %, 4140 MiB, 2872 MHz", "device": "cuda:0"}
+[r10chain] py round10_decode.py run 1 8192 4096 end Sun Nov  8 12:51:22 CET 2026
+[r10chain] py round10_decode.py run 2 8192 4096 start Sun Nov  8 12:51:22 CET 2026
+{"proc": 2, "K": 8192, "C": 4096, "arm": "B", "spec": [6, 1, 128, 2, 512, false, 0, "flat_sample"], "ms_per_token": 0.15530436718780294, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "B_greedy", "spec": [6, 1, 128, 2, 512, false, 0, "flat_greedy"], "ms_per_token": 0.1627142578124463, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "H3s", "spec": [6, 1, 128, 2, 512, false, 0, "hier9_sample"], "ms_per_token": 0.16381288671851735, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "Rloop", "spec": [6, 4, 128, 2, 512, true, 0, "hier9_sample"], "ms_per_token": 0.5711865781252712, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "Rdeep", "spec": [24, 1, 128, 2, 512, false, 0, "hier9_sample"], "ms_per_token": 0.5139460273442253, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "Rwide", "spec": [6, 1, 256, 4, 1024, false, 0, "hier9_sample"], "ms_per_token": 0.15521712500010665, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "D1", "spec": [6, 1, 128, 2, 512, false, 2, "hier9_sample"], "ms_per_token": 0.15136144140637242, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+{"proc": 2, "K": 8192, "C": 4096, "arm": "D2", "spec": [6, 1, 128, 2, 512, false, 3, "hier9_sample"], "ms_per_token": 0.16976007421920514, "prompt": 512, "new": 256, "reps": 5, "gpu_before": "1 %, 1848 MiB, 2880 MHz", "gpu_after": "95 %, 4140 MiB, 2887 MHz", "device": "cuda:0"}
+[r10chain] py round10_decode.py run 2 8192 4096 end Sun Nov  8 12:51:55 CET 2026
+[r10chain] py round10_decode.py md start Sun Nov  8 12:51:55 CET 2026
+# Round 10 decode: batch 1, random bf16 weights, round-8 tiny protocol
+
+K = 8192 singletons + C = 4096 tail clusters (H3*'s shape). ms/token = median of 5 repeats per process; mean (min-max) over 3 processes.
+
+| arm | applications x d | head | ms/token | min-max | vs B (flat_sample) |
+|---|---|---|---|---|---|
+| B | 6 x 128 | flat_sample | 0.1542 | 0.1371-0.1701 | 1.00x |
+| B_greedy | 6 x 128 | flat_greedy | 0.1549 | 0.1353-0.1668 | 1.01x |
+| H3s | 6 x 128 | hier9_sample | 0.1578 | 0.1362-0.1735 | 1.02x |
+| Rloop | 24 x 128 (6 weight sets) | hier9_sample | 0.5522 | 0.4964-0.5889 | 3.58x |
+| Rdeep | 24 x 128 | hier9_sample | 0.5342 | 0.4759-0.6128 | 3.47x |
+| Rwide | 6 x 256 | hier9_sample | 0.1619 | 0.1552-0.1674 | 1.05x |
+| D1 | 6 x 128, + 2-gram | hier9_sample | 0.1546 | 0.1402-0.1724 | 1.00x |
+| D2 | 6 x 128, + 3-gram | hier9_sample | 0.1608 | 0.1383-0.1744 | 1.04x |
+[r10chain] py round10_decode.py md end Sun Nov  8 12:51:56 CET 2026

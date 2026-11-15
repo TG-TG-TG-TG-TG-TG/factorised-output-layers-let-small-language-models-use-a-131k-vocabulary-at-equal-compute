@@ -1,0 +1,4 @@
+smoke_F8k384: 10,626,432 non-emb params, 9633 steps, accum 4x16
+step 100/9633 loss 6.1099 449,758 tok/s wait 0.0ms mem 2.22GB
+step 200/9633 loss 5.4156 449,612 tok/s wait 0.0ms mem 2.22GB
+done smoke_F8k384: val nan in 0.9 min

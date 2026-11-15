@@ -1,0 +1,20 @@
+﻿[r10chain] waitidle  start Sun Nov  8 15:57:09 CET 2026
+[r10chain] waitidle  end Sun Nov  8 16:40:40 CET 2026
+[r10chain] smoke tH3k8c4 tD2 tD2@lazy start Sun Nov  8 16:40:40 CET 2026
+step 200/18311 loss 6.1802 846,836 tok/s wait 0.0ms mem 1.24GB
+done smoke_tH3k8c4: val nan in 0.6 min
+step 200/18311 loss 5.9745 557,422 tok/s wait 0.0ms mem 5.25GB
+done smoke_tD2: val nan in 0.8 min
+step 200/18311 loss 6.0113 817,151 tok/s wait 0.0ms mem 4.28GB
+done smoke_tD2_lazy: val nan in 0.6 min
+[r10chain] smoke tH3k8c4 tD2 tD2@lazy end Sun Nov  8 16:42:50 CET 2026
+[r10chain] py round10_smoke_check.py --tag D2 --arms tH3k8c4,tD2,tD2_lazy start Sun Nov  8 16:42:50 CET 2026
+tD2      loss@200 5.9745     557,422 tok/s (0.00x B)  step 118 ms  peak 5.25 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 44 min  data hash OK
+tD2_lazy loss@200 6.0113     817,151 tok/s (0.00x B)  step 80 ms  peak 4.28 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 30 min  data hash OK
+tH3k8c4  loss@200 6.1802     846,836 tok/s (0.00x B)  step 77 ms  peak 1.24 GB  wait 0.0 ms  head 3,148,937 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 29 min  data hash OK
+gate 4 (data) / smoke: OK
+[r10chain] py round10_smoke_check.py --tag D2 --arms tH3k8c4,tD2,tD2_lazy end Sun Nov  8 16:42:51 CET 2026
+[r10chain] one tiny tD2:0 start Sun Nov  8 16:42:51 CET 2026
+[r10] start wsd_D2_s0: train.py --arm tD2 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_D2_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_D2_s0: rc 0, 51.7 min, round-10 total 6.94 h
+[r10] finished

@@ -1,0 +1,17 @@
+{
+ "V": 4096,
+ "eot_id": 4095,
+ "learned_ids": 4095,
+ "train_docs": 419828,
+ "train_bytes": 2000002417,
+ "train_source": "data.TRAIN_FILES (FineWeb-Edu sample/10BT shards 000-012), shuffle seed 0, first docs >= 2e9 bytes",
+ "sha256": "402090ead7798d4c9b4826fb7026f1c39d715e82979ec46151b0a71eecb7c2a8",
+ "train_s": 80.78357076644897,
+ "gate_roundtrip_docs": 4895,
+ "gate_roundtrip_failures": 0,
+ "gate_max_id": 4094,
+ "gate_ok": true,
+ "val_docs_bytes": 23182579,
+ "val_docs_tokens": 6675585,
+ "val_bytes_per_token_docs": 3.4727411904724454
+}

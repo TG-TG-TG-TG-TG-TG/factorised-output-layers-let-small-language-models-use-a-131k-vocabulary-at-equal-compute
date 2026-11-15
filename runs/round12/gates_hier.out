@@ -1,0 +1,11 @@
+tables: V 131072 K 8192 C 4096 L 30 cluster sizes 30..30
+OK   G1 reference sums to 1: max |logsumexp| 4.77e-07
+OK   G1 fast NLL == reference: fast 10.7634649 ref 10.7634649 |diff| 0.00e+00
+OK   G2 grad emb: relative error 5.76e-07 (|ref| 2.383e+00)
+OK   G2 grad R: relative error 2.43e-08 (|ref| 5.009e-01)
+OK   G2 grad bc: relative error 2.52e-08 (|ref| 2.718e-02)
+OK   greedy exact (h x 1): exact-match 1.0000 on 1,000 contexts; fallback rate 0.295
+OK   greedy exact (h x 8): exact-match 1.0000 on 1,000 contexts; fallback rate 0.000
+OK   sampling: two-stage probabilities == reference: max |p_two-stage - p_ref| 2.33e-09 over 1,000 contexts (h and 8h) x 131072 ids
+OK   sampling: empirical TV: TV(two-stage, 200k) 0.0022 vs TV(direct, 200k) 0.0018 (ratio 1.198); max p 0.614
+ALL GATES OK

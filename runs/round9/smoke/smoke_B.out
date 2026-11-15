@@ -1,0 +1,4 @@
+smoke_B: 10,626,432 non-emb params, 4578 steps, accum 4x16
+step 100/4578 loss 6.6136 162,077 tok/s wait 0.0ms mem 3.91GB
+step 200/4578 loss 5.9187 162,400 tok/s wait 0.0ms mem 3.91GB
+done smoke_B: val nan in 1.8 min

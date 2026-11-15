@@ -1,0 +1,58 @@
+[round10] tiny tH3k8:0,tH3c4:0,tH3k8c4:0 start Sat Nov  7 20:47:06 CET 2026
+[r10] start wsd_H3k8_s0: train.py --arm tH3k8 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3k8_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3k8_s0: rc 0, 28.5 min, round-10 total 0.47 h
+[r10] start wsd_H3c4_s0: train.py --arm tH3c4 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3c4_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3c4_s0: rc 0, 21.9 min, round-10 total 0.84 h
+[r10] start wsd_H3k8c4_s0: train.py --arm tH3k8c4 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3k8c4_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3k8c4_s0: rc 0, 28.9 min, round-10 total 1.32 h
+[r10] finished
+[round10] tiny tH3k8:0,tH3c4:0,tH3k8c4:0 end Sat Nov  7 22:06:21 CET 2026
+[round10] tiny tH3k8c4:1 start Sat Nov  7 22:07:30 CET 2026
+[r10] start wsd_H3k8c4_s1: train.py --arm tH3k8c4 --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3k8c4_s1 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3k8c4_s1: rc 0, 28.9 min, round-10 total 1.80 h
+[r10] finished
+[round10] tiny tH3k8c4:1 end Sat Nov  7 22:36:22 CET 2026
+[round10] tiny tH3k8:1 start Sat Nov  7 23:08:49 CET 2026
+[r10] start wsd_H3k8_s1: train.py --arm tH3k8 --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3k8_s1 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3k8_s1: rc 0, 28.9 min, round-10 total 2.28 h
+[r10] finished
+[round10] tiny tH3k8:1 end Sat Nov  7 23:37:43 CET 2026
+[round10] c600 Rloop:0,Rdeep:0,Rwide:0 start Sun Nov  8 12:52:18 CET 2026
+[r10] start wsd_Rloop_s0: train.py --arm Rloop --seed 0 --lr 0.002 --tokens 600e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6 --decay_frac 0.1 --n_evals 12 --name wsd_Rloop_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_Rloop_s0: rc 0, 27.1 min, round-10 total 2.74 h
+[r10] start wsd_Rdeep_s0: train.py --arm Rdeep --seed 0 --lr 0.002 --tokens 600e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6 --decay_frac 0.1 --n_evals 12 --name wsd_Rdeep_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_Rdeep_s0: rc 0, 28.0 min, round-10 total 3.20 h
+[r10] start wsd_Rwide_s0: train.py --arm Rwide --seed 0 --lr 0.002 --tokens 600e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6 --decay_frac 0.1 --n_evals 12 --name wsd_Rwide_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_Rwide_s0: rc 0, 25.8 min, round-10 total 3.63 h
+[r10] finished
+[round10] c600 Rloop:0,Rdeep:0,Rwide:0 end Sun Nov  8 14:13:11 CET 2026
+[round10] d384 H3s384:0 --tokens 575e6 --branch_at 300e6,575000000 start Sun Nov  8 14:13:11 CET 2026
+[r10] start wsd_H3s384_575M_s0: train.py --arm H3s384 --seed 0 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 300e6,575000000 --decay_frac 0.1 --n_evals 12 --name wsd_H3s384_575M_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_H3s384_575M_s0: rc 0, 33.9 min, round-10 total 4.20 h
+[r10] finished
+[round10] d384 H3s384:0 --tokens 575e6 --branch_at 300e6,575000000 end Sun Nov  8 14:47:05 CET 2026
+[round10] tiny tD1:0 start Sun Nov  8 14:47:05 CET 2026
+[r10] start wsd_D1_s0: train.py --arm tD1 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_D1_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_D1_s0: rc 0, 36.5 min, round-10 total 4.81 h
+[r10] finished
+[round10] tiny tD1:0 end Sun Nov  8 15:23:36 CET 2026
+[round10] tiny tD1:0 --extra=--ng_lazy start Sun Nov  8 15:23:36 CET 2026
+[r10] start wsd_D1_lazy_s0: train.py --arm tD1 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_D1_lazy_s0 --runs_dir /path/to/repo/runs/round10 --keep_params --ng_lazy
+[r10] end wsd_D1_lazy_s0: rc 0, 28.8 min, round-10 total 5.28 h
+[r10] finished
+[round10] tiny tD1:0 --extra=--ng_lazy end Sun Nov  8 15:52:23 CET 2026
+[round10] tiny Rwide1200:0 start Sun Nov  8 15:53:10 CET 2026
+[r10] start wsd_Rwide1200_s0: train.py --arm Rwide1200 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_Rwide1200_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_Rwide1200_s0: rc 0, 47.4 min, round-10 total 6.08 h
+[r10] finished
+[round10] tiny Rwide1200:0 end Sun Nov  8 16:40:35 CET 2026
+[round10] tiny tD2:0 start Sun Nov  8 16:42:51 CET 2026
+[r10] start wsd_D2_s0: train.py --arm tD2 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_D2_s0 --runs_dir /path/to/repo/runs/round10 --keep_params
+[r10] end wsd_D2_s0: rc 0, 51.7 min, round-10 total 6.94 h
+[r10] finished
+[round10] tiny tD2:0 end Sun Nov  8 17:34:36 CET 2026
+[round10] tiny tD2:0 --extra=--ng_lazy start Sun Nov  8 21:04:04 CET 2026
+[r10] start wsd_D2_lazy_s0: train.py --arm tD2 --seed 0 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_D2_lazy_s0 --runs_dir /path/to/repo/runs/round10 --keep_params --ng_lazy
+[r10] end wsd_D2_lazy_s0: rc 0, 30.7 min, round-10 total 7.45 h
+[r10] finished
+[round10] tiny tD2:0 --extra=--ng_lazy end Sun Nov  8 21:34:47 CET 2026

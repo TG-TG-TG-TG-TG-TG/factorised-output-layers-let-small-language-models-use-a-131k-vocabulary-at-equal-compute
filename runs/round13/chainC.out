@@ -1,0 +1,33 @@
+[r13chain] smoke AS384@624427008 AS128k384@619970560 start Thu Nov 12 18:17:13 CET 2026
+step 200/9528 loss 5.9493 168,565 tok/s wait 0.0ms mem 3.57GB
+done smoke_AS384: val nan in 1.9 min
+step 200/9460 loss 6.2687 83,615 tok/s wait 0.0ms mem 4.27GB
+done smoke_AS128k384: val nan in 3.2 min
+[r13chain] smoke AS384@624427008 AS128k384@619970560 end Thu Nov 12 18:22:27 CET 2026
+[r13chain] pytry round13_smoke_check.py --tag exp3 start Thu Nov 12 18:22:27 CET 2026
+AS128k384 loss@200 6.2687      83,615 tok/s (0.00x B)  step 784 ms  peak 4.27 GB  wait 0.0 ms  head 6,878,621 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 150 min  data hash n/a (bpe131072)
+AS384    loss@200 5.9493     168,565 tok/s (0.00x B)  step 389 ms  peak 3.57 GB  wait 0.0 ms  head 6,644,021 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 75 min  data hash OK
+H3p384   loss@200 5.8447     328,899 tok/s (0.00x B)  step 199 ms  peak 3.06 GB  wait 0.0 ms  head 9,446,810 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 35 min  data hash OK
+gate 4 (data) / smoke: OK
+[r13chain] pytry round13_smoke_check.py --tag exp3 end Thu Nov 12 18:22:28 CET 2026
+[r13chain] one d384 AS384:0 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 start Thu Nov 12 18:22:28 CET 2026
+[r13] start wsd_AS384_624M_s0: train.py --arm AS384 --seed 0 --lr 0.002 --tokens 624427008 --sched wsd --branch_at 325844992,624427008 --decay_frac 0.1 --n_evals 12 --name wsd_AS384_624M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_AS384_624M_s0: rc 0, 71.1 min, round-13 total 6.28 h
+[r13] finished
+[r13chain] one d384 AS384:0 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 end Thu Nov 12 19:33:32 CET 2026
+[r13chain] one d384 AS384:1 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 start Thu Nov 12 19:33:32 CET 2026
+[r13] start wsd_AS384_624M_s1: train.py --arm AS384 --seed 1 --lr 0.002 --tokens 624427008 --sched wsd --branch_at 325844992,624427008 --decay_frac 0.1 --n_evals 12 --name wsd_AS384_624M_s1 --runs_dir /path/to/repo/runs/round13 --keep_params
+[r13] end wsd_AS384_624M_s1: rc 0, 68.6 min, round-13 total 7.42 h
+[r13] finished
+[r13chain] one d384 AS384:1 --label AS384 --tokens 624427008 --branch_at 325844992,624427008 end Thu Nov 12 20:42:05 CET 2026
+[r13chain] one d384 AS128k384:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 start Thu Nov 12 20:42:05 CET 2026
+[r13] wsd_AS128k384_620M_s0 is DONE; skipped
+[r13] finished
+[r13chain] one d384 AS128k384:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 end Thu Nov 12 20:42:06 CET 2026
+[r13chain] py round13_eval.py bpb AS128k384_620M,AS128k384_323M,AS384_624M_s0 start Thu Nov 12 20:42:06 CET 2026
+Traceback (most recent call last):
+  File "/path/to/repo/round13_eval.py", line 23, in <module>
+    assert not missing, f"no checkpoint for {missing}"
+           ^^^^^^^^^^^
+AssertionError: no checkpoint for ['AS128k384_620M', 'AS128k384_323M']
+[launchC] done Thu Nov 12 20:42:06 CET 2026

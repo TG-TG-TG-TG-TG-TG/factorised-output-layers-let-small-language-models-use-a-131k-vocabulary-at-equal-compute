@@ -1,0 +1,16 @@
+\begin{tabular}{lccccc}
+\toprule
+row & vs & seeds & BPB & $\Delta$ BPB vs row & training FLOPs \\
+\midrule
+(a) flat head & -- & 2 & 1.2835 & -- & \ensuremath{6.66\times10^{16}} \\
+(b) 1{,}024 random clusters & -- & 1 & 1.3694 & -- & \ensuremath{1.67\times10^{16}} \\
+(c) 1{,}024 $k$-means clusters & (b) & 1 & 1.3122 & \textminus{}0.0572 & \ensuremath{1.67\times10^{16}} \\
+(d) (c) + tied-mean cluster logit & (c) & 1 & 1.3125 & +0.0004 & \ensuremath{1.67\times10^{16}} \\
+(e) (c) + 4{,}096 frequent singletons & (c) & 1 & 1.3015 & \textminus{}0.0107 & \ensuremath{2.08\times10^{16}} \\
+(f) (e) + tied-mean cluster logit & (e) & 1 & 1.3000 & \textminus{}0.0014 & \ensuremath{2.08\times10^{16}} \\
+(g) (f) with 8{,}192 singletons & (f) & 2 & 1.2957 & \textminus{}0.0043 & \ensuremath{2.50\times10^{16}} \\
+(h) (f) with 4{,}096 clusters & (f) & 1 & 1.2999 & \textminus{}0.0001 & \ensuremath{2.39\times10^{16}} \\
+(i) (g) with 4{,}096 clusters: final head & (g) & 2 & 1.2938 & \textminus{}0.0018 & \ensuremath{2.80\times10^{16}} \\
+(j) (i) + exact re-scoring{,} 16 clusters & (i) & 2 & 1.2923 & \textminus{}0.0015 & \ensuremath{2.82\times10^{16}} \\
+\bottomrule
+\end{tabular}

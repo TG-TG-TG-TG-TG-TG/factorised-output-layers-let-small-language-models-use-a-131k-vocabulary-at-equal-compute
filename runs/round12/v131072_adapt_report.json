@@ -1,0 +1,19 @@
+{
+ "V": 131072,
+ "K": 8192,
+ "C": 4096,
+ "n_tail": 122880,
+ "capacity": 30,
+ "kmeans_s": 167.85153818130493,
+ "sizes": {
+  "min": 30,
+  "median": 30.0,
+  "max": 30,
+  "n_full": 4096,
+  "n_empty": 0
+ },
+ "frequent_share_of_train_targets": 0.8566097173713533,
+ "count_at_rank_K": 6486,
+ "never_seen_ids": 134,
+ "disjoint_and_cover": true
+}

@@ -1,0 +1,5 @@
+[bpe] 419,828 train docs, 2.000 GB in 47 s
+[bpe] V=8192 trained in 84 s, sha256 af18413d2bcce9a8
+[bpe] V=8192 gate: 4895 val docs, round-trip failures 0, max id 8190, 3.933 bytes/token -> OK
+[bpe] V=4096 trained in 81 s, sha256 402090ead7798d4c
+[bpe] V=4096 gate: 4895 val docs, round-trip failures 0, max id 4094, 3.473 bytes/token -> OK

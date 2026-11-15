@@ -1,0 +1,12 @@
+[post] classes Fri Nov  6 16:38:04 CET 2026
+[random class 147, 50 tokens] ' R' | ' bo' | ' sche' | 'igration' | ' Show' | ' Charl' | ' customer' | ' smooth' | ' techniques' | ' promised' | ' mm' | ' wondering' | ' lesser' | ' Material' | ' capitalist' | ' randomly' | ' Snake' | ' discharge' | ' Sri' | 'Below' | 'steam' | 'herence' | ' accuse' | 'Cour' | '298' | 'enne' | ' demolition' | ' repealed' | 'Mexico' | ' travers' | 'lein' | ' dispose' | ' foreseeable' | '�' | 'pelling' | 'achy' | 'rigan' | 'opoly' | ' diarrhea' | 'ffer' | ' Ezra' | 'everything' | 'JD' | ' Stamp' | ' believable' | 'Kansas' | 'raught' | ' sleeper' | ' Zan' | ' UFOs'
+[random class 769, 50 tokens] '�' | ' feel' | ' Europe' | ' seems' | 'duct' | ' operations' | 'ography' | 'ao' | 'bar' | 'ala' | 'RS' | 'lee' | ' TR' | ' fab' | ' leather' | ' Jeremy' | ' fascinating' | ' Veh' | ' intact' | ' Workers' | ' CF' | 'ishops' | ' circulating' | ' pod' | 'atche' | 'domain' | 'occupied' | 'ormons' | ' Cambodia' | 'uld' | 'DIV' | ' retract' | ' TWO' | 'Monitor' | 'bringing' | 'VT' | ' knob' | ' decency' | ' Phelps' | ' Pasadena' | 'processor' | 'avering' | ' spherical' | ' Reflex' | ' adjunct' | ' ADS' | ' Yok' | 'Done' | ' discouraging' | ' conquering'
+[random class 521, 48 tokens] ' or' | ' My' | ' sn' | ' roll' | 'prof' | ' param' | ' Board' | 'Even' | ' experiment' | 'yo' | ' dozen' | 'iox' | ' forums' | ' winners' | ' subjected' | 'target' | ' Carib' | ' historian' | 'ln' | ' bats' | ' 126' | ' Monte' | 'quarter' | 'ako' | ' excuses' | ' saga' | 'mot' | 'flies' | 'ulic' | 'layer' | ' nostalgia' | 'nuts' | ' cushion' | 'Cra' | 'gc' | 'respective' | 'ヤ' | ' rushes' | ' Towns' | ' Tune' | 'mol' | 'Spanish' | ' payoff' | ' Dism' | '光' | ' occupant' | 'virt' | ' vanishing'
+empty k-means classes: 0
+[post] diag B Fri Nov  6 16:38:24 CET 2026
+ "grad_retention_flat": {
+  "mean": 0.004052628559293225,
+  "std": 0.0001736596401062729
+ },
+[post] gates Fri Nov  6 16:38:37 CET 2026
+r8post_B.sh: line 20: 43526 Killed                  JAX_PLATFORMS=cpu python round8_gates.py > $O/gates.out 2>&1

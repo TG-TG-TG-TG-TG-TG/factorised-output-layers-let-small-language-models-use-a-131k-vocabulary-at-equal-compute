@@ -1,0 +1,24 @@
+{
+ "B384": {
+  "logged_val_loss_full": 3.7849866069731166,
+  "direct_minus_logged": 0.0002596463739541477,
+  "gate_ok": true,
+  "direct_bpb": 1.1787558463234427,
+  "direct_bytes": 23160213,
+  "direct_nll_per_token": 3.7852462533470708,
+  "aligned_bpb": 1.178773980476067,
+  "aligned_bytes": 23160080,
+  "aligned_unscored": 133
+ },
+ "H3s384_300M": {
+  "logged_val_loss_full": 3.8220531182210955,
+  "direct_minus_logged": 0.00024679897240620363,
+  "gate_ok": true,
+  "direct_bpb": 1.190294652510243,
+  "direct_bytes": 23160213,
+  "direct_nll_per_token": 3.8222999171935017,
+  "aligned_bpb": 1.1903110717924743,
+  "aligned_bytes": 23160080,
+  "aligned_unscored": 133
+ }
+}

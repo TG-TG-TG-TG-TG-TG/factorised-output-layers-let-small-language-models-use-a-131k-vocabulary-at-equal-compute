@@ -1,0 +1,29 @@
+[r13chain] smoke AS128k384s@619970560 start Thu Nov 12 22:12:04 CET 2026
+step 200/9460 loss 6.2685 128,129 tok/s wait 0.0ms mem 4.40GB
+done smoke_AS128k384s: val nan in 2.4 min
+[r13chain] smoke AS128k384s@619970560 end Thu Nov 12 22:14:35 CET 2026
+[r13chain] py round13_smoke_check.py --tag exp3s --arms AS128k384s start Thu Nov 12 22:14:35 CET 2026
+AS128k384s loss@200 6.2685     128,129 tok/s (0.00x B)  step 511 ms  peak 4.40 GB  wait 0.0 ms  head 6,878,621 FLOPs/tok (0.000x B)  train FLOPs 0.000x B  est full 98 min  data hash n/a (bpe131072)
+gate 4 (data) / smoke: OK
+[r13chain] py round13_smoke_check.py --tag exp3s --arms AS128k384s end Thu Nov 12 22:14:36 CET 2026
+[r13chain] py round13_require_fast.py runs/round13/smoke_check_exp3s.json AS128k384s start Thu Nov 12 22:14:36 CET 2026
+[require_fast] AS128k384s: est 98 min, 128,129 tok/s (limit 115 min)
+[r13chain] py round13_require_fast.py runs/round13/smoke_check_exp3s.json AS128k384s end Thu Nov 12 22:14:37 CET 2026
+[r13chain] one d384 AS128k384s:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 start Thu Nov 12 22:14:37 CET 2026
+[r13] start wsd_AS128k384_620M_s0: train.py --arm AS128k384s --seed 0 --lr 0.002 --tokens 619970560 --sched wsd --branch_at 323485696,619970560 --decay_frac 0.1 --n_evals 12 --name wsd_AS128k384_620M_s0 --runs_dir /path/to/repo/runs/round13 --keep_params --keep_branch=323485696
+[r13] end wsd_AS128k384_620M_s0: rc 0, 89.5 min, round-13 total 8.92 h
+[r13] finished
+[r13chain] one d384 AS128k384s:0 --label AS128k384 --tokens 619970560 --branch_at 323485696,619970560 --extra=--keep_branch=323485696 end Thu Nov 12 23:44:08 CET 2026
+[r13chain] py round13_eval.py bpb AS128k384_620M,AS128k384_323M,AS384_624M_s0 start Thu Nov 12 23:44:08 CET 2026
+[bpb] models: ['AS128k384_620M', 'AS128k384_323M', 'AS384_624M_s0']
+[bpb] AS128k384_620M   fineweb      BPB 1.1735  nll/target 4.0167  bytes 23,160,080 (+133 unscored)  33s
+[bpb] AS128k384_620M   wikitext103  BPB 1.4370  nll/target 4.7619  bytes 1,284,391 (+1 unscored)  8s
+[bpb] AS128k384_620M   pg19         BPB 1.7384  nll/target 4.8644  bytes 3,875,111 (+13 unscored)  4s
+[bpb] AS128k384_323M   fineweb      BPB 1.2052  nll/target 4.1254  bytes 23,160,080 (+133 unscored)  24s
+[bpb] AS128k384_323M   wikitext103  BPB 1.4821  nll/target 4.9112  bytes 1,284,391 (+1 unscored)  5s
+[bpb] AS128k384_323M   pg19         BPB 1.7770  nll/target 4.9723  bytes 3,875,111 (+13 unscored)  4s
+[bpb] AS384_624M_s0    fineweb      BPB 1.1625  nll/target 3.7331  bytes 23,160,213 (+0 unscored)  18s
+[bpb] AS384_624M_s0    wikitext103  BPB 1.4267  nll/target 4.4941  bytes 1,284,392 (+0 unscored)  9s
+[bpb] AS384_624M_s0    pg19         BPB 1.7050  nll/target 4.4590  bytes 3,875,124 (+0 unscored)  5s
+[r13chain] py round13_eval.py bpb AS128k384_620M,AS128k384_323M,AS384_624M_s0 end Thu Nov 12 23:46:10 CET 2026
+[launchD] done Thu Nov 12 23:46:10 CET 2026

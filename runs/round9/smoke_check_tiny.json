@@ -1,0 +1,136 @@
+{
+ "arms": {
+  "tB": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 6.209768295288086,
+   "tok_s": 312685.27892227995,
+   "step_ms": 209.5909350957626,
+   "peak_mem_gb": 2.175154209136963,
+   "data_wait_ms": 0.03503488714135855,
+   "est_full_min": 77.59748951323634,
+   "head_fwd_flops_per_token": 12877824,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7621760,
+    "non_embedding": 1182848,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 38633472,
+    "total": 50429952
+   },
+   "mtime": 1794067838.6164193,
+   "speed_vs_B": 1.0,
+   "head_flops_vs_B": 1.0
+  },
+  "tH2": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 6.150913238525391,
+   "tok_s": 1432174.0103518227,
+   "step_ms": 45.75980259821966,
+   "peak_mem_gb": 0.7706780433654785,
+   "data_wait_ms": 0.03148387181098746,
+   "est_full_min": 16.941790925360035,
+   "head_fwd_flops_per_token": 274944,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7753856,
+    "non_embedding": 1314944,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 824832,
+    "total": 12621312
+   },
+   "mtime": 1794067874.1770852,
+   "speed_vs_B": 4.580241242210188,
+   "head_flops_vs_B": 0.021350190839694656
+  },
+  "tH2a": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 6.198382377624512,
+   "tok_s": 1095552.0442501619,
+   "step_ms": 59.82007002219175,
+   "peak_mem_gb": 0.914802074432373,
+   "data_wait_ms": 0.03367415895879206,
+   "est_full_min": 22.14736650756007,
+   "head_fwd_flops_per_token": 1322496,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7753856,
+    "non_embedding": 1314944,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 3967488,
+    "total": 15763968
+   },
+   "mtime": 1794067946.228935,
+   "speed_vs_B": 3.503689230353786,
+   "head_flops_vs_B": 0.1026956106870229
+  },
+  "tH2atm": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 6.155662536621094,
+   "tok_s": 1101777.9454588057,
+   "step_ms": 59.482040160741555,
+   "peak_mem_gb": 0.914313554763794,
+   "data_wait_ms": 0.03382675896808415,
+   "est_full_min": 22.022216683608676,
+   "head_fwd_flops_per_token": 1322888.6328125,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7753856,
+    "non_embedding": 1314944,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 3968665.8984375,
+    "total": 15765145.8984375
+   },
+   "mtime": 1794067983.4125962,
+   "speed_vs_B": 3.523600309091174,
+   "head_flops_vs_B": 0.10272609975198449
+  },
+  "tH2tm": {
+   "d": 128,
+   "steps": 200,
+   "loss_at_200": 6.158928871154785,
+   "tok_s": 1509870.8670550517,
+   "step_ms": 43.40503643720578,
+   "peak_mem_gb": 0.7704973220825195,
+   "data_wait_ms": 0.030728558972324932,
+   "est_full_min": 16.0699786859523,
+   "head_fwd_flops_per_token": 275336.6328125,
+   "data_hash_ok": true,
+   "finite": true,
+   "params": {
+    "total": 7753856,
+    "non_embedding": 1314944,
+    "embedding": 6438912
+   },
+   "flops_per_token": {
+    "non_embedding": 11796480,
+    "head": 826009.8984375,
+    "total": 12622489.8984375
+   },
+   "mtime": 1794067908.5829537,
+   "speed_vs_B": 4.828723860167208,
+   "head_flops_vs_B": 0.021380679904656252
+  }
+ },
+ "overhead_factor": 1.1028687583468804,
+ "fails": []
+}

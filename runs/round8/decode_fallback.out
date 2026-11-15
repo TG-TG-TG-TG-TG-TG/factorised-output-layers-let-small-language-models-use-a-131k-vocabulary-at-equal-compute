@@ -1,0 +1,10 @@
+{
+ "ckpt": "wsd_H2_s0",
+ "positions": 4096,
+ "fallback3_rate": 0.171630859375,
+ "unresolved_rate": 0.115966796875,
+ "jit_greedy_equals_exact_argmax": 0.9736328125,
+ "jit_greedy_equals_exact_when_resolved": 1.0,
+ "host_greedy_classes_expanded_mean_256": 1.81640625,
+ "host_greedy_classes_expanded_max_256": 21
+}

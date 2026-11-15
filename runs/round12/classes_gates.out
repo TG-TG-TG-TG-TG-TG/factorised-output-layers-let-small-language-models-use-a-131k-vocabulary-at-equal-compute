@@ -1,0 +1,21 @@
+{"V": 131072, "K": 8192, "C": 4096, "n_tail": 122880, "capacity": 30, "kmeans_s": 167.85153818130493, "sizes": {"min": 30, "median": 30.0, "max": 30, "n_full": 4096, "n_empty": 0}, "frequent_share_of_train_targets": 0.8566097173713533, "count_at_rank_K": 6486, "never_seen_ids": 134, "disjoint_and_cover": true}
+tables: V 131072 K 8192 C 4096 L 30 cluster sizes 30..30
+OK   G1 reference sums to 1: max |logsumexp| 4.77e-07
+OK   G1 fast NLL == reference: fast 10.7634649 ref 10.7634649 |diff| 0.00e+00
+OK   G2 grad emb: relative error 5.76e-07 (|ref| 2.383e+00)
+OK   G2 grad R: relative error 2.43e-08 (|ref| 5.009e-01)
+OK   G2 grad bc: relative error 2.52e-08 (|ref| 2.718e-02)
+Traceback (most recent call last):
+  File "/path/to/repo/round12_gates.py", line 121, in <module>
+    m = float(jnp.mean(w == ex))
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pc/.venv/lib/python3.12/site-packages/jax/_src/array.py", line 299, in __float__
+    return self._value.__float__()
+           ^^^^^^^^^^^
+  File "/home/pc/.venv/lib/python3.12/site-packages/jax/_src/profiler.py", line 359, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pc/.venv/lib/python3.12/site-packages/jax/_src/array.py", line 639, in _value
+    npy_value, did_copy = self._single_device_array_to_np_array_did_copy()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jax.errors.JaxRuntimeError: INTERNAL: Buffer Definition Event: Error dispatching computation: Error dispatching computation: Out of memory allocating 204046344400 bytes.

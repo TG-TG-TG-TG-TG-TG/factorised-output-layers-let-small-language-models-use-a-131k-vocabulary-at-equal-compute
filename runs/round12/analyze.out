@@ -1,0 +1,303 @@
+# Round 12 summary — close the deal on the two-level head
+
+Decision rules pinned in `round12_analyze.py`'s docstring at 22:31 CET on 2026-11-10 (copy: `runs/round12/round12_analyze_docstring_2231.py.txt`), before any round-12 run or eval started. Seed 0 unless stated.
+
+## Part A — LAMBADA sanity check
+
+EleutherAI/lambada_openai test, 5,153 passages; target word 'appears earlier' in the passage (whole word, exact): n = 4,201; rest n = 952.
+
+| model | whole-passage BPB | last word bits/byte | appears earlier | rest |
+|---|---|---|---|---|
+| B384 | 1.6273 | 1.7147 | 1.6956 | 1.7991 |
+| H3s384_575M | 1.6074 | 1.7042 | 1.6893 | 1.7702 |
+| F8k384_631M | 1.6281 | 1.3986 | 1.3063 | 1.8062 |
+| F4k384_700M | 1.6441 | 1.3187 | 1.2078 | 1.8077 |
+
+**Verdict (pinned): whole-passage BPB(F8k) − BPB(H3*) = +0.0206; F8k's last-word advantage (H3* − F8k bits/byte) on 'appears earlier' targets +0.3830 vs -0.0360 on the rest → real effect.**
+
+Ten passages with token splits and per-token NLL: `runs/round12/partA_examples.md`. In all ten, the target is a rare name that occurs earlier in the passage. GPT-2's 50k vocabulary has it as one rare token (about 15–25 bits); the 8k vocabulary splits it into a first piece plus continuation pieces that are nearly free to copy from context. B384 ≈ H3* on this split, so the effect belongs to the vocabulary, not the head (post-hoc reading).
+
+## Part B — big vocabulary (V = 131,072) at equal FLOPs
+
+Tokenizer bpe131072: sha256 `9c64c3cc862830133fabab6c64a24e075ea5c8adb8d9e7939ea2cea55585a5a6`, 2.000 GB of training text (419,828 docs), trained in 148 s; round trip on all 4,895 val docs: 0 failures; val bytes/token 4.944 (GPT-2 4.633).
+
+Frequent list: target counts over the 9,647 batches the H128k run consumes (632,225,792 targets); top-8,192 share 0.8566, top-4,096 0.7932; 134 ids never seen.
+Class report (`runs/round12/v131072_adapt_report.json`): {"V": 131072, "K": 8192, "C": 4096, "n_tail": 122880, "capacity": 30, "kmeans_s": 167.85153818130493, "sizes": {"min": 30, "median": 30.0, "max": 30, "n_full": 4096, "n_empty": 0}, "frequent_share_of_train_targets": 0.8566097173713533, "count_at_rank_K": 6486, "never_seen_ids": 134, "disjoint_and_cover": true}
+Proxy wsd_tF128k_proxy_50M_s0 (d=128 flat, bpe131072): 55.0M tokens, 6.1836e+15 FLOPs (9.2% of 6.717e16), 8.4 min.
+
+Gates:
+
+- [flat] OK G3 F128k chunked CE == unchunked (loss): chunked 12.4243889 unchunked 12.4243889 |diff| 0.00e+00 (2,048 targets, 2 chunks of 1,024)
+- [flat] OK G3 F128k chunked CE == unchunked (grads): max relative gradient error over leaves 1.33e-07
+- [hier] tables: {"V": 131072, "K": 8192, "C": 4096, "L": 30, "min_count": 30, "max_count": 30}
+- [hier] OK G1 reference sums to 1: max |logsumexp| 4.77e-07
+- [hier] OK G1 fast NLL == reference: fast 10.7634649 ref 10.7634649 |diff| 0.00e+00
+- [hier] OK G2 grad emb: relative error 5.76e-07 (|ref| 2.383e+00)
+- [hier] OK G2 grad R: relative error 2.43e-08 (|ref| 5.009e-01)
+- [hier] OK G2 grad bc: relative error 2.52e-08 (|ref| 2.718e-02)
+- [hier] OK greedy exact (h x 1): exact-match 1.0000 on 1,000 contexts; fallback rate 0.295
+- [hier] greedy_fallback_h1: 0.29500001668930054
+- [hier] OK greedy exact (h x 8): exact-match 1.0000 on 1,000 contexts; fallback rate 0.000
+- [hier] greedy_fallback_h8: 0.0
+- [hier] OK sampling: two-stage probabilities == reference: max |p_two-stage - p_ref| 2.33e-09 over 1,000 contexts (h and 8h) x 131072 ids
+- [hier] OK sampling: empirical TV: TV(two-stage, 200k) 0.0022 vs TV(direct, 200k) 0.0018 (ratio 1.198); max p 0.614
+- [trained_wsd_H128k384_575M_s0] ckpt: "wsd_H128k384_575M_s0"
+- [trained_wsd_H128k384_575M_s0] positions: 4096
+- [trained_wsd_H128k384_575M_s0] fallback_rate: 0.001708984375
+- [trained_wsd_H128k384_575M_s0] exact_match: 1.0
+- [trained_wsd_H128k384_575M_s0] mean_clusters_expanded: 9.994873046875
+- [trained_wsd_H128k384_575M_s0] OK trained greedy exact: exact-match 1.0000 on 4096 positions; fallback rate 0.0017; mean clusters expanded 10.0
+- [G4] data hash: F128k-384 and H128k-384 smokes saw identical first batches
+- [smoke] B: 156,669 tok/s, peak 3.90 GB, est. full run 41 min
+- [smoke] F128k384: 68,543 tok/s, peak 3.96 GB, est. full run 47 min
+- [smoke] H128k384: 286,882 tok/s, peak 3.58 GB, est. full run 41 min
+
+| arm (stable tokens) | total tokens | FLOPs | vs target | BPB | wall min | params (emb / non-emb) | bytes/tok | decode b1 ms/tok · ms/byte | decode b32 ms/tok · ms/byte | head share |
+|---|---|---|---|---|---|---|---|---|---|---|
+| H3*-384 (300M) | 330.0M | 3.5049e+16 | 1.0000 | 1.1902 | 17.0 | 31.52M (19.32 / 12.20) | 4.633 | 0.2029 · 0.04380 | 0.06056 · 0.013072 | 26.7% |
+| H3*-384 (575M) | 632.5M | 6.7168e+16 | 1.0000 | 1.1559 | 32.1 | 31.52M (19.32 / 12.20) | 4.633 | 0.2029 · 0.04380 | 0.06056 · 0.013072 | 26.7% |
+| B384 matched (164M) | 180.9M | 3.5047e+16 | 0.9999 | 1.2229 | 19.1 | 29.94M (19.32 / 10.63) | 4.633 | 0.2789 · 0.06021 | 0.06192 · 0.013366 | 59.8% |
+| B384 matched (315M) | 346.7M | 6.7173e+16 | 1.0001 | 1.1753 | 35.7 | 29.94M (19.32 / 10.63) | 4.633 | 0.2789 · 0.06021 | 0.06192 · 0.013366 | 59.8% |
+| F8k-384 (631M) | 694.4M | 6.7172e+16 | 1.0001 | 1.1875 | 26.7 | 13.77M (3.15 / 10.63) | 3.933 | 0.1975 · 0.05021 | 0.06003 · 0.015263 | 19.5% |
+| F4k-384 (700M) | 769.5M | 6.7169e+16 | 1.0000 | 1.2056 | 25.4 | 12.20M (1.57 / 10.63) | 3.473 | - · - | - · - | 10.8% |
+| F128k-384 (84M) | 92.3M | 3.5050e+16 | 1.0000 | 1.3026 | 21.8 | 60.96M (50.33 / 10.63) | 4.944 | 0.3664 · 0.07412 | 0.06563 · 0.013276 | 79.5% |
+| F128k-384 (161M) | 176.8M | 6.7163e+16 | 0.9999 | 1.2248 | 40.7 | 60.96M (50.33 / 10.63) | 4.944 | 0.3664 · 0.07412 | 0.06563 · 0.013276 | 79.5% |
+| H128k-384 (300M) | 329.9M | 3.5052e+16 | 1.0001 | 1.1804 | 17.8 | 62.54M (50.33 / 12.20) | 4.944 | 0.2013 · 0.04071 | 0.06003 · 0.012143 | 26.7% |
+| H128k-384 (522M, proxy charged) | 574.0M | 6.0982e+16 | 1.0000 | 1.1512 | 30.5 | 62.54M (50.33 / 12.20) | 4.944 | 0.2013 · 0.04071 | 0.06003 · 0.012143 | 26.7% |
+| H128k-384 (575M) | 632.2M | 6.7172e+16 | 1.0001 | 1.1471 | 33.6 | 62.54M (50.33 / 12.20) | 4.944 | 0.2013 · 0.04071 | 0.06003 · 0.012143 | 26.7% |
+
+'vs target' = the branch's training FLOPs over 6.717e16 (575M-matched rows) or 3.505e16 (300M-matched rows); the charged H128k row includes the proxy's FLOPs. GPT-2 rows: BPB from the logged full-val loss. BPE rows: the byte-aligned evaluator (round 11's numbers for F8k / F4k). Decode: random bf16 weights, `runs/round12/decode.md`.
+
+**Verdict (pinned) — big vocab for free: BPB(H128k) − BPB(H3*-384 575M) ≤ −0.003: Δ = -0.0088 → holds.** With the proxy charged (522M branch): Δ = -0.0047 → holds.
+
+**Verdict (pinned) — flat can't use it: BPB(F128k) − BPB(B384 matched) ≥ +0.003: Δ = +0.0495 → holds.**
+
+**Verdict (pinned) — two-level wins at 128k: BPB(H128k) − BPB(F128k) ≤ −0.003: Δ = -0.0777 → holds.** With the proxy charged (522M branch): Δ = -0.0736 → holds.
+
+At the 3.505e16 branches, the same differences (reported, not verdicts): H128k − H3* (3.505e16) -0.0098; F128k − B384 matched (3.505e16) +0.0797; H128k − F128k (3.505e16) -0.1222.
+
+### Part B evals at 6.717e16 (E1 OOD BPB, E2 BLiMP, E3 LAMBADA)
+
+| model | FineWeb-Edu | WikiText-103 | PG-19 | BLiMP % | LAMBADA acc % | LAMBADA word bits/byte |
+|---|---|---|---|---|---|---|
+| B384 | 1.1788 | 1.4424 | 1.7347 | 71.68 | 14.81 | 1.7147 |
+| H3s384_575M | 1.1560 | 1.4116 | 1.7093 | 72.06 | 14.15 | 1.7042 |
+| F8k384_631M | 1.1875 | 1.4328 | 1.7020 | 69.99 | 16.83 | 1.3986 |
+| F4k384_700M | 1.2056 | 1.4725 | 1.7148 | 70.73 | 17.33 | 1.3187 |
+| B384m_s0 | 1.1754 | 1.4303 | 1.7341 | 71.68 | - | - |
+| F128k384_161M | 1.2248 | 1.5094 | 1.7912 | 70.01 | 10.34 | 1.9383 |
+| H128k384_575M | 1.1471 | 1.3950 | 1.6770 | 74.86 | 13.16 | 1.7057 |
+
+B384 / H3s384_575M / F8k / F4k rows are round 11's evals. E1–E3 on the Part B arms are reported; no round-12 rule was pinned on them.
+
+## Part C — tH3ctx
+
+Not run (optional).
+
+## Part D — two seeds and exact matching
+
+### D1 — B384 matched to 6.717e16 total FLOPs
+
+| seed | B384 matched BPB | its FLOPs (vs 6.717e16) | H3*-384 575M BPB | Δ (H3* − B) |
+|---|---|---|---|---|
+| 0 | 1.1753 | 6.7173e+16 (1.0001) | 1.1559 | -0.0194 |
+| 1 | 1.1763 | 6.7173e+16 (1.0001) | 1.1548 | -0.0215 |
+
+**2-seed headline equal-FLOPs Δ = mean BPB(H3*-384 575M) − mean BPB(B384 matched) = 1.1554 − 1.1758 = -0.0204 BPB** (seed spread: B384 0.0010, H3* 0.0011).
+
+E1 / E2 on the matched B384 models:
+
+| model | FineWeb-Edu | WikiText-103 | PG-19 | BLiMP % |
+|---|---|---|---|---|
+| B384m_s0 | 1.1754 | 1.4303 | 1.7341 | 71.68 |
+| B384m_s1 | 1.1764 | 1.4443 | 1.7453 | 72.33 |
+| H3s384_575M | 1.1560 | 1.4116 | 1.7093 | 72.06 |
+| H3s384_575M_s1 | - | - | - | 73.06 |
+
+### D2 — knowledge at equal FLOPs, two seeds
+
+| seed | bits bioB_100000 (100 exposures) | bits bioH_100000_eqF (237.4 exposures) | ratio |
+|---|---|---|---|
+| 0 | 711,813 | 1,215,439 | 1.708 |
+| 1 | 617,143 | 1,367,998 | 2.217 |
+
+**Verdict (pinned): 'more tokens → more knowledge at equal FLOPs' stands (ratios 1.708 / 2.217; rule: ≥ 1.2 on both seeds).**
+
+### D3 — E2 (BLiMP) with seed 1 (from round11_analyze.py, re-run)
+
+| model | seed 0 % | seed 1 % |
+|---|---|---|
+| B384 | 71.68 | 72.03 |
+| H3s384_300M | 71.87 | 71.66 |
+| H3s384_575M | 72.06 | 73.06 |
+| H3k8c4 | 68.71 | 67.29 |
+| H3rs16 | 68.78 | 68.97 |
+| B_r8 | 68.99 | 68.20 |
+
+- equal tokens (300M): delta +0.1866, real False, seed1_needed True, delta_s1 -0.3642, delta_mean -0.0888, seed_spread_points +0.3463, real_2seed False
+- equal FLOPs (6.72e16 vs 6.39e16): delta +0.3776, real False, seed1_needed True, delta_s1 +1.0313, delta_mean +0.7045, seed_spread_points +1.0000, real_2seed False
+- d=128, equal tokens (1200M): delta -0.2866, real False, seed1_needed True, delta_s1 -0.9075, delta_mean -0.5970, seed_spread_points +1.4164, real_2seed False
+- d=128 re-scored, equal tokens: delta -0.2119, real False, seed1_needed True, delta_s1 +0.7716, delta_mean +0.2799, seed_spread_points +0.7955, real_2seed False
+- F8k vs H3*, equal FLOPs: delta -2.0657, real True, seed1_needed False
+
+## Paper P5 measurement — Jensen gap Δ_c(h) of the target's cluster (`runs/round12/jensen.json`)
+
+| model | set | tail targets | mean Δ_c | std | mean error z_c − LSE_c | corr(offset, Δ_c) | mean Δ_c by bucket |
+|---|---|---|---|---|---|---|---|
+| H3k8c4 | val | 124,121 | 2.563 | 2.037 | +4.556 | -0.198 | [4096,16384) 2.83, [16384,V) 2.26 |
+| H3k8c4 | E5a_copy1 | 123,831 | 2.553 | 2.009 | +4.371 | -0.192 | [4096,16384) 2.80, [16384,V) 2.28 |
+| H3k8c4 | E5a_copy2 | 123,831 | 3.430 | 2.479 | +4.336 | -0.217 | [4096,16384) 3.69, [16384,V) 3.14 |
+| H3s384_575M | val | 124,121 | 3.095 | 2.483 | +2.509 | -0.023 | [4096,16384) 3.40, [16384,V) 2.76 |
+| H3s384_575M | E5a_copy1 | 123,831 | 3.043 | 2.430 | +2.360 | -0.016 | [4096,16384) 3.33, [16384,V) 2.73 |
+| H3s384_575M | E5a_copy2 | 123,831 | 4.058 | 2.920 | +2.157 | -0.035 | [4096,16384) 4.32, [16384,V) 3.76 |
+
+## Inputs for the paper's theory and cost sections (reported, not verdicts)
+
+- `runs/round8/test_heads.out` (V 600, d 16, C 24, 500 random h): log-prob rank flat / class-bias / two-level = 18 / 41 / 41, checked bounds 18 / 41 / 41; exact greedy 64/64, 1.75 clusters expanded on average (of 24); sampling TV 0.0096 (200k samples).
+- Bug (documentation): test_heads.py checks d + 2 (flat log-probs, bias + normaliser) and d + C + 1 (class-bias, hier); the heads.py docstring says d + 1 and d + C, i.e. it counts logits, not log-probs.
+- Head share of training FLOPs at ~600M-parameter GPT shapes (f = 4d, T = 1024, model.flops_per_token's formula):
+  - d 1024, 48 layers, V 50,257 (655M params): flat 7.3%, two-level 1.9% (head FLOPs ratio 0.245)
+  - d 1024, 48 layers, V 131,072 (738M params): flat 17.0%, two-level 1.9% (head FLOPs ratio 0.094)
+  - d 1280, 30 layers, V 50,257 (654M params): flat 9.3%, two-level 2.4% (head FLOPs ratio 0.245)
+  - d 1280, 30 layers, V 131,072 (758M params): flat 21.1%, two-level 2.4% (head FLOPs ratio 0.094)
+  - d 1536, 20 layers, V 50,257 (643M params): flat 11.4%, two-level 3.1% (head FLOPs ratio 0.245)
+  - d 1536, 20 layers, V 131,072 (768M params): flat 25.2%, two-level 3.1% (head FLOPs ratio 0.094)
+  - d 2048, 12 layers, V 50,257 (707M params): flat 14.1%, two-level 3.8% (head FLOPs ratio 0.245)
+  - d 2048, 12 layers, V 131,072 (872M params): flat 29.9%, two-level 3.9% (head FLOPs ratio 0.094)
+
+## Follow-up — memory and speed of the d=384 heads (reported, no rule pinned)
+
+`round12_perf.py`, one fresh process per training/scoring configuration (configurations sharing a process slowed each other), random init, real validation rows. Peak = jax `peak_bytes_in_use`; estimate = XLA's compiled arguments + outputs + temporaries. Decode: random bf16 weights, KV cache, 256 new tokens.
+
+### train
+
+| head | micro-batch rows 16 | micro-batch rows 32 | micro-batch rows 64 |
+|---|---|---|---|
+| flat 50k | 157,196 tok/s, 3.79 GB | 156,889 tok/s, 5.53 GB | 96,226 tok/s, 9.05 GB |
+| two-level 50k | 310,572 tok/s, 2.94 GB | 321,153 tok/s, 4.69 GB | 324,136 tok/s, 8.15 GB |
+| flat 8k | 426,782 tok/s, 2.17 GB | 431,385 tok/s, 3.89 GB | 431,506 tok/s, 7.43 GB |
+| flat 131k | 68,790 tok/s, 3.73 GB | 72,251 tok/s, 5.47 GB | 43,096 tok/s, 8.95 GB |
+| two-level 131k | 295,408 tok/s, 3.35 GB | 311,325 tok/s, 5.09 GB | 315,742 tok/s, 8.56 GB |
+
+### score
+
+| head | rows (forward only) 32 | rows (forward only) 64 |
+|---|---|---|
+| flat 50k | 679,888 tok/s, 1.83 GB | 672,632 tok/s, 1.83 GB |
+| two-level 50k | 1,136,337 tok/s, 0.69 GB | 1,126,707 tok/s, 0.87 GB |
+| flat 8k | 1,484,510 tok/s, 0.37 GB | 1,511,750 tok/s, 0.66 GB |
+| flat 131k | 323,520 tok/s, 1.45 GB | 318,902 tok/s, 1.45 GB |
+| two-level 131k | 1,152,368 tok/s, 0.80 GB | 1,137,291 tok/s, 1.00 GB |
+
+### decode
+
+| head | batch 1 | batch 32 | batch 128 |
+|---|---|---|---|
+| flat 50k | 3,356 tok/s, 0.298 ms/step, est. 0.08 GB | 17,009 tok/s, 1.881 ms/step, est. 0.58 GB | 18,377 tok/s, 6.965 ms/step, est. 2.17 GB |
+| two-level 50k | 4,622 tok/s, 0.216 ms/step, est. 0.09 GB | 17,183 tok/s, 1.862 ms/step, est. 0.59 GB | 18,812 tok/s, 6.804 ms/step, est. 2.18 GB |
+| flat 8k | 4,640 tok/s, 0.216 ms/step, est. 0.05 GB | 17,566 tok/s, 1.822 ms/step, est. 0.55 GB | 18,526 tok/s, 6.909 ms/step, est. 2.14 GB |
+| flat 131k | 2,684 tok/s, 0.373 ms/step, est. 0.14 GB | 15,863 tok/s, 2.017 ms/step, est. 0.64 GB | 17,776 tok/s, 7.201 ms/step, est. 2.23 GB |
+| two-level 131k | 4,578 tok/s, 0.218 ms/step, est. 0.14 GB | 17,068 tok/s, 1.875 ms/step, est. 0.65 GB | 18,599 tok/s, 6.882 ms/step, est. 2.24 GB |
+
+- Training at micro 16, two-level vs flat at 50k: 1.98x the tokens/s, peak 2.94 vs 3.79 GB.
+- Training at micro 16, two-level vs flat at 131k: 4.29x the tokens/s, peak 3.35 vs 3.73 GB.
+
+## One-line answers: is the two-level head cheap AND good?
+
+- **Equal FLOPs:** yes on BPB: at 6.717e16 training FLOPs the two-level head (H3*-384, 575M tokens) is 0.0204 BPB better than the flat head matched to the same FLOPs (mean of 2 seeds per side, Δ -0.0204).
+- **Equal tokens:** no: at 300M tokens BPB(H3*) − BPB(B384) = +0.0115 (seed 0, round 11); the gap sits in targets ranked ≥ 4,096.
+- **Vocabulary size:** big_vocab_for_free Δ -0.0088 (holds); flat_cant_use_it Δ +0.0495 (holds); two_level_wins_128k Δ -0.0777 (holds).
+
+## Results files, paper and images
+
+- Results JSON: `runs/round12/round12_results.json` (round 11's, re-run with the seed-1 BLiMP: `runs/round11/round11_results.json`).
+- Commands: `runs/round12/commands_extra.txt` (copied below).
+- Paper PDF: `paper/main.pdf` (14 pages: body pages 1–9, references page 10, appendices A–F). Source `paper/main.tex`, numbers
+  `paper/numbers.tex` (from `paper/make_numbers.py`; 424 macros, 12 unused ones have no value, see below), Markdown export
+  `paper/paper.md`, claims table `paper/claims.md` (32 claims).
+- Title chosen (both "big vocab for free" and "two-level wins at 128k" hold): *Big Vocabularies for Small Language Models at
+  Almost No Head Cost: An Equal-Compute Study of Two-Level Output Layers*.
+- Social images (`round12_social.py`), all five made, each at 1600×900 and 1080×1080, in `runs/round12/social/`:
+  `hero_*`, `vocab_*`, `headcost_*`, `knowledge_*`, `schematic_*`; thread draft `runs/round12/social/thread.md` (7 tweets).
+  The hero has no "flat needs N× the compute" line: the flat curve never reaches the two-level BPB inside the measured FLOPs
+  range, and the brief rules out extrapolating.
+
+## Surprises, bugs and deviations
+
+Surprises
+- The 131k two-level model is the best model of the project (1.1471 BPB). It beats the 50k two-level model at equal FLOPs even
+  with the class-building proxy charged (−0.0047). The flat 131k model is the worst d=384 arm at 6.717e16 (1.2248), worse than
+  flat 4k.
+- Not pinned, so these are observations: at 131k the two-level model leads flat by 4.85 BLiMP points (74.86 vs 70.01) and
+  2.8 LAMBADA points. Its 74.86 is also the highest BLiMP of any model here.
+- D2 seed spread is large: the flat bios model stores 712k bits at seed 0 and 617k at seed 1, so the ratio moves from 1.71
+  to 2.22. Both clear the pinned 1.2.
+- BLiMP seed 1 doubles the near-equal-FLOP gap (+1.03 vs +0.38). The 2-seed mean, +0.70, is still inside the ±1 band, so the
+  reading is "no difference".
+- LAMBADA accuracy stays below the 50k flat model's (13.2% for H128k vs 14.8%) although its BPB is better. This is consistent with
+  the tokenizer effect Part A found (observation, not tested).
+
+Bugs and deviations
+- `heads.py`'s docstring gives the rank bounds as d+1 and d+C. `test_heads.py` checks d+2 and d+C+1, i.e. log-prob rank rather
+  than logit rank. The paper states the tested bounds and notes the docstring as a documentation bug.
+- Footers: the brief says "≤ 31M params". The largest 50k-vocab model has 31.5M, so the footer is computed as "≤ 32M". The 131k
+  models are 61–63M, mostly embeddings, and the vocab image says "≤ 63M".
+- Round 11's pinned generalisation comparisons put the flat model at 6.39e16 FLOPs (5% fewer). The paper labels them
+  "near-equal FLOPs". The D1-matched OOD numbers are reported as observations.
+- The three CPU gate OOMs on 131k (vmap fallback gather, per-sample member gather, `jax.random.categorical`'s [N, V] Gumbel
+  array) were fixed in `round12_gates.py`; all gates pass. Queue B was restructured so a gate failure cannot cancel the evals.
+- The user stopped the GPU at 01:03 (after D1 B384m s1 finished). The F128k run that had just started was voided
+  (`runs/round12/void_killed/`), and the queue resumed at 08:51 with `r12_launchC.sh`.
+- Unused macros with no value: the Jensen [1k,4k) bucket (tail targets start at rank 8,192, so it is empty), F4k decode (not
+  measured), a "proxy charged" variant of the flat verdict (the flat run uses no proxy), and LAMBADA on B384m (not run).
+- The H3*-384 seed-1 model has BLiMP only, no OOD BPB. The D1 BPB comes from the logged full-validation loss, like every GPT-2
+  row.
+- The bpe131072 rows score 23,160,080 of the 23,160,213 val bytes (133 unscored by the byte-aligned evaluator). F128k and
+  H128k drop the same bytes. Against the GPT-2 rows the effect is at most ~1e-4 BPB (5.7e-6 of the bytes at <= 20 bits/byte),
+  far below the smallest margin (0.0047). Disclosed in the Table 2 caption.
+- Part C was not run (optional). Round-12 GPU training time: 3.92 h, plus about 1 h of evals and smokes.
+
+
+## Commands (`runs/round12/commands_extra.txt`)
+
+```
+# 2026-11-10 (round 12)
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "ulimit -c 0; source env.sh; python -u round12_lambada.py > runs/round12/partA.out 2>&1"
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "ulimit -c 0; source env.sh; JAX_PLATFORMS=cpu python -u round12_bpe.py train 131072 > runs/round12/bpe_train.out 2>&1"
+JAX_PLATFORMS=cpu python round12_plan.py   # -> runs/round12/plan.json (FLOP-matched token counts)
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "ulimit -c 0; source env.sh; JAX_PLATFORMS=cpu python -u round12_freq.py > runs/round12/freq.out 2>&1"
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "ulimit -c 0; source env.sh; JAX_PLATFORMS=cpu python -u round12_gates.py flat"
+# queue A (stops chainR7 after its B384 s1 run, reorders the rest; see the script header):
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "bash r12_launchA.sh > runs/round12/chainA.out 2>&1"
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "bash r12_classes_gates.sh > runs/round12/classes_gates.out 2>&1"
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "bash r12_launchB.sh > runs/round12/chainB.out 2>&1"
+# tectonic 0.17.0 (Windows msvc zip from github.com/tectonic-typesetting/tectonic releases) -> E:\ai workspace\testy\Claude Stuff\tools\tectonic\tectonic.exe
+# 2026-11-10 22:51 queue A's kill of chainR7 (r12_launchA.sh) landed 11 s into wsd_H3s384_575M_s1 (r11chain had already started it after B384 s1's DONE); partial log moved to runs/round11/interrupted_r12kill/. train.py deletes any old log on restart, so the re-run in queue A (after the proxy) starts clean.
+# 2026-11-10 23:10 hier gates crashed (OOM: vmap of exact_greedy materialised the [C, L, d] fallback gather for 1,000 contexts at once; 204 GB); round12_gates.py now runs the same check 8 contexts at a time (chunked()). Classes were already built (v131072_adapt_report.json). Relaunch:
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "ulimit -c 0; source env.sh; JAX_PLATFORMS=cpu python -u round12_gates.py hier > runs/round12/gates_hier.out 2>&1"
+# 2026-11-10 23:14 hier gates killed (exit 137, host OOM) in the TV test: U[members[c]] gathered per sample (200k x 30 x 384 fp32 = 9 GB); now the [C, L] member logits of the one TV context are computed once and indexed by the sampled cluster (same maths). Relaunch (same command):
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "ulimit -c 0; source env.sh; JAX_PLATFORMS=cpu python -u round12_gates.py hier > runs/round12/gates_hier.out 2>&1"
+
+# 2026-11-10 23:20 hier gates killed again (exit 137) in the TV test: jax.random.categorical(shape=(N,)) over 131,072 ids
+# builds a [200k, V] Gumbel array. Fix: inverse-CDF sampling (cumsum + searchsorted) for the top-level and the direct
+# reference draws; the within-cluster draw ([200k, 30]) is unchanged. Relaunch (same command):
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "ulimit -c 0; source env.sh; JAX_PLATFORMS=cpu python -u round12_gates.py hier > runs/round12/gates_hier.out 2>&1"
+
+# 2026-11-10 23:30 queue B replaced before it started (it was still waiting for queue A): its first step, the CPU trained-greedy
+# gate (G4), was fatal and could cancel every eval overnight. v2 runs the same steps with G4 moved to the end and non-fatal
+# (r12chainB.sh = r12chain.sh + a `cputry` kind). Old queue B (r12_launchB.sh) killed with SIGTERM while in its wait loop.
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "bash r12_launchB2.sh > runs/round12/chainB.out 2>&1"
+
+# 2026-11-11 01:03 CET: STOPPED by the user (going to sleep). Waited for wsd_B384m_315M_s1 to write .DONE (01:02:38), then
+# killed r12_launchA.sh, r12_launchB2.sh, r12chain*.sh, r11chain.sh and train.py in WSL. Done so far in round 12: proxy,
+# H3s384 s1 + BLiMP s1, gates, smokes (all OK), D1 B384m s0 and s1. Any F128k384 partial output from the kill is void.
+# Left: F128k384 s0 (47 min) -> H128k384 s0 (41) -> bioB_100000 s1 (31) -> bioH_100000 s1 (41) -> tB s1 + BLiMP B_r8_s1 (~20)
+# -> queue B evals (~45). About 3.75 GPU-hours. Resume with a launcher that starts at the F128k384 step.
+
+# 2026-11-11 08:55 CET: resumed with r12_launchC.sh (F128k384 s0 -> H128k384 s0 -> bios s1 B/H -> tB s1 + BLiMP -> queue B v2 evals).
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "bash r12_launchC.sh > runs/round12/chainC.out 2>&1"
+
+# 2026-11-11 14:45 CET: memory/speed follow-up (user request). Smoke: B384 train micro 16/32/64 (records in runs/round12/perf_smoke/).
+wsl -d AEON-Training --cd "/path/to/repo" bash -c "bash r12_perf.sh > runs/round12/perf.out 2>&1"
+```
+

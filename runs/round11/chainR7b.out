@@ -1,0 +1,22 @@
+[r11chain] one d384 H3s384:1 --label H3s384 --tokens 575e6 --branch_at 300e6,575e6 --extra=--keep_branch=300e6 start Tue Nov 10 22:59:48 CET 2026
+[r11] start wsd_H3s384_575M_s1: train.py --arm H3s384 --seed 1 --lr 0.002 --tokens 575e6 --sched wsd --branch_at 300e6,575e6 --decay_frac 0.1 --n_evals 12 --name wsd_H3s384_575M_s1 --runs_dir /path/to/repo/runs/round11 --keep_params --keep_branch=300e6
+[r11] end wsd_H3s384_575M_s1: rc 0, 37.8 min, round-11 total 8.90 h
+[r11] finished
+[r11chain] one d384 H3s384:1 --label H3s384 --tokens 575e6 --branch_at 300e6,575e6 --extra=--keep_branch=300e6 end Tue Nov 10 23:37:37 CET 2026
+[r11chain] pytry round11_eval.py blimp B384_s1,H3s384_300M_s1,H3s384_575M_s1,H3k8c4_s1,H3rs16_s1 start Tue Nov 10 23:37:37 CET 2026
+[blimp] models: ['B384_s1', 'H3s384_300M_s1', 'H3s384_575M_s1', 'H3k8c4_s1', 'H3rs16_s1']
+[blimp] B384_s1          acc 72.03%  35s
+[blimp] H3s384_300M_s1   acc 71.66%  24s
+[blimp] H3s384_575M_s1   acc 73.06%  22s
+[blimp] H3k8c4_s1        acc 67.29%  21s
+[blimp] H3rs16_s1        acc 68.97%  22s
+[r11chain] pytry round11_eval.py blimp B384_s1,H3s384_300M_s1,H3s384_575M_s1,H3k8c4_s1,H3rs16_s1 end Tue Nov 10 23:41:06 CET 2026
+[r11chain] one tiny tB:1 start Wed Nov 11 11:23:40 CET 2026
+[r11] start wsd_B_s1: train.py --arm tB --seed 1 --lr 0.002 --tokens 1200e6 --sched wsd --branch_at 75e6,150e6,300e6,600e6,1200e6 --decay_frac 0.1 --n_evals 12 --name wsd_B_s1 --runs_dir /path/to/repo/runs/round11 --keep_params
+[r11] end wsd_B_s1: rc 0, 78.3 min, round-11 total 10.21 h
+[r11] finished
+[r11chain] one tiny tB:1 end Wed Nov 11 12:41:59 CET 2026
+[r11chain] pytry round11_eval.py blimp B_r8_s1 start Wed Nov 11 12:41:59 CET 2026
+[blimp] models: ['B_r8_s1']
+[blimp] B_r8_s1          acc 68.20%  38s
+[r11chain] pytry round11_eval.py blimp B_r8_s1 end Wed Nov 11 12:44:30 CET 2026
